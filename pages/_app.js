@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <Component {...pageProps} />
-      <Navigation />
+      {/* <Navigation /> */}
     </Provider>
   );
 }

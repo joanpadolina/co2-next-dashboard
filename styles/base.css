@@ -1,39 +1,70 @@
 :root {
     --s-default: 1rem;
-    --color-white: #FFF;
-    --color-primary: #F59B01;
-    --color-secondary: #A4EFBC;
-    --color-grey--200: #F2F2F2;
-    --color-grey--300: #969696;
-    --color-grey--400: #727884;
-    --color-grey--500: #444444;
-    --color-grey--600: #5B6171;
-    --color-grey--700: #4E4E4E;
+    --s-medium: .5rem;
+    --s-small: .2rem;
+
+    --c-white: #FFF;
+    --c-primary: #F59B01;
+    --c-secondary: #A4EFBC;
+    --c-grey--200: #F7FAFC;
+    --c-grey--300: #969696;
+    --c-grey--400: #727884;
+    --c-grey--500: #444444;
+    --c-grey--600: #5B6171;
+    --c-grey--700: #4E4E4E;
+    --c-dark: #1A1C26;
+    --c-green: #5BFCB0;
+    --c-blue: #88B2D8;
+    
 }
 
-li {
+.a11y-sr-only {
+    overflow: hidden;
+    position: absolute;
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+}
+
+.button-flat {
+    border: none;
+    background-color: transparent;
+}
+
+.flat-list {
     list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .title--small {
-    color: var(--color-grey--300);
+    color: var(--c-grey--300);
     margin: calc(var(--s-default / 2)) 0;
 }
 
 .box--gray {
     display: block;
     position: relative;
-    background-color: var(--color-grey--600);
+    background-color: var(--c-grey--600);
     height: max-content;
     width: max-content;
 }
 
 .button {
-    background-color: var(--color-primary);
+    background-color: var(--c-white);
     padding: .5rem;
-    color: white;
+    color: var(--c-black);
     border-radius: .5rem;
     font-weight: 800;
+    border: .05rem solid var(--c-dark);
+}
+
+.button--secondary {
+    color: var(--c-dark);
+    border-bottom: .3rem solid var(--c-green);
 }
 
 .button--go {
@@ -42,7 +73,7 @@ li {
     width: 3rem;
     height: 3rem;
     border-radius: 3rem;
-    box-shadow: 0 0 0 4px var(--color-grey--400);
+    box-shadow: 0 0 0 4px var(--c-grey--400);
 }
 
 .button--go::before {
@@ -66,7 +97,7 @@ li {
     width: 3rem;
     height: 3rem;
     top: 0;
-    background-color: var(--color-primary);
+    background-color: var(--c-primary);
     border-radius: .5rem;
 }
 
@@ -92,5 +123,5 @@ li {
 }
 
 .button--add:focus:before {
-    /* color: var(--color-primary); */
+    /* color: var(--c-primary); */
 }

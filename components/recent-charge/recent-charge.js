@@ -17,9 +17,9 @@ export default function HistoryCharge() {
 
 
   return (
-    <article className="recent-charge my-10 ">
-      <h2 className="title--small">Your latest charge</h2>
-      <ul className="flex justify-between mb-10 bg-gray-100 p-3 rounded-lg">
+    <article className="recent-charge">
+      <h2 className="recent-charge__title">Your latest charge</h2>
+      <ul className="recent-charge__list">
         <li>
           <h3 className="recent-charge__subject">date</h3>
           <span className="">{lastCharge.date}</span>
@@ -29,12 +29,12 @@ export default function HistoryCharge() {
           </p>
         </li>
         <li>
-          <h3 className="recent__subject">savings</h3>
+          <h3 className="recent-charge__subject">savings</h3>
           <p>{lastCharge.savingsInPercentage}</p>
         </li>
         <li>
           <h3 className="recent-charge__subject">emission</h3>
-          <p className="font-bold">{lastCharge.savedCarbon}kg</p>
+          <p className="text--bold">{lastCharge.savedCarbon}kg</p>
         </li>
       </ul>
 
