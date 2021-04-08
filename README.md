@@ -1,6 +1,6 @@
 # CO2 smart charging dashboard
 
-## Project innit
+## Project init
 
 ```
 git clone https://github.com/joanpadolina/co2-next-dashboard.git
