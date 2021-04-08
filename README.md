@@ -11,6 +11,10 @@ npm install
 ```
 
 ```
+npm run mock-api
+```
+
+```
 npm run dev
 ```
 
