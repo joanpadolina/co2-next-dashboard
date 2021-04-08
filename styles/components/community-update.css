@@ -1,0 +1,7 @@
+.community-update__barchart {
+    width: 100%;
+    border-radius: .5rem;
+    height: 2rem;
+    background-color: var(--color-grey--600);
+    margin-top: .5rem;
+}

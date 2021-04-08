@@ -1,0 +1,16 @@
+.charge-time {
+    display: flex;
+    flex-direction: column;
+}
+
+.charge-time__input {
+    margin: 1rem 0;
+    padding: .5rem;
+    border-radius: .4rem;
+    width: 100%;
+}
+
+.charge-time__label {
+    
+}
+

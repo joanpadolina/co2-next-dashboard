@@ -1,0 +1,15 @@
+.compare-item__wrapper {
+    display: flex;
+    position: relative;
+    margin: 1rem 0;
+    justify-content: space-between;
+}
+.compare-item__article {
+    display: block;
+    position: relative;
+    padding: 1rem;
+    background: var(--color-grey--200);
+    border-radius: 0 3rem;
+    width: 10rem;
+    height: 8rem;
+}

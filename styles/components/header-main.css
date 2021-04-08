@@ -1,0 +1,14 @@
+.header {
+    margin-top: 2rem;
+    height: 70vh;
+}
+
+.header__carbon:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 15rem;
+    height: 15rem;
+    border: 10px solid #ADDFCE;
+    border-radius: 10rem;
+}

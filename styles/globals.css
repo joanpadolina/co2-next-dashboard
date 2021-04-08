@@ -1,3 +1,9 @@
+@import './components/header-main.css';
+@import './components/charge-input.css';
+@import './components/compare-carbon.css';
+@import './components/recent-charge.css';
+@import './components/nav.css';
+@import './base.css';
 html,
 body {
   padding: 0;
