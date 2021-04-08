@@ -13,6 +13,7 @@ export default function ChargeTime() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(userCarbon)
     try {
       const chargeCarbonTotal = userHistory.reduce(
         (sum, { savedCarbon }) => Math.ceil(sum + savedCarbon),
@@ -41,7 +42,6 @@ export default function ChargeTime() {
     e.preventDefault();
     const input = handleInput(e);
     const data = chargeConfig(input);
-      console.log(data);
 
     dispatch(addCharge(data));
   }
