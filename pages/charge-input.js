@@ -1,16 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
-import ReactDOM from "react-dom";
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+
 import {
   carbonSavingCalculation,
   carbonReduces,
-} from "../lib/carbon-saving-calculation";
-import diff from "../lib/time-calculation";
-import { useSelector, useDispatch } from "react-redux";
-import { addCharge, addTotal } from "../redux/actions";
+} from '../lib/carbon-saving-calculation';
+import diff from '../lib/time-calculation';
+import { useSelector, useDispatch } from 'react-redux';
+import { addCharge, addTotal } from '../redux/actions';
 
 export default function ChargeTime({ show, onClose }) {
   const [isBrowser, setIsBrowser] = useState(false);
-
+  const router = useRouter()
   const [carbon, setCarbon] = useState(0);
   const userCarbon = useSelector((state) => state.user);
   const userHistory = userCarbon.historyCharge;
@@ -18,6 +19,9 @@ export default function ChargeTime({ show, onClose }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if(router.asPath === '/charge-input') {
+      setIsBrowser(!isBrowser)
+    }
     setIsBrowser(true);
 
     try {
@@ -60,7 +64,7 @@ export default function ChargeTime({ show, onClose }) {
       return total / 100;
     };
 
-    const savings = () => Math.floor(Math.random() * 20) + "%";
+    const savings = () => Math.floor(Math.random() * 20) + '%';
     return {
       date,
       startTime,
@@ -70,117 +74,110 @@ export default function ChargeTime({ show, onClose }) {
       savings,
     };
   }
-  const handleOnClose = (e) => {
-    e.preventDefault();
-    onClose();
-  };
-  // function today() {
-  //   return new Date().toISOString().substr(0, 10);
-  // }
 
-  if (isBrowser) {
-    return(
-      <section className='charge-input'>
-        <h2 className='charge-input__title font--title'>
-          At what time did you charge?
-        </h2>
-        <form
-          className='charge-input__form'
-          action=''
-          onSubmit={(e) => handleSubmit(e)}
+  function today() {
+    return new Date().toISOString().substr(0, 10);
+  }
+
+  return (
+    <section className="charge-input">
+      <h2 className="charge-input__title font--title">
+        At what time did you charge?
+      </h2>
+      <form
+        className="charge-input__form"
+        action=""
+        onSubmit={(e) => handleSubmit(e)}
+      >
+        <label
+          className="charge-input__label a11y-sr-only"
+          aria-label="date"
+          htmlFor="date"
         >
-          <label
-            className='charge-input__label a11y-sr-only'
-            aria-label='date'
-            htmlFor='date'
-          >
-            date
-          </label>
-          <input
-            className='charge-input__date'
-            id='date'
-            type='date'
-            // value={today()}
-          ></input>
-          <div className='charge-input__amount-wrapper'>
-            <label className='charge-input__label' htmlFor='start'>
-              start
-              <input
-                className='charge-input__time charge-input__border--default'
-                id='start'
-                type='time'
-                min='00:00'
-                max='23:59'
-                required
-              ></input>
-            </label>
-            <label className='charge-input__label' htmlFor='end'>
-              end
-              <input
-                className='charge-input__time charge-input__border--default'
-                id='end'
-                type='time'
-                min='00:00'
-                max='23:59'
-                required
-              ></input>
-            </label>
-          </div>
-
-          <div className='charge-input__value-wrapper'>
-            <label for='charge-value' className='charge-input__charge-label'>
-              Charging amount
-            </label>
+          date
+        </label>
+        <input
+          className="charge-input__date"
+          id="date"
+          type="date"
+          value={today()}
+        ></input>
+        <div className="charge-input__amount-wrapper">
+          <label className="charge-input__label" htmlFor="start">
+            start
             <input
-              id='charge-value'
-              type='number'
-              className='charge-input__amount charge-input__border--default'
+              className="charge-input__time charge-input__border--default"
+              id="start"
+              type="time"
+              min="00:00"
+              max="23:59"
               required
             ></input>
+          </label>
+          <label className="charge-input__label" htmlFor="end">
+            end
+            <input
+              className="charge-input__time charge-input__border--default"
+              id="end"
+              type="time"
+              min="00:00"
+              max="23:59"
+              required
+            ></input>
+          </label>
+        </div>
 
-            <div className='charge-input__toggle'>
-              <input
-                type='radio'
-                className='charge-input__radio'
-                id='km'
-                name='amount'
-                value='km'
-                checked
-              />
-              <label
-                for='km'
-                className='charge-input__radio-label'
-                aria-label='kilometers'
-              >
-                km
-              </label>
+        <div className="charge-input__value-wrapper">
+          <label for="charge-value" className="charge-input__charge-label">
+            Charging amount
+          </label>
+          <input
+            id="charge-value"
+            type="number"
+            className="charge-input__amount charge-input__border--default"
+            required
+          ></input>
 
-              <input
-                type='radio'
-                id='kWh'
-                className='charge-input__radio'
-                name='amount'
-                value='kWh'
-              />
-              <label
-                for='kWh'
-                className='charge-input__radio-label'
-                aria-label='kilowatt-hour'
-              >
-                kWh
-              </label>
-            </div>
+          <div className="charge-input__toggle">
+            <input
+              type="radio"
+              className="charge-input__radio"
+              id="km"
+              name="amount"
+              value="km"
+              checked
+            />
+            <label
+              for="km"
+              className="charge-input__radio-label"
+              aria-label="kilometers"
+            >
+              km
+            </label>
+
+            <input
+              type="radio"
+              id="kWh"
+              className="charge-input__radio"
+              name="amount"
+              value="kWh"
+            />
+            <label
+              for="kWh"
+              className="charge-input__radio-label"
+              aria-label="kilowatt-hour"
+            >
+              kWh
+            </label>
           </div>
-          <div className='button-wrapper'>
-            <button className='button-flat button--secondary'>
-              add another session
-            </button>
-            <button className='button'>save changes</button>
-          </div>
-        </form>
-      </section>
-    );
-  } else {
-    return null;
-  }
+        </div>
+        <div className="button-wrapper">
+          <button className="button-flat button--secondary">
+            add another session
+          </button>
+          <button className="button">save changes</button>
+        </div>
+      </form>
+    </section>
+  );
 }
