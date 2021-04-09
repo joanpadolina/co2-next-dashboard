@@ -1,26 +1,43 @@
-import React from 'react';
-import Link from 'next/link';
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
-export default function Nav() {
+export default function Nav({ showModal = () => {} }) {
+  const [isBrowser, setIsBrowser] = useState(false);
+
+  useState(() => {
+    setIsBrowser(true);
+  }, []);
+
+  const handleClose = (e) => {
+    e.preventDefault();
+    setIsBrowser(!isBrowser);
+  };
+
   return (
-    <nav className="nav">
-      <ul className="nav__list flat-list">
-        <Link href="/">
-          <li className="nav__item">Homepage</li>
-        </Link>
-        <li className="nav__item">
-          {' '}
-          <button
-            className="nav__button--add nav__item"
-            onClick={() => console.log('clicked')}
-            aria-label="add new charge"
-          >
-            +
-          </button>
+    <nav className='nav'>
+      <ul className='nav__list flat-list'>
+        <li className='nav__item'>
+          <Link href='/'>
+            <a>Homepage</a>
+          </Link>
         </li>
-        <Link href="/community">
-          <li className="nav__item">Community</li>
-        </Link>
+        <li className='nav__item'>
+          {" "}
+          <Link href='/charge-input'>
+            <a
+              className='nav__button--add nav__item'
+              onClick={(e) => handleClose(e)}
+              aria-label='add new charge'
+            >
+              +
+            </a>
+          </Link>
+        </li>
+        <li className='nav__item'>
+          <Link href='/community'>
+            <a>Community</a>
+          </Link>
+        </li>
       </ul>
     </nav>
   );

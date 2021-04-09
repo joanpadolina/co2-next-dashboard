@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import ReactDOM from "react-dom";
 import {
   carbonSavingCalculation,
   carbonReduces,
-} from "../../lib/carbon-saving-calculation.js";
-import diff from "../../lib/time-calculation";
+} from "../lib/carbon-saving-calculation";
+import diff from "../lib/time-calculation";
 import { useSelector, useDispatch } from "react-redux";
-import { addCharge, addTotal } from "../../redux/actions";
+import { addCharge, addTotal } from "../redux/actions";
 
 export default function ChargeTime({ show, onClose }) {
   const [isBrowser, setIsBrowser] = useState(false);
@@ -78,7 +79,7 @@ export default function ChargeTime({ show, onClose }) {
   // }
 
   if (isBrowser) {
-    return (
+    return(
       <section className='charge-input'>
         <h2 className='charge-input__title font--title'>
           At what time did you charge?
