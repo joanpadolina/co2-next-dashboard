@@ -7,7 +7,7 @@ export default function Profile() {
   const data = useSelector(state => state.user)
   const user = data.userData
   const carbon = data
-  console.log(carbon)
+
   return (
     <main>
       <Link href='/'>back</Link>
