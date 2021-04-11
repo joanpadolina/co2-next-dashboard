@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import {
   carbonSavingCalculation,
-  carbonReduces,
+  carbonReducer,
 } from '../lib/carbon-saving-calculation';
 import diff from '../lib/time-calculation';
 import { useSelector, useDispatch } from 'react-redux';
@@ -25,7 +25,7 @@ export default function ChargeTime({ show, onClose }) {
     setIsBrowser(true);
 
     try {
-      const chargeCarbonTotal = carbonReduces(userHistory);
+      const chargeCarbonTotal = carbonReducer(userHistory);
       dispatch(addTotal(carbon));
       setCarbon(chargeCarbonTotal);
     } catch (err) {

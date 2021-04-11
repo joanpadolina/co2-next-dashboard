@@ -1,0 +1,35 @@
+.profile__tree {
+  width: 3rem;
+  margin: 0 .5rem;
+}
+
+.profile__trees {
+  display: flex;
+  position: relative;
+  overflow-x: auto;
+  height: 7rem;
+}
+.profile__trees:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 0.2rem;
+  bottom: 1rem;
+  width: 100%;
+  border-radius: 0.3rem;
+  background-color: var(--c-grey--500);
+}
+
+.profile__tree:nth-of-type(n+9) {
+    left: -30rem;
+    z-index: -1;
+    top: -1rem;
+    position: relative;
+}
+
+.profile__tree:nth-of-type(n+18) {
+    left: -80rem;
+    z-index: -1;
+    top: -1.2rem;
+    position: relative;
+}
