@@ -52,10 +52,6 @@
   z-index: 1;
 }
 
-.nav__button--add:active {
-  transform: rotate(0deg);
-}
-
 .nav--active {
   font-weight: bolder;
   color: var(--c-grey--400)

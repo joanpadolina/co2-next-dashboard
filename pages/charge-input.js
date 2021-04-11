@@ -79,6 +79,10 @@ export default function ChargeTime({ show, onClose }) {
     return new Date().toISOString().substr(0, 10);
   }
 
+  function changeDate() {
+    return new Date()
+  }
+
   return (
     <section className="charge-input">
       <h2 className="charge-input__title font--title">
@@ -101,6 +105,7 @@ export default function ChargeTime({ show, onClose }) {
           id="date"
           type="date"
           value={today()}
+          onChange={changeDate}
         ></input>
         <div className="charge-input__amount-wrapper">
           <label className="charge-input__label" htmlFor="start">
@@ -144,8 +149,7 @@ export default function ChargeTime({ show, onClose }) {
               className="charge-input__radio"
               id="km"
               name="amount"
-              value="km"
-              checked
+              defaultChecked
             />
             <label
               for="km"
@@ -160,7 +164,6 @@ export default function ChargeTime({ show, onClose }) {
               id="kWh"
               className="charge-input__radio"
               name="amount"
-              value="kWh"
             />
             <label
               for="kWh"
