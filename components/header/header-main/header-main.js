@@ -8,10 +8,6 @@ export default function Header() {
   const userCarbon = useSelector((state) => state.user);
   const user = userCarbon.userData;
 
-  const userGimmick = useSelector((state) =>
-    state.user.gimmicks.map((data) => data.amountWash)
-  );
-
   useEffect(() => {
     const chargeCarbonTotal = userCarbon.historyCharge.reduce(
       (sum, { savedCarbon }) => Math.ceil(sum + savedCarbon),
@@ -46,8 +42,8 @@ export default function Header() {
         </section>
       </Link>
       <p className='header__body'>
-        Your total CO2 saving is the same amount as {trees} trees absorbs CO2
-        in 1 year.
+        Your total CO2 saving is the same amount as {trees} trees absorbs
+        CO2 in 1 year.
       </p>
     </header>
   );

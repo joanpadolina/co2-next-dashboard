@@ -11,18 +11,21 @@ import { addCharge, addTotal } from '../redux/actions';
 
 export default function ChargeTime({ show, onClose }) {
   const [isBrowser, setIsBrowser] = useState(false);
-  const router = useRouter()
   const [carbon, setCarbon] = useState(0);
+  
   const userCarbon = useSelector((state) => state.user);
   const userHistory = userCarbon.historyCharge;
   const { userData } = userCarbon;
+  
   const dispatch = useDispatch();
+  const router = useRouter()
 
   useEffect(() => {
     if(router.asPath === '/charge-input') {
       setIsBrowser(!isBrowser)
     }
     setIsBrowser(true);
+
 
     try {
       const chargeCarbonTotal = carbonReducer(userHistory);
@@ -49,7 +52,7 @@ export default function ChargeTime({ show, onClose }) {
     e.preventDefault();
     const input = handleInput(e);
     const data = chargeConfig(input);
-
+    
     dispatch(addCharge(data));
   }
 
@@ -58,13 +61,14 @@ export default function ChargeTime({ show, onClose }) {
     const startTime = e.target[1].value;
     const endTime = e.target[2].value;
     const duration = diff(startTime, endTime);
-
+    
     const savedCarbon = () => {
       const total = carbonSavingCalculation(duration, userData);
       return total / 100;
     };
-
+    
     const savings = () => Math.floor(Math.random() * 20) + '%';
+    
     return {
       date,
       startTime,

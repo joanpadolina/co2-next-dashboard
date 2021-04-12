@@ -16,25 +16,39 @@ export default function Profile() {
   // 3. perspective layers is unlimited?
 
   useEffect(() => {
-    function calcTreeSavings() {
-      const averageTree = 20;
-      const totalTrees = Math.floor(totalSavings / averageTree);
-      return setTotalTrees(totalTrees);
-    }
-
     calcTreeSavings();
     setTotalSavings(carbonReducer(savings));
-    addImgTrees(totalTrees);
-  }, [savings, totalTrees, arrayOfTrees]);
+
+    let array = [];
+
+    for (let i = 0; i < totalTrees; i++) {
+      let treeImg = `/icons/icon-tree.svg`;
+      array.push(treeImg);
+    }
+
+    setArrayOfTrees(array);
+  }, [totalTrees, totalSavings, savings]);
+
+  function calcTreeSavings() {
+    const averageTree = 20;
+    const totalTrees = Math.floor(totalSavings / averageTree);
+    return setTotalTrees(totalTrees);
+  }
 
   function addImgTrees(amount) {
     let arrayOfTrees = [];
+   
     for (let i = 0; i < amount; i++) {
       let treeImg = `/icons/icon-tree.svg`;
-      arrayOfTrees.push(treeImg);
+      setArrayOfTrees(treeImg);
     }
+   
+    arrayOfTrees.push(treeImg);
+   
     return setArrayOfTrees(arrayOfTrees);
   }
+
+  function diagram() {}
 
   return (
     <>
@@ -43,16 +57,16 @@ export default function Profile() {
         <h1>Your CO2 savings </h1>
         <span>{totalSavings}</span>
       </header>
-      <main>
+      <main className='profile__main'>
         <article>
           <h2>Your garden so far</h2>
           <p>Amount of trees saved in one year</p>
           <section>
             <p>An average tree absorbs around 20kg of CO2 in one year.</p>
             <section className='profile__trees'>
-              {arrayOfTrees.map((tree) => 
-              <img className='profile__tree' src={tree} />
-              )}
+              {arrayOfTrees.map((tree, index) => (
+                <img key={index} className='profile__tree' src={tree} />
+              ))}
             </section>
           </section>
         </article>
@@ -64,21 +78,21 @@ export default function Profile() {
               <tbody>
                 <tr>
                   <td>plane</td>
-                  <td>balk</td>
+                  <td className='profile__equivalence-bar'>balk</td>
                   <td>
                     <span>26 km</span> <span>195 kg/km</span>
                   </td>
                 </tr>
                 <tr>
                   <td>car</td>
-                  <td>balk</td>
+                  <td className='profile__equivalence-bar'>balk</td>
                   <td>
                     <span>45 km</span> <span>121 kg/km</span>
                   </td>
                 </tr>
                 <tr>
                   <td>train</td>
-                  <td>balk</td>
+                  <td className='profile__equivalence-bar'>balk</td>
                   <td>
                     <span>200 km</span> <span>30 kg/km</span>
                   </td>
