@@ -1,34 +1,35 @@
 import React from 'react';
-
 import { useSelector } from 'react-redux';
 
 export default function HistoryCharge() {
   const userCarbon = useSelector((state) => state.user);
 
   return (
-    <ul className="mb-30 ">
+    <table className="history-charge">
       {userCarbon.historyCharge.map((charging, index) => (
-        <li className="py-1" key={index}>
-          <article className="flex justify-between">
-            <article>
-              <h3 className="title--small">date</h3>
-              <p> {charging.date} </p>
-              <p>
+        <>
+          <tbody className="history-charge__body">
+            <tr className="history-charge__heading-wrapper">
+              <th className="history-charge__heading">date</th>
+              <th className="history-charge__heading">savings</th>
+              <th className="history-charge__heading">CO2 saved</th>
+            </tr>
+            <tr key={index} className="history-charge__row">
+              <td className="history-charge__value">
+                {charging.start} - {charging.end}
+              </td>
+              <td className="history-charge__value">
                 {' '}
-                {charging.start} - {charging.end}{' '}
-              </p>
-            </article>
-            <article>
-              <h3 className="title--small">savings</h3>
-              <p> {charging.savingsInPercentage} </p>
-            </article>
-            <article>
-              <h3 className="title--small">emission</h3>
-              <p className="font-bold"> {charging.savedCarbon}kg</p>
-            </article>
-          </article>{' '}
-        </li>
+                {charging.savingsInPercentage}
+              </td>
+              <td className="history-charge__value">
+                {' '}
+                {charging.savedCarbon} kg
+              </td>
+            </tr>
+          </tbody>
+        </>
       ))}
-    </ul>
+    </table>
   );
 }
