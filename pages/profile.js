@@ -18,14 +18,13 @@ export default function Profile() {
   useEffect(() => {
     calcTreeSavings();
     setTotalSavings(carbonReducer(savings));
-
-    let array = [];
+    let arraySrc = [];
 
     for (let i = 0; i < totalTrees; i++) {
       let treeImg = `/icons/icon-tree.svg`;
-      array.push(treeImg);
+      arraySrc.push(treeImg);
     }
-    setArrayOfTrees(array);
+    setArrayOfTrees(arraySrc);
     addImgTrees(totalTrees);
   }, [totalTrees, totalSavings, savings]);
 
@@ -45,8 +44,6 @@ export default function Profile() {
 
     return setArrayOfTrees(arrayOfTrees);
   }
-
-  function diagram() {}
 
   return (
     <>
