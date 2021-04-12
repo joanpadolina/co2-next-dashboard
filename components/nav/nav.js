@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function Nav({ isActive }) {
+export default function Nav() {
   const [isBrowser, setIsBrowser] = useState(false);
   const router = useRouter();
   const currentRouter = router.asPath;
