@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-export default function Header({user, props}) {
+export default function Header({ user, currentCarbon }) {
+  const [trees, setTrees] = useState(0);
+
+  useEffect(() => {
+    function calcTreeSavings() {
+      const averageTree = 20;
+      const totalTrees = Math.floor(currentCarbon / averageTree);
+      return setTrees(totalTrees);
+    }
+
+    calcTreeSavings();
+  }, [currentCarbon]);
 
   return (
     <header className="header">
@@ -16,13 +27,13 @@ export default function Header({user, props}) {
         <section>
           <span className="header__carbon-subtitle">Your total saved CO2</span>
           <h2 className="header__carbon-amount font--big">
-            {props.currentCarbon} kg
+            {currentCarbon} kg
           </h2>
         </section>
       </Link>
       <p className="header__body">
-        Your total CO2 saving is the same amount as {props.trees} trees absorbs CO2 in
-        1 year.
+        Your total CO2 saving is the same amount as {trees} trees absorbs
+        CO2 in 1 year.
       </p>
     </header>
   );
