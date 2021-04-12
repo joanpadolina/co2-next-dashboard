@@ -38,7 +38,7 @@ export default function Header() {
         className='header__carbon flex flex-col justify-center items-center h-2/4'
         href='/profile'
       >
-        <section>
+        <section className="header__savings">
           <span className='header__carbon-subtitle'>Your total saved CO2</span>
           <h2 className='header__carbon-amount font--big'>
             {currentCarbon} kg

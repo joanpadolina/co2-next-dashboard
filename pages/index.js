@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className="home__body">
       <HeaderCarbon />
-      <main>
+      <main className="index__main">
         <SavingsTime />
         <CommunityUpdate />
       </main>
