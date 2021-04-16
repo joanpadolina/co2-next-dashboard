@@ -1,4 +1,6 @@
 .history-charge {
+    display: flex;
+    flex-direction: column-reverse;
     width: 100%;
     padding: var(--s-default) 0;
 }
@@ -15,6 +17,18 @@
     width: 100%;
     position: relative;
 }
+
+.history-charge__body:last-of-type {
+    background-color: #F2F2F2;
+    border-radius: 1rem;
+    padding: var(--s-default);
+    margin-bottom: var(--s-default)
+}
+
+.history-charge__body:last-of-type::after {
+    display: none;
+}
+
 .history-charge__body::after {
     content: "";
     display: inline-block;

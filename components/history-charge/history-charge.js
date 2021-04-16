@@ -5,9 +5,10 @@ export default function HistoryCharge() {
   const userCarbon = useSelector((state) => state.user);
 
   return (
+    <>
+    <h2> Your recent charge </h2>
     <table className="history-charge">
       {userCarbon.historyCharge.map((charging, index) => (
-        <>
           <tbody className="history-charge__body">
             <tr className="history-charge__heading-wrapper">
               <th className="history-charge__heading">date</th>
@@ -16,6 +17,7 @@ export default function HistoryCharge() {
             </tr>
             <tr key={index} className="history-charge__row">
               <td className="history-charge__value">
+                <th>{charging.date}</th>
                 {charging.start} - {charging.end}
               </td>
               <td className="history-charge__value">
@@ -28,8 +30,8 @@ export default function HistoryCharge() {
               </td>
             </tr>
           </tbody>
-        </>
       ))}
     </table>
+    </>
   );
 }

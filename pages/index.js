@@ -18,7 +18,6 @@ export default function Home() {
       <HeaderCarbon />
       <main className="index__main">
         <SavingsTime />
-        <RecentCharge />
         <HistoryCharge />
         <CommunityUpdate />
       </main>
