@@ -84,12 +84,12 @@ export default function ChargeTime({ show, onClose }) {
   }
 
   return (
-    <section className="charge-input">
+    <section className="charge-input charge-input--modal">
       <h2 className="charge-input__title font--title">
         At what time did you charge?
       </h2>
       <form
-        className="charge-input__form"
+        className="charge-input__form charge-input__form--modal"
         action=""
         onSubmit={(e) => handleSubmit(e)}
       >
@@ -175,12 +175,10 @@ export default function ChargeTime({ show, onClose }) {
           </div>
         </div>
         <div className="button-wrapper">
-          <button className="button-flat button--secondary">
-            add another session
-          </button>
           <button className="button">save changes</button>
         </div>
       </form>
+      <a className="button-flat button--secondary"> add another session</a>
     </section>
   );
 }
