@@ -1,0 +1,16 @@
+.progress-bar__wrapper {
+    display: block;
+    position: relative;
+    margin: auto;
+    width: 90%;
+    height: 2rem;
+    background-color: var(--c-grey--300);
+    border-radius: .5rem;
+}
+
+.progress-bar__bar {
+    height: 100%;
+    background-color: var(--c-primary);
+    width: 0rem;
+    border-radius: .5rem;
+}
