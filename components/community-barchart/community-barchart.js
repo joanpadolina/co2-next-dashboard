@@ -49,7 +49,7 @@ export default function CommunityBarchart({ carbonGoal }) {
     <article>
       <h2>Next destination</h2>
       <section>
-        <h3>AMS -- {destination}</h3>
+        <h3>Amsterdam -- {destination}</h3>
         <h3>{carbonInKm}km</h3>
       </section>
     </article>
