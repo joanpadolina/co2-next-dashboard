@@ -13,30 +13,35 @@ export default function ChargeTime() {
   const [isBrowser, setIsBrowser] = useState(false);
   const [carbon, setCarbon] = useState(0);
   const [currentDate, setCurrentDate] = useState("");
-  const userCarbon = useSelector((state) => state.user);
-  const userHistory = userCarbon.historyCharge;
-  const { userData } = userCarbon;
-  const router = useRouter(); 
+  const store = useSelector((state) => state.store);
+  const { user, chargingSession } = store;
+  const router = useRouter();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setIsBrowser(userCarbon.isOpen);
+    setIsBrowser(store.isOpen);
     if (router.pathname === "/charge-input") {
       setIsBrowser(false);
     }
     try {
-      const chargeCarbonTotal = carbonReducer(userHistory);
+      const chargeCarbonTotal = carbonReducer(chargingSession);
       dispatch(addTotal(carbon));
       setCarbon(chargeCarbonTotal);
     } catch (err) {
       console.error(err);
     }
-    
+
     // set date picker to today
     const setDateToday = new Date().toISOString().substr(0, 10);
     setCurrentDate(setDateToday);
-
-  }, [carbon, dispatch, userHistory, userCarbon.isOpen, router.pathname, setCurrentDate]);
+  }, [
+    carbon,
+    dispatch,
+    chargingSession,
+    store.isOpen,
+    router.pathname,
+    setCurrentDate,
+  ]);
 
   function chargeConfig(config = {}) {
     const newCharge = {
@@ -65,7 +70,7 @@ export default function ChargeTime() {
     const duration = diff(startTime, endTime);
 
     const savedCarbon = () => {
-      const total = carbonSavingCalculation(duration, userData);
+      const total = carbonSavingCalculation(duration, user);
       return total / 100;
     };
 
