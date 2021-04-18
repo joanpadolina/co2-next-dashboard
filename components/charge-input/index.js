@@ -1,1 +1,1 @@
-export { default } from './charge-input.js'
+export { default } from './charge-input-modal.js'

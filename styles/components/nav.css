@@ -58,5 +58,9 @@
 }
 
 .nav-input--active {
+  background-color: var(--color-white);
+  color: rgb(233, 72, 60);
+  /* background-color: rgb(233, 72, 60); */
+  box-shadow:inset 0px 0px 0px 2px rgb(233, 72, 60);
   transform: rotate(0deg);
 }

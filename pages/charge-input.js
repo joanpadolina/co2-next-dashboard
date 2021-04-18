@@ -13,7 +13,7 @@ export default function ChargeTime({ show, onClose }) {
   const [isBrowser, setIsBrowser] = useState(false);
   const router = useRouter();
   const [carbon, setCarbon] = useState(0);
-  const [currentDate, setCurrentDate] = useState('')
+  const [currentDate, setCurrentDate] = useState("");
   const userCarbon = useSelector((state) => state.user);
   const userHistory = userCarbon.historyCharge;
   const { userData } = userCarbon;
@@ -34,8 +34,8 @@ export default function ChargeTime({ show, onClose }) {
     }
 
     // set date to today
-    const setDateToday = new Date().toISOString().substr(0, 10)
-    setCurrentDate(setDateToday)
+    const setDateToday = new Date().toISOString().substr(0, 10);
+    setCurrentDate(setDateToday);
 
   }, [carbon, dispatch, userHistory, setCurrentDate]);
 
@@ -82,16 +82,17 @@ export default function ChargeTime({ show, onClose }) {
   }
 
   function changeDate(e) {
+    console.log(e.target.value);
     return setCurrentDate(e.target.value);
   }
 
   return (
-    <section className='charge-input'>
+    <section className='charge-input charge-input--modal'>
       <h2 className='charge-input__title font--title'>
         At what time did you charge?
       </h2>
       <form
-        className='charge-input__form'
+        className='charge-input__form charge-input__form--modal'
         action=''
         onSubmit={(e) => handleSubmit(e)}
       >
@@ -106,7 +107,7 @@ export default function ChargeTime({ show, onClose }) {
           className='charge-input__date'
           id='date'
           type='date'
-          value={currentDate}
+          value={currentDate || ""}
           onChange={(e) => changeDate(e)}
         ></input>
         <div className='charge-input__amount-wrapper'>
@@ -177,12 +178,10 @@ export default function ChargeTime({ show, onClose }) {
           </div>
         </div>
         <div className='button-wrapper'>
-          <button className='button-flat button--secondary'>
-            add another session
-          </button>
           <button className='button'>save changes</button>
         </div>
       </form>
+      <a className='button-flat button--secondary'> add another session</a>
     </section>
   );
 }
