@@ -84,7 +84,6 @@ export default function ChargeTime({ show, onClose }) {
   }
 
   function changeDate(e) {
-    console.log(e.target.value);
     return setCurrentDate(e.target.value);
   }
 
