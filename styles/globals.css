@@ -6,6 +6,7 @@
 @import './components/index.css';
 @import './components/history-charge.css';
 @import './components/profile.css';
+@import './components/progress-bar.css';
 @import './base.css';
 
 html,

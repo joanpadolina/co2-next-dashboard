@@ -1,5 +1,5 @@
 import React from "react";
-
+import ProgressBar from '../progress-bar'
 export default function CommunityUpdate() {
   return (
     <article>
@@ -10,10 +10,10 @@ export default function CommunityUpdate() {
           <span>Total carbon saved</span>
         </article>
         <article className="flex justify-between my-3">
-          <h3>AMS -- Maastricht</h3>
+          <h3>Amsterdam -- Maastricht</h3>
           <span> 500kg </span>
         </article>
-        <div className="community-update__barchart mb-5">barchart</div>
+        <ProgressBar totalSavingsCommunity={100} totalCommunityGoal={500} />
       </div>
       <div>
         <article className="bg-gray-100 flex p-5 items-center my-5">
