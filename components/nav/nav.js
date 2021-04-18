@@ -5,10 +5,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export default function Nav() {
-  const dispatch = useDispatch();
+  const [isBrowser, setIsBrowser] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const currentRouter = router.pathname;
+  const dispatch = useDispatch();
 
   // 1. Open modal if clicked on the link
   // 2. if modal active change link to closing button

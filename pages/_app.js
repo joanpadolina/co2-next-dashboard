@@ -6,10 +6,13 @@ import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import Navigation from '../components/nav/nav';
 import ChargeInput from '../components/charge-input/charge-input-modal';
+import { fetchUser } from '../redux/actions';
+
 import '../styles/globals.css';
 
 const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware));
 const store = createStore(allReducer, composedEnhancer);
+store.dispatch(fetchUser)
 
 function MyApp({ Component, pageProps }) {
   return (

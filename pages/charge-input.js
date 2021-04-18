@@ -17,6 +17,7 @@ export default function ChargeTime({ show, onClose }) {
   const userCarbon = useSelector((state) => state.user);
   const userHistory = userCarbon.historyCharge;
   const { userData } = userCarbon;
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,8 +26,9 @@ export default function ChargeTime({ show, onClose }) {
     }
     setIsBrowser(true);
 
+
     try {
-      const chargeCarbonTotal = carbonReduces(userHistory);
+      const chargeCarbonTotal = carbonReducer(userHistory);
       dispatch(addTotal(carbon));
       setCarbon(chargeCarbonTotal);
     } catch (err) {
@@ -55,7 +57,7 @@ export default function ChargeTime({ show, onClose }) {
     e.preventDefault();
     const input = handleInput(e);
     const data = chargeConfig(input);
-
+    
     dispatch(addCharge(data));
   }
 
@@ -64,7 +66,7 @@ export default function ChargeTime({ show, onClose }) {
     const startTime = e.target[1].value;
     const endTime = e.target[2].value;
     const duration = diff(startTime, endTime);
-
+    
     const savedCarbon = () => {
       const total = carbonSavingCalculation(duration, userData);
       return total / 100;
@@ -82,7 +84,6 @@ export default function ChargeTime({ show, onClose }) {
   }
 
   function changeDate(e) {
-    console.log(e.target.value);
     return setCurrentDate(e.target.value);
   }
 
