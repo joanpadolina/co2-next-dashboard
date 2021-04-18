@@ -1,56 +1,59 @@
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { useSelector } from 'react-redux';
-import CommunityBarchart from '../components/community-barchart/community-barchart';
-import { members } from '../lib/members';
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { useSelector } from "react-redux";
+import CommunityBarchart from "../components/community-barchart/community-barchart";
+import { members } from "../lib/members";
 
 export default function Community() {
-  const userCarbon = useSelector((state) => state.user);
+  const store = useSelector((state) => state.store);
+  const { chargingSession } = store;
   const [membersContribution, setMembersContribution] = useState([]);
   const [totalCarbon, setTotalCarbon] = useState();
   const [userContribution, setUserContribution] = useState(
-    userCarbon.historyCharge[0].savedCarbon,
+    chargingSession[0].savedCarbon
   );
 
   useEffect(() => {
     const users = [
-      { name: 'Jasper', savedCarbon: 20 },
+      { name: "Jasper", savedCarbon: 20 },
       {
-        name: 'Joan',
+        name: "Joan",
         savedCarbon: 12,
       },
       {
-        name: 'Kees',
+        name: "Kees",
         savedCarbon: 16,
       },
     ];
 
-    const history = userCarbon.historyCharge;
-    const historyLast = history.slice(-1).map((data) => data.savedCarbon);
-    const userContribution =  typeof userCarbon.total !== 'function' ? userCarbon.total : historyLast[0];
-    
+    const historyLast = chargingSession
+      .slice(-1)
+      .map((data) => data.savedCarbon);
+    const userContribution =
+      typeof store.total !== "function" ? store.total : historyLast[0];
+
     users.push({
-      name: 'Jon',
+      name: "Jon",
       savedCarbon: userContribution,
     });
-    
+
     // last update first on the list
     setMembersContribution(users.reverse());
-    
+
     const total = users.reduce(
       (sum, { savedCarbon }) => Math.ceil(sum + savedCarbon),
-      0,
+      0
     );
     setTotalCarbon(total);
-    setUserContribution(userCarbon.total);
-  }, [setMembersContribution, userCarbon.historyCharge, userCarbon.total]);
+    setUserContribution(store.total);
+  }, [setMembersContribution, chargingSession, store.total]);
 
   return (
     <main>
-      <Link href="/">back</Link>
+      <Link href='/'>back</Link>
       <h1>Your community</h1>
       <article>
-        <section className="community-saved__datavisual">
+        <section className='community-saved__datavisual'>
           <article>
             <h2>Community total saved CO2</h2>
             <p>{totalCarbon}</p>
@@ -73,8 +76,8 @@ export default function Community() {
           <article>
             <p>
               The amount of CO2 saved is the same as driving from Amsterdam to
-              Maastricht in a petrol car,{' '}
-              <span className="font-bold"> which is 212,5 km </span> .
+              Maastricht in a petrol car,{" "}
+              <span className='font-bold'> which is 212,5 km </span> .
             </p>
           </article>
         </section>
@@ -101,11 +104,11 @@ export default function Community() {
                         <img
                           alt={user.name}
                           key={key}
-                          src={data.name.includes(user.name) ? data.imgSrc : ''}
+                          src={data.name.includes(user.name) ? data.imgSrc : ""}
                         />
                       );
                     }
-                    return '';
+                    return "";
                   })}
                 </td>
                 <td> {user.name}</td>

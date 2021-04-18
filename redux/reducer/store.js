@@ -1,34 +1,17 @@
-const initialState = {
-  isOpen: false,
-  userData: {},
-  historyCharge: [
-    {
-      date: '2021-03-11',
-      start: '12:00',
-      end: '20:00',
-      duration: '08:00',
-      savingsInPercentage: '10%',
-      savedCarbon: 25,
-      totalCarbon: 50,
-      totalSavedCarbon: 25,
-    },
-  ],
-  gimmicks: [],
-  total: Number,
-};
+import initialState from './initState'
 
-const user = (state = initialState, action) => {
+const store = (state = initialState, action) => {
   const data = action.payload;
   switch (action.type) {
     case 'USER':
       return {
         ...state,
-        userData: data.user,
+        user: data.user,
       };
     case 'ADD_CHARGE':
       return {
         ...state,
-        historyCharge: [...state.historyCharge, data],
+        chargingSession: [...state.chargingSession, data],
       };
     case 'ADD_GIMMICKS':
       return {
@@ -50,4 +33,4 @@ const user = (state = initialState, action) => {
   }
 };
 
-export default user;
+export default store;

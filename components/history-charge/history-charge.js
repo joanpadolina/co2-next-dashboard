@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 export default function HistoryCharge() {
-  const userCarbon = useSelector((state) => state.user);
+  const userCarbon = useSelector((state) => state.store.chargingSession);
 
   return (
     <ul className="mb-30 ">
