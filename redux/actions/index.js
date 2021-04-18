@@ -26,6 +26,13 @@ export const user = (results) => {
     }
 }
 
+export const modalActive = (results) => {
+    return {
+        type: "IS_OPEN",
+        payload: results
+    }
+}
+
 export async function fetchUser(dispatch) {
   const users = await fetch('http://localhost:4000/user');
   const response = await users.json();

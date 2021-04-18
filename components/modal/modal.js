@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import { useRouter } from "next/router";
-import ChargeInput from "../../pages/charge-input";
+import ChargeInput from "../charge-input/charge-input-modal";
 
 export default function FormModal() {
   const router = useRouter();

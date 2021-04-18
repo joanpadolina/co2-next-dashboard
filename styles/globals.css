@@ -1,12 +1,12 @@
 @import './components/header-main.css';
-@import './components/charge-input.css';
+@import './components/charge-input-modal.css';
 @import './components/compare-carbon.css';
 @import './components/recent-charge.css';
 @import './components/nav.css';
 @import './components/index.css';
 @import './components/history-charge.css';
+@import './components/profile.css';
 @import './base.css';
-@import './globals/typography.css';
 
 html,
 body {
