@@ -16,7 +16,7 @@
     left: 0;
     top: -4rem;
     background-color: var(--c-white);
-    transform: skew(0deg, 9deg);
+    transform: skew(0deg, 5deg);
     border-radius: 0 2rem 0 0;
     z-index: -1;
 }
