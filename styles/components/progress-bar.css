@@ -1,8 +1,7 @@
 .progress-bar__wrapper {
     display: block;
     position: relative;
-    margin: auto;
-    width: 90%;
+    width: 100%;
     height: 2rem;
     background-color: var(--c-grey--300);
     border-radius: .5rem;

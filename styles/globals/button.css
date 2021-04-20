@@ -1,0 +1,56 @@
+.box--gray {
+    display: block;
+    position: relative;
+    background-color: var(--c-grey--600);
+    height: max-content;
+    width: max-content;
+}
+
+.button {
+    background-color: var(--c-white);
+    padding: .5rem;
+    color: var(--c-black);
+    border-radius: .5rem;
+    font-weight: 800;
+    border: .05rem solid var(--c-dark);
+}
+
+.button--dark {
+    background: var(--c-dark);
+    color: var(--c-white);
+    font-weight: 300;
+}
+
+.button--dark::after {
+    content: "-->";
+    margin-left: .5rem;
+}
+
+.button--secondary {
+    color: var(--c-dark);
+    border-bottom: .3rem solid var(--c-green);
+}
+
+.button--go {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--c-dark);
+    color: var(--c-white);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 3rem;
+    box-shadow: 0 0 4px 0 var(--c-grey--400);
+}
+
+.button--go::after {
+    content: "-->";
+}
+
+.button__align--right {
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    margin-top: -1rem;
+}

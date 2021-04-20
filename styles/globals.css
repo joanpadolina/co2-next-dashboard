@@ -1,4 +1,5 @@
 @import './components/header-main.css';
+@import './components/community-update.css';
 @import './components/charge-input-modal.css';
 @import './components/compare-carbon.css';
 @import './components/recent-charge.css';
@@ -7,6 +8,8 @@
 @import './components/history-charge.css';
 @import './components/profile.css';
 @import './components/progress-bar.css';
+@import './globals/typography.css';
+@import './globals/button.css';
 @import './base.css';
 
 html,

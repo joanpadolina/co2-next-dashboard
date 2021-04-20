@@ -1,36 +1,50 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import Link from 'next/link';
 import ProgressBar from '../progress-bar';
-
 export default function CommunityUpdate() {
   const communityStore = useSelector((state) => state.store.community);
-  const userTotal = communityStore.total
-  useEffect(() => {}, [userTotal]);
+  const usersTotal = communityStore.total;
+  useEffect(() => {}, [usersTotal]);
 
   return (
-    <article>
-      <h2 className="title--small">Community update</h2>
-      <div className="p-3 bg-gray-100 rounded-lg">
-        <article className="pb-3">
-          <h3 className="text-2xl font-bold">{userTotal}</h3>
-          <span>Total carbon saved</span>
+    <article className="community-update">
+      <h2 className="font--title">Community update</h2>
+      <div className="community-update__body">
+        <article className="community-update__header">
+          <h3 className="community-update__total font--medium">{usersTotal} kg</h3>
+          <span className="community-update__subtitle">Total carbon saved</span>
         </article>
-        <article className="flex justify-between my-3">
-          <h3>Amsterdam -- Maastricht</h3>
-          <span> 500kg </span>
+        <article className="community-update__goal">
+          <h3 className="community-update__goal-destination">
+            <span className="community-update__subtitle community-update__subtitle--destination">
+              Amsterdam
+            </span>
+            Maastricht
+          </h3>
+          <span className="community-update__endgoal"> 500kg </span>
         </article>
         <ProgressBar
-          totalSavingsCommunity={communityStore.total}
+          className="community-update__progress-bar"
+          totalSavingsCommunity={usersTotal}
           totalCommunityGoal={500}
         />
       </div>
-      <div>
-        <article className="bg-gray-100 flex p-5 items-center my-5">
-          <div>arrowUp</div>
-          <h3 className="text-2xl font-bold pr-3">18%</h3>
-          <p>The community uses 18% more grey energy than the week before</p>
-        </article>
+      <div className="button__align--right">
+        <Link href="/">
+          <a aria-label="community detail" className="button--go"></a>
+        </Link>
       </div>
+      <article className="community-update__energy-update">
+        <img
+          className="community-update__energy-arrow"
+          src="/icons/icon-arrow-up.svg"
+        />
+        <h3 className="community-update__energy-usage font--medium">18%</h3>
+        <p className="community-update__energy-body">
+          The community uses 18% more fossil energy than the week before.
+        </p>
+      </article>
     </article>
   );
 }

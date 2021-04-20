@@ -1,7 +1,54 @@
-.community-update__barchart {
-    width: 100%;
+.community-update__body {
+    padding: var(--s-default);
+    background-color: #F2F2F2;
     border-radius: .5rem;
-    height: 2rem;
-    background-color: var(--color-grey--600);
+    padding-bottom: 2rem;
+}
+
+.community-update__subtitle {
+    color: var(--c-grey--400);
+}
+
+.community-update__total {
     margin-top: .5rem;
+    margin-bottom: 0;
+}
+
+.community-update__goal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: .8rem;
+    margin-top: var(--s-default);
+}
+
+.community-update__goal-destination {
+    font-weight: normal;
+}
+
+.community-update__progress-bar {
+    margin-bottom: 2rem;
+}
+
+.community-update__subtitle--destination::after {
+    content: "-->";
+    display: inline-block;
+    margin: 0 .1rem;
+}
+
+.community-update__energy-update {
+    display: flex;
+    align-items: center;
+    margin-top: var(--s-default);
+    padding: var(--s-default);
+    border-radius: .5rem;
+    background-color: #F2F2F2;
+}
+
+.community-update__energy-usage {
+    margin: 0 .8rem;
+}
+
+.community-update__energy-body {
+    color: var(--c-grey--400);
 }

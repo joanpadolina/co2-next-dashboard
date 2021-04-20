@@ -20,3 +20,7 @@
     border-radius: 0 2rem 0 0;
     z-index: -1;
 }
+
+.index__link-sessions {
+    font-size: var(--font--small);
+}
