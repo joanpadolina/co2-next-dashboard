@@ -1,6 +1,6 @@
 .nav {
   display: block;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
   left: 0;
@@ -23,7 +23,6 @@
   width: 30%;
   padding: .5rem 0;
   text-align: center;
-
 }
 
 .nav__link {

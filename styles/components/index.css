@@ -21,6 +21,15 @@
     z-index: -1;
 }
 
+@media screen and (min-width: 768px) {
+    body {
+        display: block;
+        position: relative;
+        margin: auto;
+        max-width: 23rem;
+    }
+}
+
 .index__link-sessions {
     font-size: var(--font--small);
     margin-bottom: var(--s-default)
