@@ -38,6 +38,10 @@ a {
   overflow-y: auto;
 }
 
+.home__body {
+  position: relative;
+}
+
 .home__body::-webkit-scrollbar,
 #__next::-webkit-scrollbar {
   display: none;
