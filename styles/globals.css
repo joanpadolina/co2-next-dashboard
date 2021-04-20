@@ -1,10 +1,16 @@
 @import './components/header-main.css';
+@import './components/community-update.css';
 @import './components/charge-input-modal.css';
 @import './components/compare-carbon.css';
 @import './components/recent-charge.css';
 @import './components/nav.css';
+@import './components/index.css';
+@import './components/history-charge.css';
 @import './components/profile.css';
 @import './components/progress-bar.css';
+@import './components/savings-time.css';
+@import './globals/typography.css';
+@import './globals/button.css';
 @import './base.css';
 
 html,
@@ -13,6 +19,8 @@ body {
   margin: 0;
   font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  display: block;
+  margin: auto;
 }
 
 a {
@@ -22,4 +30,19 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.home__body,
+#__next {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.home__body {
+  position: relative;
+}
+
+.home__body::-webkit-scrollbar,
+#__next::-webkit-scrollbar {
+  display: none;
 }

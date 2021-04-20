@@ -1,34 +1,43 @@
 import React from 'react';
-
 import { useSelector } from 'react-redux';
 
 export default function HistoryCharge() {
-  const userCarbon = useSelector((state) => state.store.chargingSession);
+  const chargingSessions = useSelector((state) => state.store.chargingSession);
 
   return (
-    <ul className="mb-30 ">
-      {userCarbon.historyCharge.map((charging, index) => (
-        <li className="py-1" key={index}>
-          <article className="flex justify-between">
-            <article>
-              <h3 className="title--small">date</h3>
-              <p> {charging.date} </p>
-              <p>
-                {' '}
-                {charging.start} - {charging.end}{' '}
-              </p>
-            </article>
-            <article>
-              <h3 className="title--small">savings</h3>
-              <p> {charging.savingsInPercentage} </p>
-            </article>
-            <article>
-              <h3 className="title--small">emission</h3>
-              <p className="font-bold"> {charging.savedCarbon}kg</p>
-            </article>
-          </article>{' '}
-        </li>
-      ))}
-    </ul>
+    <>
+      <h2 className="font--title"> Your latest charge </h2>
+      <table className="history-charge">
+        {chargingSessions
+          .slice(Math.max(chargingSessions.length - 3, 0))
+          .map((charging, index) => (
+            <tbody className="history-charge__body">
+              <tr className="history-charge__heading-wrapper">
+                <th className="history-charge__heading">date</th>
+                <th className="history-charge__heading">savings</th>
+                <th className="history-charge__heading">CO2 saved</th>
+              </tr>
+              <tr key={index} className="history-charge__row">
+                <td className="history-charge__value">
+                  <span className="history-charge__value-date">
+                    {charging.date}{' '}
+                  </span>
+                  <span>
+                    {charging.start} - {charging.end}
+                  </span>
+                </td>
+                <td className="history-charge__value">
+                  {' '}
+                  {charging.savingsInPercentage}
+                </td>
+                <td className="history-charge__value">
+                  {' '}
+                  {charging.savedCarbon} kg
+                </td>
+              </tr>
+            </tbody>
+          ))}
+      </table>
+    </>
   );
 }

@@ -15,7 +15,13 @@
     --c-dark: #1A1C26;
     --c-green: #5BFCB0;
     --c-blue: #88B2D8;
-    
+    --c-grey--title: #7F8595;
+
+    --font--small: .9rem;
+    --font--default: 1rem;
+    --font--medium: 2rem;
+    --font--big: 3rem;
+
 }
 
 .a11y-sr-only {
@@ -43,43 +49,4 @@
 .title--small {
     color: var(--c-grey--300);
     margin: calc(var(--s-default / 2)) 0;
-}
-
-.box--gray {
-    display: block;
-    position: relative;
-    background-color: var(--c-grey--600);
-    height: max-content;
-    width: max-content;
-}
-
-.button {
-    background-color: var(--c-white);
-    padding: .5rem;
-    color: var(--c-black);
-    border-radius: .5rem;
-    font-weight: 800;
-    border: .05rem solid var(--c-dark);
-}
-
-.button--secondary {
-    color: var(--c-dark);
-    border-bottom: .3rem solid var(--c-green);
-}
-
-.button--go {
-    display: block;
-    position: relative;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 3rem;
-    box-shadow: 0 0 0 4px var(--c-grey--400);
-}
-
-.button--go::before {
-    content: ">";
-    display: block;
-    position: absolute;
-    left: 0;
-    text-align: center;
 }
