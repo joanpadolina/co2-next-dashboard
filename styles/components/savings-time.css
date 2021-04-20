@@ -1,0 +1,17 @@
+.savings-time {
+    display: block;
+    padding: .5rem var(--s-default);
+    font-size: var(--font--small);
+    background-color: #E7EBEF;
+    border-radius: .5rem;
+}
+
+.savings-time__timeslot::before {
+    content: "";
+    display: inline-block;
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    margin-right: calc(var(--s-default) / 2);
+    background: url('/icons/icon-clock.svg') no-repeat;
+}

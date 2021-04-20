@@ -57,16 +57,18 @@
     margin: 0;
     font-size: 3rem;
 }
+
 .header__body {
     display: flex;
-    margin: 2rem 0; 
+    margin: 2rem 0;
 }
+
 .header__body:before {
     content: "";
     display: block;
     position: relative;
     width: 5rem;
     margin-right: var(--s-default);
-    background: url('../../public/icons/icon-tree.svg') no-repeat;
+    background: url('/icons/icon-tree.svg') no-repeat;
     background-position: 75% 40%;
 }

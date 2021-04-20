@@ -168,6 +168,8 @@ h1 {
   font-size: 1rem;
   font-weight: normal;
   color: var(--c-grey--title);
+  margin-top: 2rem;
+  margin-bottom: var(--s-default);
 }
 
 .font--medium {

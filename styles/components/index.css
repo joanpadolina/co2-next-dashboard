@@ -23,4 +23,5 @@
 
 .index__link-sessions {
     font-size: var(--font--small);
+    margin-bottom: var(--s-default)
 }
