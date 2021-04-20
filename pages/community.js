@@ -5,6 +5,7 @@ import { communitySavings } from '../redux/actions/';
 import { members } from '../lib/members';
 import { calcCarbonToKm } from '../lib/gimmick-calc';
 import ProgressBar from '../components/progress-bar';
+import BubbleComparison from '../components/bubble-comparison';
 
 export default function Community() {
   const store = useSelector((state) => state.store);
@@ -61,7 +62,7 @@ export default function Community() {
             <h2>Community total saved CO2</h2>
             <p>{totalCarbon} kg</p>
           </article>
-
+          <BubbleComparison />
           <article>
             <h2>Your contribution</h2>
             <p>
@@ -94,7 +95,7 @@ export default function Community() {
             totalSavingsCommunity={totalCarbon}
             totalCommunityGoal={500}
           />
-          
+
           <h3>{carbonInKm}km</h3>
         </section>
       </article>

@@ -1,0 +1,37 @@
+.bubble-comparison {
+    display: block;
+    position: relative;
+}
+
+.bubble-comparison__circle {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+    height: 10rem;
+    background: #7F8595;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: var(--c-white);
+    border-radius: 10rem;
+    position: relative;
+    margin: auto;
+    left: -2rem;
+}
+
+.bubble-comparison__contribution {
+    position: absolute;
+    background-color: var(--c-blue);
+    left: 8rem;
+    text-align: center;
+    top: 0;
+}
+
+.bubble-comparison__carbon {
+    color: var(--c-white);
+    font-weight: bolder;
+}
+
+.bubble-comparison__subtitle {
+    font-size: var(--font--small);
+}
