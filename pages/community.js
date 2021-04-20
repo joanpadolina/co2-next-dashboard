@@ -1,43 +1,36 @@
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import { useSelector, useDispatch } from "react-redux";
-import { communitySavings } from '../redux/actions/'
-import CommunityBarchart from "../components/community-barchart/community-barchart";
-import { members } from "../lib/members";
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useSelector, useDispatch } from 'react-redux';
+import { communitySavings } from '../redux/actions/';
+import { members } from '../lib/members';
+import { calcCarbonToKm } from '../lib/gimmick-calc';
+import ProgressBar from '../components/progress-bar';
 
 export default function Community() {
   const store = useSelector((state) => state.store);
-  const dispatch = useDispatch()
+  const users = store.community.users;
+  const dispatch = useDispatch();
   const { chargingSession } = store;
   const [membersContribution, setMembersContribution] = useState([]);
   const [totalCarbon, setTotalCarbon] = useState();
+  const [carbonInKm, setCarbonInKm] = useState(12);
   const [userContribution, setUserContribution] = useState(
-    chargingSession[0].savedCarbon
+    chargingSession[0].savedCarbon,
   );
 
   useEffect(() => {
-    const users = [
-      { name: 'Jasper', savedCarbon: 20 },
-      {
-        name: 'Joan',
-        savedCarbon: 12,
-      },
-      {
-        name: 'Kees',
-        savedCarbon: 16,
-      },
-    ];
+    async function calcInKm() {
+      const petrolDistance = await calcCarbonToKm(totalCarbon);
+      setCarbonInKm(petrolDistance);
+    }
+    calcInKm();
 
     const historyLast = chargingSession
       .slice(-1)
       .map((data) => data.savedCarbon);
+
     const userContribution =
       typeof store.total !== 'function' ? store.total : historyLast[0];
-
-    users.push({
-      name: 'Jon',
-      savedCarbon: userContribution,
-    });
 
     // last update first on the list
     setMembersContribution(users.reverse());
@@ -46,7 +39,7 @@ export default function Community() {
       (sum, { savedCarbon }) => Math.ceil(sum + savedCarbon),
       0,
     );
-    setTotalCarbon(total);
+    setTotalCarbon(total + store.total);
     setUserContribution(store.total);
     dispatch(communitySavings(totalCarbon));
   }, [
@@ -55,14 +48,15 @@ export default function Community() {
     store.total,
     dispatch,
     totalCarbon,
+    users,
   ]);
 
   return (
     <main>
-      <Link href='/'>back</Link>
+      <Link href="/">back</Link>
       <h1>Your community</h1>
       <article>
-        <section className='community-saved__datavisual'>
+        <section className="community-saved__datavisual">
           <article>
             <h2>Community total saved CO2</h2>
             <p>{totalCarbon} kg</p>
@@ -85,14 +79,25 @@ export default function Community() {
           <article>
             <p>
               The amount of CO2 saved is the same as driving from Amsterdam to
-              Maastricht in a petrol car,{" "}
-              <span className='font-bold'> which is 212,5 km </span> .
+              Maastricht in a petrol car,{' '}
+              <span className="font-bold"> which is 212,5 km </span> .
             </p>
           </article>
         </section>
       </article>
+      <article>
+        <h2>Next destination</h2>
+        <section>
+          <h3>Amsterdam -- Luxembourg</h3>
 
-      <CommunityBarchart carbonGoal={totalCarbon} />
+          <ProgressBar
+            totalSavingsCommunity={totalCarbon}
+            totalCommunityGoal={500}
+          />
+          
+          <h3>{carbonInKm}km</h3>
+        </section>
+      </article>
 
       <article>
         <h3>Activiy</h3>
@@ -113,11 +118,11 @@ export default function Community() {
                         <img
                           alt={user.name}
                           key={key}
-                          src={data.name.includes(user.name) ? data.imgSrc : ""}
+                          src={data.name.includes(user.name) ? data.imgSrc : ''}
                         />
                       );
                     }
-                    return "";
+                    return '';
                   })}
                 </td>
                 <td> {user.name}</td>

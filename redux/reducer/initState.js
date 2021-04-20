@@ -13,6 +13,7 @@ const initialState = {
     ],
     forecast: {},
     community: {
+        users: [],
         savingGoals: [100,200,300,400,500],
         total: 0,
     },

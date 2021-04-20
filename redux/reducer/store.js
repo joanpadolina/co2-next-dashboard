@@ -28,6 +28,14 @@ const store = (state = initialState, action) => {
         ...state,
         isOpen: data,
       };
+    case 'COMMUNITY_USERS':
+      return {
+        ...state,
+        community: {
+          ...state.community,
+          users: [...data],
+        },
+      };
     case 'ADD_COMMUNITY_TOTAL':
       return {
         ...state,
