@@ -4,6 +4,11 @@
     padding: var(--s-default);
 }
 
+.header__subtitle {
+    color: var(--c-grey--300);
+    font-size: var(--font--small);
+}
+
 .header:before {
     content: "";
     display: block;

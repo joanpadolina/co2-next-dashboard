@@ -42,6 +42,15 @@
     background-color: var(--c-grey--300);
 }
 
+.history-charge__body:last-of-type::before {
+    content: "";
+    display: inline-block;
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    background: url('/icons/icon-thunder.svg') no-repeat;
+}
+
 .history-charge__value:nth-of-type(2),
 .history-charge__heading:nth-of-type(2) {
     text-align: center;
