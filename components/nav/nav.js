@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { modalActive } from '../../redux/actions/index';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import IconFeed from '../../public/icons/icon-feed.svg';
+import IconCommunity from '../../public/icons/icon-community.svg';
 
 export default function Nav() {
   const [isBrowser, setIsBrowser] = useState(false);
@@ -26,13 +28,16 @@ export default function Nav() {
   return (
     <nav className="nav">
       <ul className="nav__list flat-list">
-        <li
-          className={`nav__item ${
-            router.pathname === '/' ? 'nav--active' : ''
-          }`}
-        >
+        <li className="nav__item">
           <Link href="/">
-            <a>Homepage</a>
+            <a
+              className={`nav__link ${
+                currentRouter === '/' ? 'nav--active' : ''
+              }`}
+            >
+              <IconFeed className="icon icon--feed" />
+              Homepage
+            </a>
           </Link>
         </li>
         <li className="nav__item">
@@ -51,10 +56,11 @@ export default function Nav() {
         <li className={`nav__item`}>
           <Link href="/community">
             <a
-              className={`${
+              className={`nav__link ${
                 currentRouter === '/community' ? 'nav--active' : ''
               }`}
             >
+              <IconCommunity className="icon" />
               Community
             </a>
           </Link>

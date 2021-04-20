@@ -12,7 +12,9 @@ export default function CommunityUpdate() {
       <h2 className="font--title">Community update</h2>
       <div className="community-update__body">
         <article className="community-update__header">
-          <h3 className="community-update__total font--medium">{usersTotal} kg</h3>
+          <h3 className="community-update__total font--medium">
+            {usersTotal} kg
+          </h3>
           <span className="community-update__subtitle">Total carbon saved</span>
         </article>
         <article className="community-update__goal">
@@ -41,7 +43,7 @@ export default function CommunityUpdate() {
           src="/icons/icon-arrow-up.svg"
         />
         <h3 className="community-update__energy-usage font--medium">18%</h3>
-        <p className="community-update__energy-body">
+        <p className="community-update__energy-body  font--small">
           The community uses 18% more fossil energy than the week before.
         </p>
       </article>

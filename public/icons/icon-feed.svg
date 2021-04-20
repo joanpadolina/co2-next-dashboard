@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.71 18.75"><defs><style>.cls-1{fill:#bac1cb;}</style></defs><title>icon-feed</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><rect class="cls-1" width="27.71" height="4.11" rx="2.06" ry="2.06"/><rect class="cls-1" y="7.32" width="27.71" height="4.11" rx="2.06" ry="2.06"/><rect class="cls-1" y="14.63" width="27.71" height="4.11" rx="2.06" ry="2.06"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.71 18.75" fill="#bac1cb">
+    <title>icon-feed</title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Layer_1-2" data-name="Layer 1" >
+            <rect class="icon" width="27.71" height="4.11" rx="2.06" ry="2.06" />
+            <rect class="icon" y="7.32" width="27.71" height="4.11" rx="2.06" ry="2.06" />
+            <rect class="icon" y="14.63" width="27.71" height="4.11" rx="2.06" ry="2.06" />
+        </g>
+    </g>
+</svg>
