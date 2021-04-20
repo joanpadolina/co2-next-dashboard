@@ -33,6 +33,14 @@ export const modalActive = (results) => {
     }
 }
 
+export const communitySavings = (results) => {
+    return {
+        type: "ADD_COMMUNITY_TOTAL",
+        payload: results
+    }
+}
+
+
 export async function fetchUser(dispatch) {
   const users = await fetch('http://localhost:4000/user');
   const response = await users.json();

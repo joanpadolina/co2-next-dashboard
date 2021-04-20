@@ -1,4 +1,4 @@
-import initialState from './initState'
+import initialState from './initState';
 
 const store = (state = initialState, action) => {
   const data = action.payload;
@@ -27,6 +27,14 @@ const store = (state = initialState, action) => {
       return {
         ...state,
         isOpen: data,
+      };
+    case 'ADD_COMMUNITY_TOTAL':
+      return {
+        ...state,
+        community: {
+          ...state.community,
+          total: data,
+        },
       };
     default:
       return state;

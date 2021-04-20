@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { communitySavings } from '../redux/actions/'
 import CommunityBarchart from "../components/community-barchart/community-barchart";
 import { members } from "../lib/members";
 
 export default function Community() {
   const store = useSelector((state) => state.store);
+  const dispatch = useDispatch()
   const { chargingSession } = store;
   const [membersContribution, setMembersContribution] = useState([]);
   const [totalCarbon, setTotalCarbon] = useState();
@@ -15,13 +17,13 @@ export default function Community() {
 
   useEffect(() => {
     const users = [
-      { name: "Jasper", savedCarbon: 20 },
+      { name: 'Jasper', savedCarbon: 20 },
       {
-        name: "Joan",
+        name: 'Joan',
         savedCarbon: 12,
       },
       {
-        name: "Kees",
+        name: 'Kees',
         savedCarbon: 16,
       },
     ];
@@ -30,10 +32,10 @@ export default function Community() {
       .slice(-1)
       .map((data) => data.savedCarbon);
     const userContribution =
-      typeof store.total !== "function" ? store.total : historyLast[0];
+      typeof store.total !== 'function' ? store.total : historyLast[0];
 
     users.push({
-      name: "Jon",
+      name: 'Jon',
       savedCarbon: userContribution,
     });
 
@@ -42,11 +44,18 @@ export default function Community() {
 
     const total = users.reduce(
       (sum, { savedCarbon }) => Math.ceil(sum + savedCarbon),
-      0
+      0,
     );
     setTotalCarbon(total);
     setUserContribution(store.total);
-  }, [setMembersContribution, chargingSession, store.total]);
+    dispatch(communitySavings(totalCarbon));
+  }, [
+    setMembersContribution,
+    chargingSession,
+    store.total,
+    dispatch,
+    totalCarbon,
+  ]);
 
   return (
     <main>
@@ -56,7 +65,7 @@ export default function Community() {
         <section className='community-saved__datavisual'>
           <article>
             <h2>Community total saved CO2</h2>
-            <p>{totalCarbon}</p>
+            <p>{totalCarbon} kg</p>
           </article>
 
           <article>
