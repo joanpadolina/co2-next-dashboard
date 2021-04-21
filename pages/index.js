@@ -21,8 +21,8 @@ export default function Index() {
 
   return (
     <div className="home__body">
-      <PopupAmount />
       <HeaderCarbon user={user} currentCarbon={currentCarbon} />
+      {/* <PopupAmount /> */}
       <main className="index__main">
         <SavingsTime />
         <HistoryCharge />

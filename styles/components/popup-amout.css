@@ -4,8 +4,16 @@
     place-content: center;
     height: 100vh;
     width: 100vw;
+    top: 0;
     color: var(--c-white);
     z-index: 1;
+}
+
+.popup-amount__date {
+    font-size: var(--font--small);
+    text-align: left;
+    color: var(--c-grey--title);
+    margin-top: 0;
 }
 
 .popup-amount__body {
@@ -43,11 +51,12 @@
 }
 
 .popup-amount__subtext {
-    color: var(--c-grey--600);
+    color: var(--c-grey--300);
 }
 
 .popup-amount__carbon {
     display: block;
+    margin: .5rem 0;
     font-weight: bolder;
     color: var(--c-white);
 }

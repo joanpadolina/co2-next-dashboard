@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { modalActive } from '../../redux/actions/index';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -7,7 +7,8 @@ import IconFeed from '../../public/icons/icon-feed.svg';
 import IconCommunity from '../../public/icons/icon-community.svg';
 
 export default function Nav() {
-  const [isBrowser, setIsBrowser] = useState(false);
+  const store = useSelector((state) => state.store);
+  const stateIsOpen = store.isOpen;
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const currentRouter = router.pathname;
@@ -20,7 +21,7 @@ export default function Nav() {
 
   useEffect(() => {
     dispatch(modalActive(isOpen));
-  }, [isOpen, currentRouter, dispatch, router]);
+  }, [dispatch, isOpen]);
 
   function handleRoutingCharge() {
     setIsOpen(!isOpen);
@@ -31,7 +32,7 @@ export default function Nav() {
         <li className="nav__item">
           <Link href="/">
             <a
-              className={`nav__link ${
+              className={`nav__link ${stateIsOpen ? 'disabled ' : ''}${
                 currentRouter === '/' ? 'nav--active' : ''
               }`}
             >
@@ -44,7 +45,7 @@ export default function Nav() {
           <Link href={!isOpen ? '?charge' : ''}>
             <a
               className={`nav__button--add nav__item${
-                isOpen || currentRouter === '/charge-input'
+                stateIsOpen || currentRouter === '/charge-input'
                   ? ' nav-input--active'
                   : ''
               }`}
@@ -56,7 +57,7 @@ export default function Nav() {
         <li className={`nav__item`}>
           <Link href="/community">
             <a
-              className={`nav__link ${
+              className={`nav__link ${stateIsOpen ? 'disabled' : ''} ${
                 currentRouter === '/community' ? 'nav--active' : ''
               }`}
             >
