@@ -6,6 +6,7 @@ import HeaderCarbon from '../components/header/header-main/header-main';
 import SavingsTime from '../components/savings-time';
 import CommunityUpdate from '../components/community-update/community-update';
 import HistoryCharge from '../components/history-charge/history-charge';
+import PopupAmount from '../components/popup-amount';
 
 export default function Index() {
   const user = useSelector((state) => state.store.user);
@@ -20,6 +21,7 @@ export default function Index() {
 
   return (
     <div className="home__body">
+      <PopupAmount />
       <HeaderCarbon user={user} currentCarbon={currentCarbon} />
       <main className="index__main">
         <SavingsTime />
