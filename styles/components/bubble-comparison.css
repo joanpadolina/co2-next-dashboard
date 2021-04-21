@@ -28,6 +28,20 @@
     flex-direction: column;
     position: absolute;
     top: 2rem;
+    transform: scale(0);
+    animation-name: zoom-in;
+    animation-duration: 300ms;
+    animation-delay: 400ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes zoom-in {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
 .bubble-comparison__body--right {

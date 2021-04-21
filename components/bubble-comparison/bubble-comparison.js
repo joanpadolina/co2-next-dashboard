@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 export default function BubbleComparison() {
   const store = useSelector((state) => state.store);
   const { community, total } = store;
-  const [contribution, setContribution] = useState(1);
-  const [communityContribution, setCommunityContribution] = useState(1);
+  const [contribution, setContribution] = useState(0);
+  const [communityContribution, setCommunityContribution] = useState(0);
 
   useEffect(() => {
     const totalOfUsers = community.users.reduce(
