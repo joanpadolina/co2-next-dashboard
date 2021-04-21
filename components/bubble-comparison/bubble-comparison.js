@@ -22,7 +22,6 @@ export default function BubbleComparison() {
     setContribution(progressScale);
 
     if (total >= totalOfUsers) {
-      console.log((1 * totalOfUsers) / total);
       const progressCommunity = (1 * totalOfUsers) / total;
       setCommunityContribution(progressCommunity);
       setContribution(1);

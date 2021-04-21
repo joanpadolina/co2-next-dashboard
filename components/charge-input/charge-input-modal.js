@@ -50,6 +50,8 @@ export default function ChargeTime() {
       start: config.startTime,
       end: config.endTime,
       duration: config.duration,
+      amountCharge: config.amountCharge,
+      chargedIn: config.chargedIn,
       savingsInPercentage: config.savings(),
       savedCarbon: config.savedCarbon(),
     };
@@ -68,6 +70,8 @@ export default function ChargeTime() {
     const startTime = e.target[1].value;
     const endTime = e.target[2].value;
     const duration = diff(startTime, endTime);
+    const amountCharge = e.target[3].value;
+    const chargedIn = e.target[4].value;
 
     const savedCarbon = () => {
       const total = carbonSavingCalculation(duration, user);
@@ -82,6 +86,8 @@ export default function ChargeTime() {
       startTime,
       endTime,
       duration,
+      amountCharge,
+      chargedIn,
       savedCarbon,
       savings,
     };
@@ -173,7 +179,7 @@ export default function ChargeTime() {
                 id="km"
                 name="amount"
                 value="km"
-                checked
+                defaultChecked
               />
               <label
                 for="km"

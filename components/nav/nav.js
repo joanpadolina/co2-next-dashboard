@@ -26,6 +26,7 @@ export default function Nav() {
   function handleRoutingCharge() {
     setIsOpen(!isOpen);
   }
+  
   return (
     <nav className="nav">
       <ul className="nav__list flat-list">

@@ -1,22 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { modalActive } from '../../redux/actions';
+import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 
-export default function PopupAmount({props}) {
+export default function PopupAmount({ props }) {
   const [popupActive, setPopupActive] = useState(true);
-  console.log(props)
+  const router = useRouter();
   const dispatch = useDispatch();
-//   const props = {
-//     totalAmount: 30,
-//     date: '2021-21-04',
-//   };
-
-//   useEffect(() => {
-//     dispatch(modalActive(popupActive));
-//   }, dispatch);
 
   function handleButton() {
     setPopupActive(!popupActive);
+    router.push('');
     dispatch(modalActive(false));
   }
   return (
