@@ -1,0 +1,80 @@
+.bubble-comparison {
+    display: block;
+    position: relative;
+}
+
+.bubble-comparison__bubbles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bubble-comparison__circle {
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    background: #7F8595;
+    color: var(--c-white);
+    border-radius: 10rem;
+    transition: transform 300ms ease;
+    transition-delay: 400ms;
+}
+
+.bubble-comparison__body {
+    display: flex;
+    padding: .5rem;
+    flex-direction: column;
+    position: absolute;
+    top: 2rem;
+    transform: scale(0);
+    animation-name: zoom-in;
+    animation-duration: 300ms;
+    animation-delay: 400ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes zoom-in {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.bubble-comparison__body--right {
+    right: 0;
+}
+
+.bubble-comparison__community {
+    left: 2rem;
+    position: relative;
+}
+
+.bubble-comparison__contribution {
+    background-color: var(--c-blue);
+    right: 2rem;
+    text-align: center;
+    top: 0;
+}
+
+.bubble-comparison__carbon {
+    font-weight: bolder;
+    font-size: var(--font--ml);
+}
+
+.bubble-comparison__subtitle {
+    font-size: var(--font--small);
+}
+
+
+.bubble-comparison__body--inside {
+    display: flex;
+    flex-direction: column;
+}
+
+.bubble-comparison--remove {
+    display: none;
+}
