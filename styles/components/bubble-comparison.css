@@ -3,35 +3,64 @@
     position: relative;
 }
 
-.bubble-comparison__circle {
+.bubble-comparison__bubbles {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bubble-comparison__circle {
+    display: grid;
+    place-items: center;
+    position: relative;
     width: 10rem;
     height: 10rem;
     background: #7F8595;
-    justify-content: center;
-    align-items: center;
-    position: relative;
     color: var(--c-white);
     border-radius: 10rem;
+    transition: transform 300ms ease;
+    transition-delay: 400ms;
+}
+
+.bubble-comparison__body {
+    display: flex;
+    padding: .5rem;
+    flex-direction: column;
+    position: absolute;
+    top: 2rem;
+}
+
+.bubble-comparison__body--right {
+    right: 0;
+}
+
+.bubble-comparison__community {
+    left: 2rem;
     position: relative;
-    margin: auto;
-    left: -2rem;
 }
 
 .bubble-comparison__contribution {
-    position: absolute;
     background-color: var(--c-blue);
-    left: 8rem;
+    right: 2rem;
     text-align: center;
     top: 0;
 }
 
 .bubble-comparison__carbon {
-    color: var(--c-white);
     font-weight: bolder;
+    font-size: var(--font--ml);
 }
 
 .bubble-comparison__subtitle {
     font-size: var(--font--small);
+}
+
+
+.bubble-comparison__body--inside {
+    display: flex;
+    flex-direction: column;
+}
+
+.bubble-comparison--remove {
+    display: none;
 }
