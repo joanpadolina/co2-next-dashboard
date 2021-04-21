@@ -1,80 +1,97 @@
 .popup-amount {
-    display: grid;
-    position: fixed;
-    place-content: center;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    color: var(--c-white);
-    z-index: 1;
+  display: grid;
+  position: absolute;
+  place-content: center;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  color: var(--c-white);
+  z-index: 1;
 }
 
 .popup-amount__date {
-    font-size: var(--font--small);
-    text-align: left;
-    color: var(--c-grey--title);
-    margin-top: 0;
+  font-size: var(--font--small);
+  text-align: left;
+  color: var(--c-grey--title);
+  margin-top: 0;
 }
 
 .popup-amount__body {
-    background-color: #1A1B26;
-    padding: var(--s-default);
-    position: relative;
-    text-align: center;
-    width: 18rem;
-    z-index: 1;
-    border-radius: 1rem;
+  background-color: #1a1b26;
+  padding: var(--s-default);
+  position: relative;
+  text-align: center;
+  width: 18rem;
+  z-index: 1;
+  border-radius: 1rem;
 }
 
 .popup-amount__body::after {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 5rem;
-    background: url('/img/popup-grass.png');
-    border-radius: 0 0 1rem 1rem;
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  background: url("/img/popup-grass.svg");
+  border-radius: 0 0 1rem 1rem;
+  background-size: 27rem;
+  background-position: -2rem 0rem;
+  animation-name: slide-slow;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes slide-slow {
+  0% {
+    background-position: -2em 0rem;
+  }
+  50% {
+    background-position: -4rem 0rem;
+  }
+  100% {
+    background-position: -2rem 0rem;
+  }
 }
 
 .popup-amount::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: black;
-    opacity: .7;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  opacity: 0.7;
 }
 
 .popup-amount__subtext {
-    color: var(--c-grey--300);
+  color: var(--c-grey--300);
 }
 
 .popup-amount__carbon {
-    display: block;
-    margin: .5rem 0;
-    font-weight: bolder;
-    color: var(--c-white);
+  display: block;
+  margin: 0.5rem 0;
+  font-weight: bolder;
+  color: var(--c-white);
 }
 
 .popup-amount__button {
-    display: block;
-    position: relative;
-    margin: var(--s-default) auto;
-    width: 2rem;
-    height: 2rem;
-    border: .15rem solid var(--c-white);
-    background-color: transparent;
-    border-radius: 1rem;
-    z-index: 1;
+  display: block;
+  position: relative;
+  margin: var(--s-default) auto;
+  width: 2rem;
+  height: 2rem;
+  border: 0.15rem solid var(--c-white);
+  background-color: transparent;
+  border-radius: 1rem;
+  z-index: 1;
 }
 
 .popup-amount__button::after {
-    content: "x";
-    color: var(--c-white);
-    font-size: 1.4rem;
+  content: "x";
+  color: var(--c-white);
+  font-size: 1.4rem;
 }
