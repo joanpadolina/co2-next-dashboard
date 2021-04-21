@@ -14,10 +14,6 @@ export default function Nav() {
   const currentRouter = router.pathname;
   const dispatch = useDispatch();
 
-  // 1. Open modal if clicked on the link
-  // 2. if modal active change link to closing button
-  // 3. problem the button is one click behind when clicked
-  // on another link in navigation
 
   useEffect(() => {
     dispatch(modalActive(isOpen));
@@ -26,7 +22,7 @@ export default function Nav() {
   function handleRoutingCharge() {
     setIsOpen(!isOpen);
   }
-  
+
   return (
     <nav className="nav">
       <ul className="nav__list flat-list">
@@ -42,6 +38,7 @@ export default function Nav() {
             </a>
           </Link>
         </li>
+
         <li className="nav__item">
           <Link href={!isOpen ? '?charge' : ''}>
             <a
@@ -55,6 +52,7 @@ export default function Nav() {
             ></a>
           </Link>
         </li>
+        
         <li className={`nav__item`}>
           <Link href="/community">
             <a

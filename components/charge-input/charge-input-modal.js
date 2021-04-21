@@ -7,7 +7,7 @@ import {
 } from '../../lib/carbon-saving-calculation.js';
 import diff from '../../lib/time-calculation';
 import { useSelector, useDispatch } from 'react-redux';
-import { addCharge, addTotal, modalActive } from '../../redux/actions';
+import { addCharge, addTotal } from '../../redux/actions';
 import PopupAmount from '../popup-amount';
 
 export default function ChargeTime() {
@@ -205,12 +205,14 @@ export default function ChargeTime() {
               </label>
             </div>
           </div>
+         
           <div className="button-wrapper">
             <Link href="/charge-input">
               <a className="charge-input__link button-flat button--secondary ">
                 add another session
               </a>
             </Link>
+           
             <button className="button" onClick={revealPopup}>
               save changes
             </button>
