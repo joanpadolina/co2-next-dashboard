@@ -11,13 +11,13 @@ export default function HistoryCharge() {
         {chargingSessions
           .slice(Math.max(chargingSessions.length - 3, 0))
           .map((charging, index) => (
-            <tbody className="history-charge__body">
+            <tbody key={index} className="history-charge__body">
               <tr className="history-charge__heading-wrapper">
                 <th className="history-charge__heading">date</th>
                 <th className="history-charge__heading">savings</th>
                 <th className="history-charge__heading">CO2 saved</th>
               </tr>
-              <tr key={index} className="history-charge__row">
+              <tr className="history-charge__row">
                 <td className="history-charge__value">
                   <span className="history-charge__value-date">
                     {charging.date}{' '}

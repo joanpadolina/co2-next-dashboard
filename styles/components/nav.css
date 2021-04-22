@@ -85,3 +85,12 @@
 .icon--feed {
   width: 1.5rem;
 }
+
+.disabled {
+  pointer-events: none;
+  color: var(--c-icon--disabled);
+}
+
+.disabled > .icon {
+  fill: var(--c-icon--disabled);
+}

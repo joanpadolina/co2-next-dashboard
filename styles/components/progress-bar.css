@@ -12,4 +12,6 @@
     background-color: var(--c-primary);
     width: 0rem;
     border-radius: .5rem;
+    transition: width 300ms ease-in-out;
+    transition-delay: 400ms;
 }
