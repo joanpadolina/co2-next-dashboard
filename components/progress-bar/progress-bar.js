@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 export default function ProgressBar({
   totalSavingsCommunity,
   totalCommunityGoal,
+  noShow
 }) {
   const [currentProgress, setCurrentProgress] = useState('');
 
