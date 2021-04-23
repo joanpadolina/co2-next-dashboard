@@ -46,6 +46,8 @@
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 2rem;
+  background-color: #e9fbe9;
+  border-radius: .5rem 3rem;
 }
 
 .profile__tree {

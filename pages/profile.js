@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import { carbonReducer } from '../lib/carbon-saving-calculation';
-import ProgressBar from '../components/progress-bar';
 
 export default function Profile() {
   const [totalSavings, setTotalSavings] = useState(0);
@@ -148,12 +147,8 @@ export default function Profile() {
                   <td
                     className="profile__equivalence-bar"
                     style={{ width: `${widthStyle.plane}%` }}
-                  >
-                    {/* <ProgressBar
-                      totalSavingsCommunity={150}
-                      totalCommunityGoal={300}
-                    /> */}
-                  </td>
+                    aria-label={`${gimmicksInKm.plane} kilometer with a plane`}
+                  ></td>
 
                   <td className="profile__equivalence-body">
                     {gimmicksInKm.plane} km <span>195 kg/km</span>{' '}
@@ -165,13 +160,8 @@ export default function Profile() {
                   <td
                     className="profile__equivalence-bar"
                     style={{ width: `${widthStyle.car}%` }}
-                  >
-                    {' '}
-                    {/* <ProgressBar
-                      totalSavingsCommunity={250}
-                      totalCommunityGoal={300}
-                    /> */}
-                  </td>
+                    aria-label={`${gimmicksInKm.car} kilometer with a car`}
+                  ></td>
 
                   <td className="profile__equivalence-body">
                     {gimmicksInKm.car} km <span>121 kg/km</span>{' '}
@@ -183,13 +173,8 @@ export default function Profile() {
                   <td
                     className="profile__equivalence-bar"
                     style={{ width: `${widthStyle.train}%` }}
-                  >
-                    {' '}
-                    {/* <ProgressBar
-                      totalSavingsCommunity={300}
-                      totalCommunityGoal={300}
-                    /> */}
-                  </td>
+                    aria-label={`${gimmicksInKm.train} kilometer with a train`}
+                  ></td>
 
                   <td className="profile__equivalence-body">
                     {gimmicksInKm.train} km <span>30 kg/km </span>
