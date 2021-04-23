@@ -110,15 +110,27 @@ export default function Profile() {
 
       <main className="profile__main index__main">
         <article>
-          <h2 className="font--title">Your garden so far</h2>
-          <p>Amount of trees saved in one year</p>
+          <h2 className="profile__main-title">Your garden so far</h2>
+          <p className="profile__subtitle">
+            Amount of trees saved in one year: {totalTrees}
+          </p>
 
           <section className="profile__trees-wrapper">
-            <p>An average tree absorbs around 20kg of CO2 in one year.</p>
+            <p className="profile__trees-subtitle">
+              An average tree absorbs around
+              <span className="font--highlight"> 20kg</span> of CO2 in one year.
+            </p>
 
             <section className="profile__trees">
               {arrayOfTrees.map((tree, index) => (
-                <img key={index} className="profile__tree" src={tree} />
+                <img
+                  key={index}
+                  className="profile__tree"
+                  style={{
+                    top: `${(Math.floor(Math.random() * 20) + 1) / 10}rem`,
+                  }}
+                  src={tree}
+                />
               ))}
             </section>
           </section>
