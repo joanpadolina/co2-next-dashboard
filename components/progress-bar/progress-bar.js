@@ -10,7 +10,7 @@ export default function ProgressBar({
   useEffect(() => {
     const progressWidthPercentage =
       (100 * totalSavingsCommunity) / totalCommunityGoal;
-    setCurrentProgress(`${progressWidthPercentage}%`);
+    setCurrentProgress(`${progressWidthPercentage >= 100 ? 100 : progressWidthPercentage}%`);
   }, [totalSavingsCommunity, totalCommunityGoal]);
 
   return (
