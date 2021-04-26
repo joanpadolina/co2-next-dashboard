@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'
 
 export default function HistoryCharge() {
-  const userChargeHistory = useSelector((state) => state.user.historyCharge);
-  const [lastCharge, setLastCharge] = useState({});
+  const userChargeHistory = useSelector((state) => state.user.historyCharge)
+  const [lastCharge, setLastCharge] = useState({})
 
   useEffect(() => {
     function getLatestCharge() {
-      const lastItem = userChargeHistory[userChargeHistory.length - 1];
-      setLastCharge(lastItem);
+      const lastItem = userChargeHistory[userChargeHistory.length - 1]
+      setLastCharge(lastItem)
     }
 
-    getLatestCharge();
-  }, [lastCharge, userChargeHistory]);
+    getLatestCharge()
+  }, [lastCharge, userChargeHistory])
 
   return (
-    <article className="recent-charge">
-      <h2 className="recent-charge__title">Your latest charge</h2>
+    <article className='recent-charge'>
+      <h2 className='recent-charge__title'>Your latest charge</h2>
       <table>
         <thead>
           <td>date</td>
@@ -35,5 +35,5 @@ export default function HistoryCharge() {
         </tbody>
       </table>
     </article>
-  );
+  )
 }

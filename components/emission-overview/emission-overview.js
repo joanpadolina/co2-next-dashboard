@@ -1,14 +1,14 @@
-import { data } from 'autoprefixer';
-import React, { useState } from 'react';
+import { data } from 'autoprefixer'
+import React, { useState } from 'react'
 
 export default function EmissionOverview() {
-  const [currentDate, setCurrentDate] = useState('March 2021');
+  const [currentDate, setCurrentDate] = useState('March 2021')
   const data = {
     totalEmission: 180,
     savedCarbon: 78,
     greenEnergy: 15,
-    greyEnergy: 85,
-  };
+    greyEnergy: 85
+  }
 
   return (
     <article>
@@ -42,5 +42,5 @@ export default function EmissionOverview() {
         </article>
       </article>
     </article>
-  );
+  )
 }

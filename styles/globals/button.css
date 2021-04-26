@@ -54,3 +54,27 @@
     justify-content: flex-end;
     margin-top: -1rem;
 }
+
+.button--back {
+    position: relative;
+}
+
+.button--back::before {
+    content: "";
+    display: block;
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: .15rem solid var(--c-white);
+    border-radius: 2rem;
+}
+
+.button--back::after {
+    content: "<---";
+    display: block;
+    position: absolute;
+    font-size: 1rem;
+    width: max-content;
+    top: 0;
+    left: .5rem;
+}

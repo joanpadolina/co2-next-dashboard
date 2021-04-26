@@ -1,65 +1,65 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import {carbonReducer} from '../../lib/carbon-saving-calculation'
-import Link from 'next/link';
-import ProgressBar from '../progress-bar';
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { carbonReducer } from '../../lib/carbon-saving-calculation'
+import Link from 'next/link'
+import ProgressBar from '../progress-bar'
 
 export default function CommunityUpdate() {
-  const store = useSelector((state) => state.store);
-  const communityStore = store.community;
-  const [usersTotal, setUserTotal] = useState(0);
+  const store = useSelector((state) => state.store)
+  const communityStore = store.community
+  const [usersTotal, setUserTotal] = useState(0)
 
   useEffect(() => {
-    const community = carbonReducer(communityStore.users);
-    const user = carbonReducer(store.chargingSession);
-    setUserTotal(community + user);
-  }, [usersTotal, store]);
+    const community = carbonReducer(communityStore.users)
+    const user = carbonReducer(store.chargingSession)
+    setUserTotal(community + user)
+  }, [usersTotal, store])
 
   return (
-    <article className="community-update">
-      <h2 className="font--title">Community update</h2>
-      
-      <div className="community-update__body">
-        <article className="community-update__header">
-          <h3 className="community-update__total font--medium">
+    <article className='community-update'>
+      <h2 className='font--title'>Community update</h2>
+
+      <div className='community-update__body'>
+        <article className='community-update__header'>
+          <h3 className='community-update__total font--medium'>
             {usersTotal} kg
           </h3>
-          <span className="community-update__subtitle">Total carbon saved</span>
+          <span className='community-update__subtitle'>Total carbon saved</span>
         </article>
-      
-        <article className="community-update__goal">
-          <h3 className="community-update__goal-destination">
-            <span className="community-update__subtitle community-update__subtitle--destination">
+
+        <article className='community-update__goal'>
+          <h3 className='community-update__goal-destination'>
+            <span className='community-update__subtitle community-update__subtitle--destination'>
               Amsterdam
             </span>
             Maastricht
           </h3>
-          <span className="community-update__endgoal"> 500kg </span>
+          <span className='community-update__endgoal'> 500kg </span>
         </article>
-      
+
         <ProgressBar
-          className="community-update__progress-bar"
+          className='community-update__progress-bar'
           totalSavingsCommunity={usersTotal}
           totalCommunityGoal={500}
         />
       </div>
-      
-      <div className="button__align--right">
-        <Link href="/community">
-          <a aria-label="community detail" className="button--go"></a>
+
+      <div className='button__align--right'>
+        <Link href='/community'>
+          <a aria-label='community detail' className='button--go'></a>
         </Link>
       </div>
-      
-      <article className="community-update__energy-update">
+
+      <article className='community-update__energy-update'>
         <img
-          className="community-update__energy-arrow"
-          src="/icons/icon-arrow-up.svg"
+          className='community-update__energy-arrow'
+          src='/icons/icon-arrow-up.svg'
         />
-        <h3 className="community-update__energy-usage font--medium">18%</h3>
-        <p className="community-update__energy-body  font--small">
+        <h3 className='community-update__energy-usage font--medium'>18%</h3>
+        <p className='community-update__energy-body  font--small'>
           The community uses 18% more fossil energy than the week before.
         </p>
       </article>
     </article>
-  );
+  )
 }
