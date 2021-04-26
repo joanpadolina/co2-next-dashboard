@@ -6,12 +6,15 @@ import HeaderCarbon from '../components/header/header-main/header-main'
 import SavingsTime from '../components/savings-time'
 import CommunityUpdate from '../components/community-update/community-update'
 import HistoryCharge from '../components/history-charge/history-charge'
+import useInitUser from '../lib/useInitUser'
 
 export default function Index() {
   const store = useSelector((state) => state.store)
   const user = store.user
   const { chargingSession } = store
   const [currentCarbon, setCurrentCarbon] = useState(0)
+
+  useInitUser()
 
   useEffect(() => {
     const chargeCarbonTotal = carbonReducer(chargingSession)

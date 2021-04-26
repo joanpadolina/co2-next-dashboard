@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { communitySavings } from '../redux/actions/'
 import { members } from '../lib/members'
+import useInitUser from '../lib/useInitUser'
 import { carbonReducer } from '../lib/carbon-saving-calculation'
 import { calcCarbonToKm } from '../lib/gimmick-calc'
 import ProgressBar from '../components/progress-bar'
@@ -19,6 +20,8 @@ export default function Community() {
   const [userContribution, setUserContribution] = useState(
     chargingSession[0].savedCarbon
   )
+
+  useInitUser()
 
   useEffect(() => {
     async function calcInKm() {

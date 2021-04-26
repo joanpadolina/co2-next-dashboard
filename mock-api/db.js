@@ -7,5 +7,5 @@ module.exports = () => ({
   user,
   allUser,
   gimmick,
-  community,
-});
+  community
+})

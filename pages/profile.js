@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import { carbonReducer } from '../lib/carbon-saving-calculation'
+import useInitUser from '../lib/useInitUser'
 
 export default function Profile() {
   const [totalSavings, setTotalSavings] = useState(0)
@@ -24,6 +25,7 @@ export default function Profile() {
     train: 30
   }
 
+  useInitUser()
   function calculateDistance(carbon, gimmick) {
     const resultDistance = (carbon * 100) / gimmick
     return Math.ceil(resultDistance)
