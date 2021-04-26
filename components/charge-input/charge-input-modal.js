@@ -24,15 +24,13 @@ export default function ChargeTime() {
   useEffect(() => {
     setIsBrowser(store.isOpen)
     setReveal(isBrowser)
+    // dispatch(addTotal(carbon))
 
     if (router.pathname === '/charge-input') {
       setIsBrowser(false)
     }
 
     const chargeCarbonTotal = carbonReducer(chargingSession)
-    if (reveal) {
-      dispatch(addTotal(carbon))
-    }
     setCarbon(chargeCarbonTotal)
 
     // set date picker to today
