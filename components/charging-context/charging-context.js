@@ -1,6 +1,6 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext } from 'react'
 
-export const ChargingContext = createContext();
+export const ChargingContext = createContext()
 
 export function ChargingProvider(props) {
   const [charging, setCharging] = useState([
@@ -12,12 +12,12 @@ export function ChargingProvider(props) {
       savingsInPercentage: '10%',
       savedCarbon: 25,
       totalCarbon: 50,
-      totalSavedCarbon: 25,
-    },
-  ]);
+      totalSavedCarbon: 25
+    }
+  ])
   return (
     <ChargingContext.Provider value={[charging, setCharging]}>
       {props.children}
     </ChargingContext.Provider>
-  );
+  )
 }
