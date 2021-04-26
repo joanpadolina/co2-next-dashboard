@@ -55,7 +55,7 @@ export default function Community() {
 
   return (
     <>
-      <header className='header'>
+      <header className='header community__header'>
         <h1>Your community</h1>
         <article className='community__header-body'>
           <p className='community__header-p community__header-people community__header-padding--right'>
@@ -67,7 +67,7 @@ export default function Community() {
           </p>
         </article>
       </header>
-      <main className='index__main'>
+      <main className='index__main community__main'>
         <article>
           <section className='community-saved__datavisual'>
             <article>
@@ -81,18 +81,18 @@ export default function Community() {
           </section>
         </article>
 
-        <article>
+        <article className='community__distance'>
           <h2 className='font--title'>Communities next goal</h2>
-          <section>
-            <div>
-              <h3>Amsterdam {'-->'} Luxembourg</h3>
-              <p>{carbonInKm} km</p>
+          <section className='community__distance-body'>
+            <div className='community__distance-goal community__distance-margin--bottom'>
+              <h3 className='community__distance-title'>
+                Amsterdam {'-->'} Luxembourg
+              </h3>
+              <p className='community__distance-goal-value'>{carbonInKm} km</p>
             </div>
-            <div>
-              <p>
-                500 kg
-                <span>~410 km</span>
-              </p>
+            <div className='community__distance-goal--right'>
+              <p className='community__distance-value'>500 kg</p>
+              <span className='community__distance-value'>~410 km</span>
             </div>
           </section>
           <ProgressBar
@@ -123,6 +123,7 @@ export default function Community() {
                           <img
                             alt={user.name}
                             key={key}
+                            className='community__profile-image'
                             src={
                               data.name.includes(user.name) ? data.imgSrc : ''
                             }
@@ -140,13 +141,17 @@ export default function Community() {
           </table>
         </article>
 
-        <article>
-          <h3>Community members</h3>
-          <ul>
+        <article className='community__members'>
+          <h3 className='font--title'>Community members</h3>
+          <ul className='flat-list community__members-list'>
             {members.map((member, key) => (
               <li key={key}>
                 <figure>
-                  <img src={member.imgSrc} alt={member.name} />
+                  <img
+                    className='community__profile-image'
+                    src={member.imgSrc}
+                    alt={member.name}
+                  />
                   <figcaption>{member.name}</figcaption>
                 </figure>
               </li>

@@ -1,3 +1,7 @@
+.community__header::before {
+    height: 20rem;
+}
+
 .community__header-body {
     display: flex;
     justify-content: center;
@@ -34,4 +38,42 @@
 
 .community__header-padding--right {
     padding-right: var(--s-default);
+}
+
+.community__main {
+    /* margin-bottom: 0; */
+}
+
+.community__distance-title {
+    font-size: var(--font--small);
+}
+
+.community__distance-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    color: var(--c-grey--title);
+
+}
+
+.community__distance-goal--right {
+    text-align: right;
+}
+
+.community__distance-goal-value {
+    font-weight: bold;
+}
+
+.community__profile-image {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 6rem;
+    object-fit: cover;
+}
+
+.community__members-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
 }

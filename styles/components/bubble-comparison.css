@@ -13,11 +13,11 @@
     display: grid;
     place-items: center;
     position: relative;
-    width: 10rem;
-    height: 10rem;
+    width: 9rem;
+    height: 9rem;
     background: #7F8595;
     color: var(--c-white);
-    border-radius: 10rem;
+    border-radius: 9rem;
     transition: transform 300ms ease;
     transition-delay: 400ms;
 }
@@ -39,6 +39,7 @@
     from {
         transform: scale(0);
     }
+
     to {
         transform: scale(1);
     }
