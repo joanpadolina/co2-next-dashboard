@@ -1,0 +1,15 @@
+{
+    "community": [{
+        "id": 1,
+        "name": "Jasper",
+        "savedCarbon": 20
+    }, {
+        "id": 2,
+        "name": "Joan",
+        "savedCarbon": 12
+    }, {
+        "id": 3,
+        "name": "Kees",
+        "savedCarbon": 16
+    }]
+}

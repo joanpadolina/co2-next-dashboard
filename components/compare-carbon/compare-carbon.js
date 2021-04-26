@@ -15,7 +15,7 @@ export default function Comparable() {
       0
     )
     async function dataFetch() {
-      const data = await fetch('http://localhost:4000/gimmick')
+      const data = await fetch('/mock-api/gimmick.json')
       const response = await data.json()
       return response
     }

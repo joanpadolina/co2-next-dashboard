@@ -48,13 +48,13 @@ export const communitySavings = (results) => {
 }
 
 export async function fetchCommunityUser(dispatch) {
-  const community = await fetch('http://localhost:4000/community')
+  const community = await fetch('/mock-api/communitySavings.json')
   const response = await community.json()
   dispatch({ type: 'COMMUNITY_USERS', payload: response.community })
 }
 
 export async function fetchUser(dispatch) {
-  const users = await fetch('http://localhost:4000/user')
+  const users = await fetch('/mock-api/user.json')
   const response = await users.json()
   dispatch({ type: 'USER', payload: response })
 }

@@ -1,0 +1,10 @@
+{
+    "user": {
+        "id": 1,
+        "name": "Jojo",
+        "elektricityConsumed": 27.3,
+        "anualKm": 27500,
+        "avarageConsumption": 0.150,
+        "chargeSpeedKmHour": 73
+    }
+}
