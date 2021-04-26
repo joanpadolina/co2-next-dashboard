@@ -1,0 +1,37 @@
+.community__header-body {
+    display: flex;
+    justify-content: center;
+}
+
+.community__header-amount {
+    display: block;
+    margin-bottom: .5rem;
+    font-size: var(--font--medium);
+}
+
+.community__header-people::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: .2rem;
+    background-color: var(--c-white);
+    top: 0;
+    right: 0;
+}
+
+.community__header-p {
+    margin-bottom: 3rem;
+    position: relative;
+    width: 6rem;
+    text-align: center;
+    font-size: .8rem;
+}
+
+.community__header-padding--left {
+    padding-left: var(--s-default);
+}
+
+.community__header-padding--right {
+    padding-right: var(--s-default);
+}
