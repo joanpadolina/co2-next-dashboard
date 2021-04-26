@@ -53,7 +53,8 @@ export default function Community() {
     store.total,
     dispatch,
     totalCarbon,
-    users
+    users,
+    userChargingSession
   ])
 
   return (
@@ -76,7 +77,7 @@ export default function Community() {
             <article>
               <h2 className='font--title'>Community total saved CO2</h2>
               <BubbleComparison />
-              <p>
+              <p className='community__datavisual-body'>
                 The amount of CO2 saved is the same as driving{' '}
                 <span>{carbonInKm} km</span> in a petrol car.
               </p>

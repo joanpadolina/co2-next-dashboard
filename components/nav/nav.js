@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { modalActive } from '../../redux/actions/index'
 import Link from 'next/link'
@@ -9,15 +9,13 @@ import IconCommunity from '../../public/icons/icon-community.svg'
 export default function Nav() {
   const store = useSelector((state) => state.store)
   const stateIsOpen = store.isOpen
-  const [isOpen, setIsOpen] = useState()
   const router = useRouter()
   const currentRouter = router.pathname
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(modalActive(isOpen))
-  }, [dispatch, isOpen])
-
+  function handleModal() {
+    dispatch(modalActive(!stateIsOpen))
+  }
   return (
     <nav className='nav'>
       <ul className='nav__list flat-list'>
@@ -35,7 +33,7 @@ export default function Nav() {
         </li>
 
         <li className='nav__item'>
-          <Link href={!isOpen ? '?charge' : ''}>
+          <Link href={!stateIsOpen ? '?charge' : ''}>
             <a
               className={`nav__button--add nav__item${
                 stateIsOpen || currentRouter === '/charge-input'
@@ -43,7 +41,7 @@ export default function Nav() {
                   : ''
               }`}
               aria-label='add new charge'
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={handleModal}
             ></a>
           </Link>
         </li>

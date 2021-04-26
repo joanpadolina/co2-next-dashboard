@@ -1,1 +1,1 @@
-export { default } from "./savings-time.js";
+export { default } from './savings-time.js'

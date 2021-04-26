@@ -65,6 +65,7 @@ export default function ChargeTime() {
     const input = handleInput(e)
     const data = chargeConfig(input)
     dispatch(addCharge(data))
+    revealPopup()
   }
 
   function handleInput(e) {
@@ -218,7 +219,7 @@ export default function ChargeTime() {
               </a>
             </Link>
 
-            <button className='button' onClick={revealPopup}>
+            <button className='button' >
               save changes
             </button>
           </div>

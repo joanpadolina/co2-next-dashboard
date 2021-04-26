@@ -1,21 +1,21 @@
 .profile__header {
   background-color: var(--c-dark);
   color: var(--c-white);
-  padding: 2rem 1rem;
+  padding: 2rem var(--s-default);
 }
 
 .profile__main {
   margin-top: -2rem;
-  margin-bottom: 8rem;
+  margin-bottom: var(--s-default);
   background-color: var(--c-white);
-  border-radius: 1rem 1rem 0 0;
-  padding-top: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  border-radius: var(--s-default) var(--s-default) 0 0;
+  padding-top: var(--s-default);
+  padding-left: var(--s-default);
+  padding-right: var(--s-default);
 }
 
 .profile__main-title {
-  font-size: 1rem;
+  font-size: var(--s-default);
   font-weight: normal;
   margin-bottom: -0.5rem;
 }
@@ -32,7 +32,7 @@
   font-size: 0.8rem;
   width: 17rem;
   margin: 0 auto 2rem auto;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.var(--s-default);
 }
 
 .font--highlight {
@@ -73,8 +73,8 @@
 .profile__trees-wrapper {
   display: block;
   position: relative;
-  margin: -1rem;
-  padding: 1rem;
+  margin: -var(--s-default);
+  padding: var(--s-default);
 }
 
 .profile__trees-wrapper::after {
@@ -114,7 +114,7 @@
   margin: 0 .3rem;
   background: linear-gradient(90deg, #6CEBAF 0%, #88D6D8 100%);
   height: 1.5rem;
-  border-radius: .1rem;
+  border-radius: .var(--s-default);
 }
 
 .profile__equivalence-body {

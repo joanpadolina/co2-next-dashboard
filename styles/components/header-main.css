@@ -65,7 +65,10 @@
 
 .header__body {
     display: flex;
-    margin: 2rem 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4rem;
+    width: 20rem;
 }
 
 .header__body:before {

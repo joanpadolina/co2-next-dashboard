@@ -44,15 +44,7 @@ export default function Profile() {
   const { chargingSession } = store
 
   useEffect(() => {
-    calcTreeSavings()
     setTotalSavings(carbonReducer(chargingSession))
-    const arraySrc = []
-
-    for (let i = 0; i < totalTrees; i++) {
-      const treeImg = '/icons/icon-tree.svg'
-      arraySrc.push(treeImg)
-    }
-    setArrayOfTrees(arraySrc)
 
     function setObjectGimmick() {
       const value = {
@@ -63,6 +55,16 @@ export default function Profile() {
       setGimmicksInKm(value)
     }
 
+    setObjectGimmick()
+  }, [
+    carbonPerKm.car,
+    carbonPerKm.plane,
+    carbonPerKm.train,
+    chargingSession,
+    totalSavings
+  ])
+
+  useEffect(() => {
     function calcPercentageBar() {
       const values = Object.values(gimmicksInKm)
       const max = Math.max(...values)
@@ -74,6 +76,18 @@ export default function Profile() {
       }
       setWidthStyle(value)
     }
+    calcPercentageBar()
+  }, [gimmicksInKm])
+
+  useEffect(() => {
+    const arraySrc = []
+
+    for (let i = 0; i < totalTrees; i++) {
+      const treeImg = '/icons/icon-tree.svg'
+      arraySrc.push(treeImg)
+    }
+    setArrayOfTrees(arraySrc)
+
     function calcTreeSavings() {
       const averageTree = 20
       const totalTrees = Math.floor(totalSavings / averageTree)
@@ -92,10 +106,8 @@ export default function Profile() {
     }
     addImgTrees(totalTrees)
 
-    setObjectGimmick()
-    calcPercentageBar()
-  }, [totalTrees, totalSavings, chargingSession])
-
+    calcTreeSavings()
+  }, [totalSavings, totalTrees])
   return (
     <>
       <header className='profile__header'>

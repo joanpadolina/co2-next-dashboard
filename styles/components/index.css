@@ -4,7 +4,7 @@
     background-color: var(--c-white);
     padding: 0 1rem;
     margin-top: 2.5em;
-    margin-bottom: 8rem;
+    padding-bottom: 5rem;
 }
 
 .index__main::before {

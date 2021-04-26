@@ -40,8 +40,10 @@
     padding-right: var(--s-default);
 }
 
-.community__main {
-    /* margin-bottom: 0; */
+.community__datavisual-body {
+    text-align: center;
+    margin: var(--s-default) auto;
+    width: 20em;
 }
 
 .community__distance-title {
@@ -74,7 +76,6 @@
 .community__members-list {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: center; */
     text-align: center;
 }
 

@@ -21,7 +21,7 @@ export default function FormModal() {
 
   return (
     <Modal
-      isOpen={router.asPath === '/charge-input' ? true : false}
+      isOpen={router.asPath === '/charge-input'}
       onRequestClose={closeModal}
     >
       <ChargeInput />

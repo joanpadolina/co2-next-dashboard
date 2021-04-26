@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "mock-api": "json-server --watch ./mock-api/db.js --port 4000"
+    "mock-api": "json-server --watch ./mock-api/db.js --port 4000",
+    "lint": "eslint ./components/** ./pages/** ./lib/** -c .eslintrc.js --fix --ext js,jsx"
   },
   "dependencies": {
     "@svgr/webpack": "^5.5.0",

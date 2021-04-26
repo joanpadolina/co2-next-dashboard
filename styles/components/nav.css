@@ -1,13 +1,13 @@
 .nav {
   display: block;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   left: 0;
   margin: 0;
   background-color: var(--c-grey--200);
   border-top: .15rem solid #E3E6E8;
-  z-index: 1;
+  overflow: hidden;
 }
 
 .nav__list {
@@ -66,7 +66,7 @@
   transition: font-weigth 300ms ease-in-out;
 }
 
-.nav--active > .icon {
+.nav--active>.icon {
   fill: var(--c-dark);
 }
 
@@ -91,6 +91,6 @@
   color: var(--c-icon--disabled);
 }
 
-.disabled > .icon {
+.disabled>.icon {
   fill: var(--c-icon--disabled);
 }
