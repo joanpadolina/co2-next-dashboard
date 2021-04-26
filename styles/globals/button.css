@@ -13,6 +13,7 @@
     border-radius: .5rem;
     font-weight: 800;
     border: .05rem solid var(--c-dark);
+    font-size: var(--font--default);
 }
 
 .button--dark {
@@ -29,6 +30,7 @@
 .button--secondary {
     color: var(--c-dark);
     border-bottom: .3rem solid var(--c-green);
+    font-size: var(--font--small);
 }
 
 .button--go {
@@ -73,7 +75,7 @@
     content: "<---";
     display: block;
     position: absolute;
-    font-size: 1rem;
+    font-size: var(--font--default);
     width: max-content;
     top: 0;
     left: .5rem;

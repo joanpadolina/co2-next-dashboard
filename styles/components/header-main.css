@@ -55,12 +55,12 @@
 }
 
 .header__carbon-subtitle {
-    font-size: .8rem;
+    font-size: var(--font--small);
 }
 
 .header__carbon-amount {
     margin: 0;
-    font-size: 3rem;
+    font-size: var(--font--big);
 }
 
 .header__body {

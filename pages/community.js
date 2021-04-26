@@ -1,52 +1,52 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { communitySavings } from '../redux/actions/'
-import { members } from '../lib/members'
-import useInitUser from '../lib/useInitUser'
-import { carbonReducer } from '../lib/carbon-saving-calculation'
-import { calcCarbonToKm } from '../lib/gimmick-calc'
-import ProgressBar from '../components/progress-bar'
-import BubbleComparison from '../components/bubble-comparison'
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { communitySavings } from "../redux/actions/";
+import { members } from "../lib/members";
+import useInitUser from "../lib/useInitUser";
+import { carbonReducer } from "../lib/carbon-saving-calculation";
+import { calcCarbonToKm } from "../lib/gimmick-calc";
+import ProgressBar from "../components/progress-bar";
+import BubbleComparison from "../components/bubble-comparison";
 
 export default function Community() {
-  const store = useSelector((state) => state.store)
-  const userChargingSession = store.chargingSession
-  const users = store.community.users
-  const dispatch = useDispatch()
-  const { chargingSession } = store
-  const [membersContribution, setMembersContribution] = useState([])
-  const [totalCarbon, setTotalCarbon] = useState()
-  const [carbonInKm, setCarbonInKm] = useState(12)
+  const store = useSelector((state) => state.store);
+  const userChargingSession = store.chargingSession;
+  const users = store.community.users;
+  const dispatch = useDispatch();
+  const { chargingSession } = store;
+  const [membersContribution, setMembersContribution] = useState([]);
+  const [totalCarbon, setTotalCarbon] = useState();
+  const [carbonInKm, setCarbonInKm] = useState(12);
   const [userContribution, setUserContribution] = useState(
     chargingSession[0].savedCarbon
-  )
+  );
 
-  useInitUser()
+  useInitUser();
 
   useEffect(() => {
     async function calcInKm() {
-      const petrolDistance = await calcCarbonToKm(totalCarbon)
-      setCarbonInKm(petrolDistance)
+      const petrolDistance = await calcCarbonToKm(totalCarbon);
+      setCarbonInKm(petrolDistance);
     }
-    calcInKm()
+    calcInKm();
 
     const historyLast = chargingSession
       .slice(-1)
-      .map((data) => data.savedCarbon)
+      .map((data) => data.savedCarbon);
 
     const userContribution =
-      typeof store.total !== 'function' ? store.total : historyLast[0]
+      typeof store.total !== "function" ? store.total : historyLast[0];
 
     // last update first on the list
-    setMembersContribution(users.reverse())
-    const userTotal = carbonReducer(userChargingSession)
+    setMembersContribution(users.reverse());
+    const userTotal = carbonReducer(userChargingSession);
     const total = users.reduce(
       (sum, { savedCarbon }) => Math.ceil(sum + savedCarbon),
       0
-    )
-    setTotalCarbon(userTotal + total)
-    setUserContribution(userTotal)
-    dispatch(communitySavings(totalCarbon))
+    );
+    setTotalCarbon(userTotal + total);
+    setUserContribution(userTotal);
+    dispatch(communitySavings(totalCarbon));
   }, [
     setMembersContribution,
     chargingSession,
@@ -54,13 +54,13 @@ export default function Community() {
     dispatch,
     totalCarbon,
     users,
-    userChargingSession
-  ])
+    userChargingSession,
+  ]);
 
   return (
     <>
       <header className='header community__header'>
-        <h1>Your community</h1>
+        <h1 className='community__title'>Your community</h1>
         <article className='community__header-body'>
           <p className='community__header-p community__header-people community__header-padding--right'>
             <span className='community__header-amount'> 8 </span> People
@@ -78,7 +78,7 @@ export default function Community() {
               <h2 className='font--title'>Community total saved CO2</h2>
               <BubbleComparison />
               <p className='community__datavisual-body'>
-                The amount of CO2 saved is the same as driving{' '}
+                The amount of CO2 saved is the same as driving{" "}
                 <span>{carbonInKm} km</span> in a petrol car.
               </p>
             </article>
@@ -90,7 +90,7 @@ export default function Community() {
           <section className='community__distance-body'>
             <div className='community__distance-goal community__distance-margin--bottom'>
               <h3 className='community__distance-title'>
-                Amsterdam {'-->'} Luxembourg
+                Amsterdam {"-->"} Luxembourg
               </h3>
               <p className='community__distance-goal-value'>{carbonInKm} km</p>
             </div>
@@ -129,12 +129,12 @@ export default function Community() {
                             key={key}
                             className='community__profile-image'
                             src={
-                              data.name.includes(user.name) ? data.imgSrc : ''
+                              data.name.includes(user.name) ? data.imgSrc : ""
                             }
                           />
-                        )
+                        );
                       }
-                      return ''
+                      return "";
                     })}
                   </td>
                   <td> {user.name}</td>
@@ -166,5 +166,5 @@ export default function Community() {
         </article>
       </main>
     </>
-  )
+  );
 }

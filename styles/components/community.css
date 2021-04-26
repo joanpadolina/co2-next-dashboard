@@ -1,3 +1,6 @@
+.community__title {
+    font-size: var(--font--ml);
+}
 .community__header::before {
     height: 20rem;
 }
@@ -10,7 +13,8 @@
 .community__header-amount {
     display: block;
     margin-bottom: .5rem;
-    font-size: var(--font--medium);
+    font-size: var(--font--big);
+    font-weight: bolder;
 }
 
 .community__header-people::after {
@@ -29,7 +33,7 @@
     position: relative;
     width: 6rem;
     text-align: center;
-    font-size: .8rem;
+    font-size: var(--font--small);
 }
 
 .community__header-padding--left {
@@ -43,6 +47,7 @@
 .community__datavisual-body {
     text-align: center;
     margin: var(--s-default) auto;
+    margin-bottom: 5rem;
     width: 20em;
 }
 
@@ -54,7 +59,7 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    color: var(--c-grey--title);
+    color: var(--c-grey--500);
 
 }
 

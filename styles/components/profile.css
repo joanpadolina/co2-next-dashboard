@@ -15,21 +15,21 @@
 }
 
 .profile__main-title {
-  font-size: 1rem;
+  font-size: var(--font--default);
   font-weight: normal;
   margin-bottom: -0.5rem;
 }
 
 .profile__subtitle {
   color: var(--c-grey--title);
-  font-size: .9rem;
+  font-size: var(--font--small);
   margin-bottom: 2rem;
 }
 
 .profile__trees-subtitle {
   text-align: center;
   color: var(--c-grey--title);
-  font-size: 0.8rem;
+  font-size: var(--font--small);
   width: 17rem;
   margin: 0 auto 2rem auto;
   letter-spacing: 0.1rem;
@@ -124,7 +124,7 @@
 }
 
 .profile__equivalence-body span {
-  font-size: .8rem;
+  font-size: var(--font--small);
   color: var(--c-grey--400);
   font-weight: normal;
 }

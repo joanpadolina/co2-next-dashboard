@@ -170,6 +170,7 @@ h1 {
   color: var(--c-grey--title);
   margin-top: 2rem;
   margin-bottom: var(--s-default);
+  text-transform: uppercase;
 }
 
 .font--medium {
@@ -180,5 +181,4 @@ h1 {
   font-family: "Inter";
   font-weight: bolder;
   font-size: 3rem;
-  /* 48px */
 }
