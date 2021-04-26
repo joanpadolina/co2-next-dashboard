@@ -1,52 +1,52 @@
-import initialState from './initState';
+import initialState from './initState'
 
 const store = (state = initialState, action) => {
-  const data = action.payload;
+  const data = action.payload
   switch (action.type) {
     case 'USER':
       return {
         ...state,
-        user: data.user,
-      };
+        user: data.user
+      }
     case 'ADD_CHARGE':
       return {
         ...state,
-        chargingSession: [...state.chargingSession, data],
-      };
+        chargingSession: [...state.chargingSession, data]
+      }
     case 'ADD_GIMMICKS':
       return {
         ...state,
-        gimmicks: [data],
-      };
+        gimmicks: [data]
+      }
     case 'ADD_TOTAL':
       return {
         ...state,
-        total: data,
-      };
+        total: data
+      }
     case 'IS_OPEN':
       return {
         ...state,
-        isOpen: data,
-      };
+        isOpen: data
+      }
     case 'COMMUNITY_USERS':
       return {
         ...state,
         community: {
           ...state.community,
-          users: [...data],
-        },
-      };
+          users: [...data]
+        }
+      }
     case 'ADD_COMMUNITY_TOTAL':
       return {
         ...state,
         community: {
           ...state.community,
-          total: data,
-        },
-      };
+          total: data
+        }
+      }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default store;
+export default store

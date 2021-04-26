@@ -15,8 +15,8 @@ export default function Nav() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(modalActive(!stateIsOpen))
-  }, [isOpen])
+    dispatch(modalActive(isOpen))
+  }, [dispatch, isOpen])
 
   return (
     <nav className='nav'>

@@ -1,63 +1,65 @@
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { useSelector, useDispatch } from 'react-redux';
-import { communitySavings } from '../redux/actions/';
-import { members } from '../lib/members';
-import { calcCarbonToKm } from '../lib/gimmick-calc';
-import ProgressBar from '../components/progress-bar';
-import BubbleComparison from '../components/bubble-comparison';
+import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { useSelector, useDispatch } from 'react-redux'
+import { communitySavings } from '../redux/actions/'
+import { members } from '../lib/members'
+import { carbonReducer } from '../lib/carbon-saving-calculation'
+import { calcCarbonToKm } from '../lib/gimmick-calc'
+import ProgressBar from '../components/progress-bar'
+import BubbleComparison from '../components/bubble-comparison'
 
 export default function Community() {
-  const store = useSelector((state) => state.store);
-  const users = store.community.users;
-  const dispatch = useDispatch();
-  const { chargingSession } = store;
-  const [membersContribution, setMembersContribution] = useState([]);
-  const [totalCarbon, setTotalCarbon] = useState();
-  const [carbonInKm, setCarbonInKm] = useState(12);
+  const store = useSelector((state) => state.store)
+  const userChargingSession = store.chargingSession
+  const users = store.community.users
+  const dispatch = useDispatch()
+  const { chargingSession } = store
+  const [membersContribution, setMembersContribution] = useState([])
+  const [totalCarbon, setTotalCarbon] = useState()
+  const [carbonInKm, setCarbonInKm] = useState(12)
   const [userContribution, setUserContribution] = useState(
-    chargingSession[0].savedCarbon,
-  );
+    chargingSession[0].savedCarbon
+  )
 
   useEffect(() => {
     async function calcInKm() {
-      const petrolDistance = await calcCarbonToKm(totalCarbon);
-      setCarbonInKm(petrolDistance);
+      const petrolDistance = await calcCarbonToKm(totalCarbon)
+      setCarbonInKm(petrolDistance)
     }
-    calcInKm();
-
+    calcInKm()
+    console.log(totalCarbon)
     const historyLast = chargingSession
       .slice(-1)
-      .map((data) => data.savedCarbon);
+      .map((data) => data.savedCarbon)
 
     const userContribution =
-      typeof store.total !== 'function' ? store.total : historyLast[0];
+      typeof store.total !== 'function' ? store.total : historyLast[0]
 
     // last update first on the list
-    setMembersContribution(users.reverse());
-
+    setMembersContribution(users.reverse())
+    const userTotal = carbonReducer(userChargingSession)
     const total = users.reduce(
       (sum, { savedCarbon }) => Math.ceil(sum + savedCarbon),
-      0,
-    );
-    setTotalCarbon(total + store.total);
-    setUserContribution(store.total);
-    dispatch(communitySavings(totalCarbon));
+      0
+    )
+    setTotalCarbon(userTotal + total)
+    setUserContribution(userTotal)
+    dispatch(communitySavings(totalCarbon))
   }, [
     setMembersContribution,
     chargingSession,
     store.total,
     dispatch,
     totalCarbon,
-    users,
-  ]);
+    users
+  ])
 
   return (
     <main>
-      <Link href="/">back</Link>
+      <Link href='/'>back</Link>
       <h1>Your community</h1>
       <article>
-        <section className="community-saved__datavisual">
+        <section className='community-saved__datavisual'>
           <article>
             <h2>Community total saved CO2</h2>
             <p>{totalCarbon} kg</p>
@@ -81,7 +83,7 @@ export default function Community() {
             <p>
               The amount of CO2 saved is the same as driving from Amsterdam to
               Maastricht in a petrol car,{' '}
-              <span className="font-bold"> which is 212,5 km </span> .
+              <span className='font-bold'> which is 212,5 km </span> .
             </p>
           </article>
         </section>
@@ -121,9 +123,9 @@ export default function Community() {
                           key={key}
                           src={data.name.includes(user.name) ? data.imgSrc : ''}
                         />
-                      );
+                      )
                     }
-                    return '';
+                    return ''
                   })}
                 </td>
                 <td> {user.name}</td>
@@ -148,5 +150,5 @@ export default function Community() {
         </ul>
       </article>
     </main>
-  );
+  )
 }

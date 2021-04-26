@@ -1,35 +1,35 @@
 import React, { useState, useEffect } from 'react'
+import { carbonReducer } from '../../lib/carbon-saving-calculation.js'
 import { useSelector } from 'react-redux'
 
 export default function BubbleComparison() {
   const store = useSelector((state) => state.store)
-  const { community, total } = store
+  const { community, chargingSession } = store
   const [contribution, setContribution] = useState(0)
+  const [carbonTotal, setCarbonTotal] = useState(0)
   const [communityContribution, setCommunityContribution] = useState(0)
 
   useEffect(() => {
-    const totalOfUsers = community.users.reduce(
-      (sum, { savedCarbon }) => sum + savedCarbon,
-      0
-    )
+    const totalOfUsers = carbonReducer(community.users)
+    const totalUser = carbonReducer(chargingSession)
+    setCarbonTotal(totalUser)
 
     const data = {
       total: community.total,
-      yours: total
+      yours: totalUser
     }
-
     const progressScale = (1 * data.yours) / data.total
     setContribution(progressScale)
 
-    if (total >= totalOfUsers) {
-      const progressCommunity = (1 * totalOfUsers) / total
+    if (chargingSession >= totalOfUsers) {
+      const progressCommunity = (1 * totalOfUsers) / chargingSession
       setCommunityContribution(progressCommunity)
       setContribution(1)
     } else setCommunityContribution(1)
   }, [
     contribution,
     community,
-    total,
+    chargingSession,
     communityContribution,
     setCommunityContribution
   ])
@@ -61,7 +61,7 @@ export default function BubbleComparison() {
               contribution < 0.6 ? 'bubble-comparison--remove' : ''
             } bubble-comparison__body--inside bubble-comparison__body--right`}
           >
-            <span className='bubble-comparison__carbon'>{total} kg</span>
+            <span className='bubble-comparison__carbon'>{carbonTotal} kg</span>
             <span className='bubble-comparison__subtitle'>
               Your contribution
             </span>
@@ -82,7 +82,7 @@ export default function BubbleComparison() {
           contribution >= 0.6 ? 'bubble-comparison--remove' : ''
         } bubble-comparison__body bubble-comparison__body--right`}
       >
-        <span className='bubble-comparison__carbon'>{total} kg</span>
+        <span className='bubble-comparison__carbon'>{carbonTotal} kg</span>
         <span className='bubble-comparison__subtitle'>Your contribution</span>
       </p>
     </article>

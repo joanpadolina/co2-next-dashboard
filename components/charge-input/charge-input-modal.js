@@ -38,7 +38,6 @@ export default function ChargeTime() {
     // set date picker to today
     const setDateToday = new Date().toISOString().substr(0, 10)
     setCurrentDate(setDateToday)
-    console.log(reveal, currentSavedCarbon, carbon, isBrowser)
   }, [
     carbon,
     dispatch,

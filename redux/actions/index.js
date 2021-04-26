@@ -1,60 +1,60 @@
 export const addCharge = (results) => {
   return {
     type: 'ADD_CHARGE',
-    payload: results,
-  };
-};
+    payload: results
+  }
+}
 
 export const addGimmicks = (results) => {
   return {
     type: 'ADD_GIMMICKS',
-    payload: results,
-  };
-};
+    payload: results
+  }
+}
 
 export const addTotal = (results) => {
   return {
     type: 'ADD_TOTAL',
-    payload: results,
-  };
-};
+    payload: results
+  }
+}
 
 export const user = (results) => {
   return {
     type: 'USER',
-    payload: results,
-  };
-};
+    payload: results
+  }
+}
 
 export const communityUser = (results) => {
-    return {
-      type: 'COMMUNITY_USERS',
-      payload: results
-    };
+  return {
+    type: 'COMMUNITY_USERS',
+    payload: results
+  }
 }
 
 export const modalActive = (results) => {
   return {
     type: 'IS_OPEN',
-    payload: results,
-  };
-};
+    payload: results
+  }
+}
 
 export const communitySavings = (results) => {
   return {
     type: 'ADD_COMMUNITY_TOTAL',
-    payload: results,
-  };
-};
+    payload: results
+  }
+}
 
 export async function fetchCommunityUser(dispatch) {
-  const community = await fetch('http://localhost:4000/community');
-  const response = await community.json();
-  dispatch({ type: 'COMMUNITY_USERS', payload: response.community });
+  const community = await fetch('http://localhost:4000/community')
+  const response = await community.json()
+  dispatch({ type: 'COMMUNITY_USERS', payload: response.community })
 }
 
 export async function fetchUser(dispatch) {
-  const users = await fetch('http://localhost:4000/user');
-  const response = await users.json();
-  dispatch({ type: 'USER', payload: response });
+  const users = await fetch('http://localhost:4000/user')
+  const response = await users.json()
+  dispatch({ type: 'USER', payload: response })
 }

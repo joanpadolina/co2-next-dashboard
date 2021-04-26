@@ -15,7 +15,7 @@ const store = createStore(allReducer, composedEnhancer)
 store.dispatch(fetchUser)
 store.dispatch(fetchCommunityUser)
 
-function MyApp ({ Component, pageProps }) {
+function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <Component {...pageProps} />
