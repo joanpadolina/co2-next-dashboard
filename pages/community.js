@@ -146,13 +146,15 @@ export default function Community() {
           <ul className='flat-list community__members-list'>
             {members.map((member, key) => (
               <li key={key}>
-                <figure>
+                <figure className='community__member'>
                   <img
                     className='community__profile-image'
                     src={member.imgSrc}
                     alt={member.name}
                   />
-                  <figcaption>{member.name}</figcaption>
+                  <figcaption className='community__member-name'>
+                    {member.name}
+                  </figcaption>
                 </figure>
               </li>
             ))}
