@@ -15,8 +15,8 @@ const store = createStore(allReducer, composedEnhancer)
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <Component {...pageProps} />
       <Navigation />
+      <Component {...pageProps} />
       <ChargeInput />
     </Provider>
   )

@@ -1,86 +1,132 @@
 .bubble-comparison {
-  display: block;
-  position: relative;
+    display: block;
+    position: relative;
 }
 
 .bubble-comparison__bubbles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    /* display: flex; */
+    height: 11rem;
+    position: relative;
+    display: block;
+}
+
+.bubble-comparison__bubble-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.bubble-comparison__circle--left {
+    transform: translate(-4rem, 0);
+}
+
+.bubble-comparison__circle--right {
+    transform: translate(4rem, 0);
 }
 
 .bubble-comparison__circle {
-  display: grid;
-  place-items: center;
-  position: relative;
-  width: 9rem;
-  height: 9rem;
-  background: #7f8595;
-  color: var(--c-white);
-  border-radius: 100%;
-  transition: transform 300ms ease;
-  transition-delay: 400ms;
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 9rem;
+    height: 9rem;
+    background-color: #7f8595;
+    color: var(--c-white);
+    border-radius: 100%;
+    transition: transform 300ms ease;
+    transition-delay: 400ms;
 }
 
 @media (min-width: 600px) {
-  .bubble-comparison__circle {
-    width: 12rem;
-    height: 12rem;
-  }
+    .bubble-comparison__circle {
+        width: 10rem;
+        height: 10rem;
+    }
 }
+
 .bubble-comparison__body {
-  display: flex;
-  padding: 0.5rem;
-  flex-direction: column;
-  position: absolute;
-  top: 2rem;
-  transform: scale(0);
-  animation-name: zoom-in;
-  animation-duration: 300ms;
-  animation-delay: 400ms;
-  animation-fill-mode: forwards;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    justify-content: space-between;
+    transform: scale(0);
+    animation-name: zoom-in;
+    animation-duration: 300ms;
+    animation-delay: 400ms;
+    animation-fill-mode: forwards;
+}
+
+.bubble-comparison__body-community {
+    text-align: right;
+}
+
+.bubble-comparison__body-contribution {
+    font-size: .8rem;
 }
 
 @keyframes zoom-in {
-  from {
-    transform: scale(0);
-  }
+    from {
+        transform: scale(0);
+    }
 
-  to {
-    transform: scale(1);
-  }
+    to {
+        transform: scale(1);
+    }
 }
 
 .bubble-comparison__body--right {
-  right: 0;
+    right: 0;
 }
 
 .bubble-comparison__community {
-  left: 2rem;
-  position: relative;
+    left: 2rem;
+    position: relative;
 }
 
 .bubble-comparison__contribution {
-  background-color: var(--c-blue);
-  right: 2rem;
-  text-align: center;
-  top: 0;
+    background-color: var(--c-blue);
+    right: 2rem;
+    text-align: center;
+    top: 0;
+}
+
+.bubble-comparison__bubble-community {
+    fill: #7f8595;
+}
+
+.bubble-comparison__bubble-circle {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 300ms ease;
+    transition-delay: 400ms;
 }
 
 .bubble-comparison__carbon {
-  font-weight: bolder;
-  font-size: var(--font--ml);
+    font-weight: bolder;
+    font-size: var(--font--ml);
 }
 
 .bubble-comparison__subtitle {
-  font-size: var(--font--small);
+    font-size: var(--font--small);
 }
 
 .bubble-comparison__body--inside {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .bubble-comparison--remove {
-  display: none;
+    display: none;
+}
+
+.bubble-comparison__body--outside {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: var(--c-white);
+    position: relative;
+    /* padding-left: 4rem; */
 }

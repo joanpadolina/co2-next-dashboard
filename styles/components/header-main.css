@@ -68,7 +68,13 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 4rem;
-    width: 20rem;
+}
+
+@media screen and (min-width: 720px) {
+    .header__body {
+        width: 20rem;
+
+    }
 }
 
 .header__body:before {

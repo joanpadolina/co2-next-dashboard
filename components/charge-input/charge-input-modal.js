@@ -1,41 +1,41 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import {
   carbonSavingCalculation,
-  carbonReducer,
-} from "../../lib/carbon-saving-calculation.js";
-import diff from "../../lib/time-calculation";
-import { useSelector, useDispatch } from "react-redux";
-import { addCharge, addTotal } from "../../redux/actions";
-import PopupAmount from "../popup-amount";
+  carbonReducer
+} from '../../lib/carbon-saving-calculation.js'
+import diff from '../../lib/time-calculation'
+import { useSelector, useDispatch } from 'react-redux'
+import { addCharge, addTotal } from '../../redux/actions'
+import PopupAmount from '../popup-amount'
 
 export default function ChargeTime() {
-  const store = useSelector((state) => state.store);
-  const [isBrowser, setIsBrowser] = useState(false);
-  const [carbon, setCarbon] = useState(0);
-  const [currentDate, setCurrentDate] = useState("");
-  const [currentSavedCarbon, setCurrentSavedCarbon] = useState({});
-  const [reveal, setReveal] = useState(false);
-  const { user, chargingSession } = store;
-  const router = useRouter();
-  const dispatch = useDispatch();
+  const store = useSelector((state) => state.store)
+  const [isBrowser, setIsBrowser] = useState(false)
+  const [carbon, setCarbon] = useState(0)
+  const [currentDate, setCurrentDate] = useState('')
+  const [currentSavedCarbon, setCurrentSavedCarbon] = useState({})
+  const [reveal, setReveal] = useState(false)
+  const { user, chargingSession } = store
+  const router = useRouter()
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    setIsBrowser(store.isOpen);
-    setReveal(isBrowser);
+    setIsBrowser(store.isOpen)
+    setReveal(isBrowser)
     // dispatch(addTotal(carbon))
 
-    if (router.pathname === "/charge-input-modal") {
-      setIsBrowser(false);
+    if (router.pathname === '/charge-input-modal') {
+      setIsBrowser(false)
     }
 
-    const chargeCarbonTotal = carbonReducer(chargingSession);
-    setCarbon(chargeCarbonTotal);
+    const chargeCarbonTotal = carbonReducer(chargingSession)
+    setCarbon(chargeCarbonTotal)
 
     // set date picker to today
-    const setDateToday = new Date().toISOString().substr(0, 10);
-    setCurrentDate(setDateToday);
+    const setDateToday = new Date().toISOString().substr(0, 10)
+    setCurrentDate(setDateToday)
   }, [
     carbon,
     dispatch,
@@ -43,8 +43,8 @@ export default function ChargeTime() {
     store.isOpen,
     router.pathname,
     setCurrentDate,
-    currentSavedCarbon,
-  ]);
+    currentSavedCarbon
+  ])
 
   function chargeConfig(config = {}) {
     const newCharge = {
@@ -55,35 +55,35 @@ export default function ChargeTime() {
       amountCharge: config.amountCharge,
       chargedIn: config.chargedIn,
       savingsInPercentage: config.savings(),
-      savedCarbon: config.savedCarbon(),
-    };
-    return newCharge;
+      savedCarbon: config.savedCarbon()
+    }
+    return newCharge
   }
 
   function handleSubmit(e) {
-    e.preventDefault();
-    const input = handleInput(e);
-    const data = chargeConfig(input);
-    dispatch(addCharge(data));
-    revealPopup();
+    e.preventDefault()
+    const input = handleInput(e)
+    const data = chargeConfig(input)
+    dispatch(addCharge(data))
+    revealPopup()
   }
 
   function handleInput(e) {
-    const date = e.target[0].value;
-    const startTime = e.target[1].value;
-    const endTime = e.target[2].value;
-    const duration = diff(startTime, endTime);
-    const amountCharge = e.target[3].value;
-    const chargedIn = e.target[4].value;
+    const date = e.target[0].value
+    const startTime = e.target[1].value
+    const endTime = e.target[2].value
+    const duration = diff(startTime, endTime)
+    const amountCharge = e.target[3].value
+    const chargedIn = e.target[4].value
 
     const savedCarbon = () => {
-      const total = carbonSavingCalculation(duration, user);
-      return total / 100;
-    };
+      const total = carbonSavingCalculation(duration, user)
+      return total / 100
+    }
 
-    setCurrentSavedCarbon({ total: savedCarbon(), date });
+    setCurrentSavedCarbon({ total: savedCarbon(), date })
 
-    const savings = () => Math.floor(Math.random() * 20) + "%";
+    const savings = () => Math.floor(Math.random() * 20) + '%'
     return {
       date,
       startTime,
@@ -92,22 +92,22 @@ export default function ChargeTime() {
       amountCharge,
       chargedIn,
       savedCarbon,
-      savings,
-    };
+      savings
+    }
   }
 
   function changeDate(e) {
-    return setCurrentDate(e.target.value);
+    return setCurrentDate(e.target.value)
   }
 
   const ShowCarbonAmount = () => {
-    return <PopupAmount props={currentSavedCarbon} />;
-  };
+    return <PopupAmount props={currentSavedCarbon} />
+  }
 
   function revealPopup() {
     setTimeout(() => {
-      setReveal(true);
-    }, 1000);
+      setReveal(true)
+    }, 1000)
   }
 
   const FormCarbon = () => {
@@ -172,7 +172,7 @@ export default function ChargeTime() {
               Charging amount
             </label>
 
-            <div className="charge-input-modal__amount-charge">
+            <div className='charge-input-modal__amount-charge'>
               <input
                 id='charge-value'
                 type='number'
@@ -226,16 +226,16 @@ export default function ChargeTime() {
           </div>
         </form>
       </section>
-    );
-  };
+    )
+  }
 
   if (isBrowser) {
     if (!reveal) {
-      return <FormCarbon />;
+      return <FormCarbon />
     } else {
-      return <ShowCarbonAmount />;
+      return <ShowCarbonAmount />
     }
   } else {
-    return null;
+    return null
   }
 }
