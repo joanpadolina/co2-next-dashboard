@@ -33,7 +33,6 @@
     color: var(--c-white);
     border-radius: 100%;
     transition: transform 300ms ease;
-    transition-delay: 400ms;
 }
 
 @media (min-width: 600px) {
@@ -55,7 +54,6 @@
     transform: scale(0);
     animation-name: zoom-in;
     animation-duration: 300ms;
-    animation-delay: 400ms;
     animation-fill-mode: forwards;
 }
 
@@ -101,7 +99,14 @@
     transform-box: fill-box;
     transform-origin: center;
     transition: transform 300ms ease;
-    transition-delay: 400ms;
+}
+
+.bubble-comparison__bubble-text {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation-name: zoom-in;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
 }
 
 .bubble-comparison__carbon {
@@ -119,7 +124,7 @@
 }
 
 .bubble-comparison--remove {
-    display: none;
+    opacity: 0;
 }
 
 .bubble-comparison__body--outside {
