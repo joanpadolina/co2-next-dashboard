@@ -84,6 +84,7 @@ export default function Community() {
               </h3>
               <p className='community__distance-goal-value'>{carbonInKm} km</p>
             </div>
+
             <div className='community__distance-goal--right'>
               <p className='community__distance-value'>500 kg</p>
               <span className='community__distance-value'>~410 km</span>
@@ -94,12 +95,14 @@ export default function Community() {
             totalCommunityGoal={500}
           />
         </article>
+
         <article>
           <h2 className='font--title'> Co2 contributions</h2>
           <p> -- chart -- </p>
         </article>
+
         <article className='community__activity'>
-          <h2 className='font--title'>Activiy</h2>
+          <h2 className='font--title'>Activity</h2>
           <table className='community__activity-table'>
             {membersContribution &&
               membersContribution.map((user, key) => (

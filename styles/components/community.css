@@ -106,13 +106,14 @@
 
 .community__activity-body {
     display: block;
-    padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
+    padding-bottom: var(--s-default);
+    padding-top: var(--s-default);
     box-shadow: 0px 1px 0px 0px var(--c-grey--300);
 }
 
 .community__activity-row {
     display: flex;
+    align-items: center;
 }
 
 .community__activity-value {
