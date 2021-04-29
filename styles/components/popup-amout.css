@@ -1,6 +1,6 @@
 .popup-amount {
   display: grid;
-  position: fixed;
+  position: absolute;
   place-content: center;
   height: 100vh;
   width: 100%;

@@ -48,7 +48,7 @@ export default function Community() {
   }, [dispatch, totalCarbon, chargingSession, users])
 
   return (
-    <>
+    <div className='home__body'>
       <header className='header community__header'>
         <h1 className='community__title'>Your community</h1>
         <article className='community__header-body'>
@@ -162,6 +162,6 @@ export default function Community() {
           </ul>
         </article>
       </main>
-    </>
+    </div>
   )
 }
