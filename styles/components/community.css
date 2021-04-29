@@ -99,3 +99,41 @@
 .community__member-name {
     opacity: 0;
 }
+
+.community__activity-table {
+    width: 100%;
+}
+
+.community__activity-body {
+    display: block;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    box-shadow: 0px 1px 0px 0px var(--c-grey--300);
+}
+
+.community__activity-row {
+    display: flex;
+}
+
+.community__activity-value {
+    font-weight: bold;
+    padding-left: var(--s-default);
+    flex: 1;
+}
+
+.community__activity-heading {
+    display: block;
+    font-weight: normal;
+    text-transform: lowercase;
+    color: var(--c-grey--title);
+    text-align: left;
+    font-size: var(--font--small);
+}
+
+.community__activity-align--right {
+    text-align: right;
+}
+
+.community__activity-carbon {
+    font-size: 1.2rem;
+}

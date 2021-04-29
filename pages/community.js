@@ -98,19 +98,13 @@ export default function Community() {
           <h2 className='font--title'> Co2 contributions</h2>
           <p> -- chart -- </p>
         </article>
-        <article>
+        <article className='community__activity'>
           <h2 className='font--title'>Activiy</h2>
-          <table>
-            <tbody>
-              <tr>
-                <th></th>
-                <th>Name</th>
-                <th>CO2 saved</th>
-              </tr>
-
-              {membersContribution &&
-                membersContribution.map((user, key) => (
-                  <tr key={key}>
+          <table className='community__activity-table'>
+            {membersContribution &&
+              membersContribution.map((user, key) => (
+                <tbody key={key} className='community__activity-body'>
+                  <tr className='community__activity-row community__activity-user'>
                     <td>
                       {members.map((data) => {
                         if (data.name.includes(user.name)) {
@@ -128,11 +122,20 @@ export default function Community() {
                         return ''
                       })}
                     </td>
-                    <td> {user.name}</td>
-                    <td>{user.savedCarbon}</td>
+                    <td className='community__activity-value community__activity-name'>
+                      {' '}
+                      <th className='community__activity-heading'>Name</th>
+                      {user.name}
+                    </td>
+                    <td className='community__activity-value community__activity-carbon community__activity-align--right'>
+                      <th className='community__activity-heading community__activity-align--right'>
+                        CO2 saved
+                      </th>
+                      {user.savedCarbon} kg
+                    </td>
                   </tr>
-                ))}
-            </tbody>
+                </tbody>
+              ))}
           </table>
         </article>
 

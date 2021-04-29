@@ -4,7 +4,7 @@
     width: 100%;
     color: var(--c-grey--600);
     font-weight: normal;
-    padding: var(--s-default) 0;
+    padding-bottom: var(--s-default);
 }
 
 .history-charge__heading {
