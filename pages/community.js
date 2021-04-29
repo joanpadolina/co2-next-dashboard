@@ -10,52 +10,42 @@ import BubbleComparison from '../components/bubble-comparison'
 
 export default function Community() {
   const store = useSelector((state) => state.store)
-  const userChargingSession = store.chargingSession
-  const users = store.community.users
+  const { chargingSession, community, user } = store
+  const users = community.users
   const dispatch = useDispatch()
-  const { chargingSession } = store
-  const [membersContribution, setMembersContribution] = useState([])
+
+  const [membersContribution, setMembersContribution] = useState()
   const [totalCarbon, setTotalCarbon] = useState()
   const [carbonInKm, setCarbonInKm] = useState(12)
-  const [userContribution, setUserContribution] = useState(
-    chargingSession[0].savedCarbon
-  )
 
   useInitUser()
 
+  // calculation from carbon to total distance in kilometers
   useEffect(() => {
     async function calcInKm() {
       const petrolDistance = await calcCarbonToKm(totalCarbon)
       setCarbonInKm(petrolDistance)
     }
     calcInKm()
+  }, [totalCarbon])
 
-    const historyLast = chargingSession
-      .slice(-1)
-      .map((data) => data.savedCarbon)
+  // get recent charge and show it as first in the table
+  useEffect(() => {
+    const historyLast = chargingSession.slice(-1)
+    const userContribution = {
+      name: user.name,
+      savedCarbon: historyLast[0].savedCarbon
+    }
+    setMembersContribution([...users, userContribution])
+  }, [chargingSession, user.name, users])
 
-    const userContribution =
-      typeof store.total !== 'function' ? store.total : historyLast[0]
-
-    // last update first on the list
-    setMembersContribution(users.reverse())
-    const userTotal = carbonReducer(userChargingSession)
-    const total = users.reduce(
-      (sum, { savedCarbon }) => Math.ceil(sum + savedCarbon),
-      0
-    )
-    setTotalCarbon(userTotal + total)
-    setUserContribution(userTotal)
+  // contribution of the whole community
+  useEffect(() => {
+    const userTotal = carbonReducer(chargingSession)
+    const totalCommunity = carbonReducer(users)
+    setTotalCarbon(userTotal + totalCommunity)
     dispatch(communitySavings(totalCarbon))
-  }, [
-    setMembersContribution,
-    chargingSession,
-    store.total,
-    dispatch,
-    totalCarbon,
-    users,
-    userChargingSession
-  ])
+  }, [dispatch, totalCarbon, chargingSession, users])
 
   return (
     <>
@@ -118,29 +108,30 @@ export default function Community() {
                 <th>CO2 saved</th>
               </tr>
 
-              {membersContribution.map((user, key) => (
-                <tr key={key}>
-                  <td>
-                    {members.map((data) => {
-                      if (data.name.includes(user.name)) {
-                        return (
-                          <img
-                            alt={user.name}
-                            key={key}
-                            className='community__profile-image'
-                            src={
-                              data.name.includes(user.name) ? data.imgSrc : ''
-                            }
-                          />
-                        )
-                      }
-                      return ''
-                    })}
-                  </td>
-                  <td> {user.name}</td>
-                  <td>{user.savedCarbon}</td>
-                </tr>
-              ))}
+              {membersContribution &&
+                membersContribution.map((user, key) => (
+                  <tr key={key}>
+                    <td>
+                      {members.map((data) => {
+                        if (data.name.includes(user.name)) {
+                          return (
+                            <img
+                              alt={user.name}
+                              key={key}
+                              className='community__profile-image'
+                              src={
+                                data.name.includes(user.name) ? data.imgSrc : ''
+                              }
+                            />
+                          )
+                        }
+                        return ''
+                      })}
+                    </td>
+                    <td> {user.name}</td>
+                    <td>{user.savedCarbon}</td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </article>

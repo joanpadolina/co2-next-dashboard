@@ -13,7 +13,7 @@ export default function BubbleComparison() {
     const totalOfUsers = carbonReducer(community.users)
     const totalUser = carbonReducer(chargingSession)
     setCarbonTotal(totalUser)
-    console.log(communityContribution, contribution)
+
     const data = {
       total: community.total,
       yours: totalUser
