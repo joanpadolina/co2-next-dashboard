@@ -124,13 +124,13 @@ export default function Community() {
                     </td>
                     <td className='community__activity-value community__activity-name'>
                       {' '}
-                      <th className='community__activity-heading'>Name</th>
+                      <span className='community__activity-heading'>Name</span>
                       {user.name}
                     </td>
                     <td className='community__activity-value community__activity-carbon community__activity-align--right'>
-                      <th className='community__activity-heading community__activity-align--right'>
+                      <span className='community__activity-heading community__activity-align--right'>
                         CO2 saved
-                      </th>
+                      </span>
                       {user.savedCarbon} kg
                     </td>
                   </tr>
