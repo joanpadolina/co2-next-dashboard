@@ -36,7 +36,7 @@ export default function Community() {
       name: user.name,
       savedCarbon: historyLast[0].savedCarbon
     }
-    setMembersContribution([...users, userContribution])
+    setMembersContribution([...users, userContribution].reverse())
   }, [chargingSession, user.name, users])
 
   // contribution of the whole community
