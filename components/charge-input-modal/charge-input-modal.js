@@ -26,7 +26,7 @@ export default function ChargeTime() {
     setReveal(isBrowser)
     // dispatch(addTotal(carbon))
 
-    if (router.pathname === '/charge-input') {
+    if (router.pathname === '/charge-input-modal') {
       setIsBrowser(false)
     }
 
@@ -112,18 +112,18 @@ export default function ChargeTime() {
 
   const FormCarbon = () => {
     return (
-      <section className='charge-input  charge-input--modal'>
+      <section className='charge-input-modal  charge-input-modal--modal'>
         <form
-          className='charge-input__form charge-input__form--modal'
+          className='charge-input-modal__form charge-input-modal__form--modal'
           action=''
           onSubmit={(e) => handleSubmit(e)}
         >
-          <h2 className='charge-input__title font--title'>
+          <h2 className='charge-input-modal__title font--title'>
             At what time did you charge?
           </h2>
 
           <label
-            className='charge-input__label a11y-sr-only'
+            className='charge-input-modal__label a11y-sr-only'
             aria-label='date'
             htmlFor='date'
           >
@@ -131,18 +131,18 @@ export default function ChargeTime() {
           </label>
 
           <input
-            className='charge-input__date'
+            className='charge-input-modal__date'
             id='date'
             type='date'
             value={currentDate}
             onChange={(e) => changeDate(e)}
           ></input>
 
-          <div className='charge-input__amount-wrapper'>
-            <label className='charge-input__label' htmlFor='start'>
+          <div className='charge-input-modal__amount-wrapper'>
+            <label className='charge-input-modal__label' htmlFor='start'>
               start
               <input
-                className='charge-input__time charge-input__border--default'
+                className='charge-input-modal__time charge-input-modal__border--default'
                 id='start'
                 type='time'
                 min='00:00'
@@ -151,10 +151,10 @@ export default function ChargeTime() {
               ></input>
             </label>
 
-            <label className='charge-input__label' htmlFor='end'>
+            <label className='charge-input-modal__label' htmlFor='end'>
               end
               <input
-                className='charge-input__time charge-input__border--default'
+                className='charge-input-modal__time charge-input-modal__border--default'
                 id='end'
                 type='time'
                 min='00:00'
@@ -164,64 +164,65 @@ export default function ChargeTime() {
             </label>
           </div>
 
-          <div className='charge-input__value-wrapper'>
+          <div className='charge-input-modal__value-wrapper'>
             <label
               htmlFor='charge-value'
-              className='charge-input__charge-label'
+              className='charge-input-modal__charge-label'
             >
               Charging amount
             </label>
-            <input
-              id='charge-value'
-              type='number'
-              className='charge-input__amount charge-input__border--default'
-              required
-            ></input>
 
-            <div className='charge-input__toggle'>
+            <div className='charge-input-modal__amount-charge'>
               <input
-                type='radio'
-                className='charge-input__radio'
-                id='km'
-                name='amount'
-                value='km'
-                defaultChecked
-              />
-              <label
-                htmlFor='km'
-                className='charge-input__radio-label'
-                aria-label='kilometers'
-              >
-                km
-              </label>
+                id='charge-value'
+                type='number'
+                className='charge-input-modal__amount charge-input-modal__border--default'
+                required
+              ></input>
 
-              <input
-                type='radio'
-                id='kWh'
-                className='charge-input__radio'
-                name='amount'
-                value='kWh'
-              />
-              <label
-                htmlFor='kWh'
-                className='charge-input__radio-label'
-                aria-label='kilowatt-hour'
-              >
-                kWh
-              </label>
+              <div className='charge-input-modal__toggle'>
+                <input
+                  type='radio'
+                  className='charge-input-modal__radio'
+                  id='km'
+                  name='amount'
+                  value='km'
+                  defaultChecked
+                />
+                <label
+                  htmlFor='km'
+                  className='charge-input-modal__radio-label'
+                  aria-label='kilometers'
+                >
+                  km
+                </label>
+
+                <input
+                  type='radio'
+                  id='kWh'
+                  className='charge-input-modal__radio'
+                  name='amount'
+                  value='kWh'
+                />
+                <label
+                  htmlFor='kWh'
+                  className='charge-input-modal__radio-label'
+                  aria-label='kilowatt-hour'
+                >
+                  kWh
+                </label>
+              </div>
             </div>
           </div>
 
           <div className='button-wrapper'>
-            <Link href='/charge-input'>
-              <a className='charge-input__link button-flat button--secondary '>
+            <Link href='/charge-input-modal'>
+              <a className='charge-input-modal__link button--secondary '>
                 add another session
               </a>
             </Link>
 
-            <button className='button' >
-              save changes
-            </button>
+            <button className='button'>save changes</button>
           </div>
         </form>
       </section>

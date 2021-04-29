@@ -1,111 +1,112 @@
-.charge-input {
-    display: flex;
-    flex-direction: column;
-    height: 28rem;
-    padding: .5rem;
-    margin: 1rem;
-    background-color: var(--c-grey--200);
+.charge-input-modal {
+  display: flex;
+  flex-direction: column;
+  height: 28rem;
+  padding: 0.5rem;
+  margin: 1rem;
+  background-color: var(--c-grey--200);
 }
 
-.charge-input--modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    left: 0;
-    top: 0;
-    background: rgba(0, 0, 0, 0.192);
+.charge-input-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.192);
 }
 
-.charge-input__date {
-    width: 100%;
-    padding: .5rem;
-    text-align: center;
-    ;
-    border: solid .1rem var(--c-black);
-    border-radius: .4rem;
+.charge-input-modal__date {
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
+  border: solid 0.1rem var(--c-black);
+  border-radius: 0.4rem;
 }
 
-.charge-input__form--modal {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 0 var(--s-default);
-    height: 25rem;
-    padding: var(--s-default);
-    background-color: var(--c-grey--200);
-    border-radius: .5rem;
-    box-shadow: 0 0 2rem 0 var(--c-grey--300);
+.charge-input-modal__form--modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0 var(--s-default);
+  height: 70%;
+  width: 90%;
+  padding: var(--s-default);
+  background-color: var(--c-grey--200);
+  border-radius: 0.5rem;
 }
 
-.charge-input__time {
-    width: 100%;
-    margin: 1rem 0;
-    padding: .5rem;
+.charge-input-modal__label {
+  width: 100%;
+  margin: 0 0.5rem;
 }
 
-.charge-input__amount-wrapper {
-    display: flex;
-    justify-content: space-between;
-    margin-top: var(--s-default);
+.charge-input-modal__time {
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0.5rem;
 }
 
-.charge-input__amount {
-    width: 5rem;
-    padding: var(--s-medium);
-    margin-bottom: var(--s-medium);
-    text-align: center;
+.charge-input-modal__amount-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--s-default);
 }
 
-.charge-input__border--default {
-    border: none;
-    border-bottom: 1px solid var(--c-dark);
+.charge-input-modal__amount {
+  padding: var(--s-medium);
+  margin-bottom: var(--s-medium);
+  text-align: center;
+  margin-right: 1rem;
 }
 
-.charge-input__value-wrapper {
-    display: grid;
-    position: relative;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+.charge-input-modal__border--default {
+  border: none;
+  border-bottom: 1px solid var(--c-dark);
 }
 
-.charge-input__charge-label {
-    grid-column-start: 1;
-    grid-column-end: 3;
+.charge-input-modal__amount-charge {
+  display: flex;
+  margin: 0.5rem;
 }
 
-.charge-input__radio-label {
-    display: inline-block;
-    background-color: var(--c--white);
-    border: .04rem solid var(--c-grey--400);
-    padding: var(--s-medium);
+.charge-input-modal__charge-label {
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
-
-.charge-input__radio[type=radio] {
-    position: absolute;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+.charge-input-modal__radio-label {
+  display: inline-block;
+  background-color: var(--c--white);
+  border: 0.04rem solid var(--c-grey--400);
+  padding: var(--s-medium);
 }
 
-.charge-input__radio:checked+.charge-input__radio-label {
-    font-weight: bold;
-    border: none;
-    background-color: var(--c-green);
+.charge-input-modal__radio[type="radio"] {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.charge-input-modal__radio:checked+.charge-input-modal__radio-label {
+  font-weight: bold;
+  border: none;
+  background-color: var(--c-green);
 }
 
 .button-wrapper {
-    display: flex;
-    justify-content: space-between;
-    margin: var(--s-default) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--s-default) 0;
 }
 
-.charge-input__link {
-    font-size: .7rem;
+.charge-input-modal__link {
+  font-size: 0.7rem;
 }

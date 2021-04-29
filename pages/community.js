@@ -10,57 +10,47 @@ import BubbleComparison from '../components/bubble-comparison'
 
 export default function Community() {
   const store = useSelector((state) => state.store)
-  const userChargingSession = store.chargingSession
-  const users = store.community.users
+  const { chargingSession, community, user } = store
+  const users = community.users
   const dispatch = useDispatch()
-  const { chargingSession } = store
-  const [membersContribution, setMembersContribution] = useState([])
+
+  const [membersContribution, setMembersContribution] = useState()
   const [totalCarbon, setTotalCarbon] = useState()
   const [carbonInKm, setCarbonInKm] = useState(12)
-  const [userContribution, setUserContribution] = useState(
-    chargingSession[0].savedCarbon
-  )
 
   useInitUser()
 
+  // calculation from carbon to total distance in kilometers
   useEffect(() => {
     async function calcInKm() {
       const petrolDistance = await calcCarbonToKm(totalCarbon)
       setCarbonInKm(petrolDistance)
     }
     calcInKm()
+  }, [totalCarbon])
 
-    const historyLast = chargingSession
-      .slice(-1)
-      .map((data) => data.savedCarbon)
+  // get recent charge and show it as first in the table
+  useEffect(() => {
+    const historyLast = chargingSession.slice(-1)
+    const userContribution = {
+      name: user.name,
+      savedCarbon: historyLast[0].savedCarbon
+    }
+    setMembersContribution([...users, userContribution].reverse())
+  }, [chargingSession, user.name, users])
 
-    const userContribution =
-      typeof store.total !== 'function' ? store.total : historyLast[0]
-
-    // last update first on the list
-    setMembersContribution(users.reverse())
-    const userTotal = carbonReducer(userChargingSession)
-    const total = users.reduce(
-      (sum, { savedCarbon }) => Math.ceil(sum + savedCarbon),
-      0
-    )
-    setTotalCarbon(userTotal + total)
-    setUserContribution(userTotal)
+  // contribution of the whole community
+  useEffect(() => {
+    const userTotal = carbonReducer(chargingSession)
+    const totalCommunity = carbonReducer(users)
+    setTotalCarbon(userTotal + totalCommunity)
     dispatch(communitySavings(totalCarbon))
-  }, [
-    setMembersContribution,
-    chargingSession,
-    store.total,
-    dispatch,
-    totalCarbon,
-    users,
-    userChargingSession
-  ])
+  }, [dispatch, totalCarbon, chargingSession, users])
 
   return (
-    <>
+    <div className='home__body'>
       <header className='header community__header'>
-        <h1>Your community</h1>
+        <h1 className='community__title'>Your community</h1>
         <article className='community__header-body'>
           <p className='community__header-p community__header-people community__header-padding--right'>
             <span className='community__header-amount'> 8 </span> People
@@ -94,6 +84,7 @@ export default function Community() {
               </h3>
               <p className='community__distance-goal-value'>{carbonInKm} km</p>
             </div>
+
             <div className='community__distance-goal--right'>
               <p className='community__distance-value'>500 kg</p>
               <span className='community__distance-value'>~410 km</span>
@@ -104,44 +95,50 @@ export default function Community() {
             totalCommunityGoal={500}
           />
         </article>
+
         <article>
           <h2 className='font--title'> Co2 contributions</h2>
           <p> -- chart -- </p>
         </article>
-        <article>
-          <h2 className='font--title'>Activiy</h2>
-          <table>
-            <tbody>
-              <tr>
-                <th></th>
-                <th>Name</th>
-                <th>CO2 saved</th>
-              </tr>
 
-              {membersContribution.map((user, key) => (
-                <tr key={key}>
-                  <td>
-                    {members.map((data) => {
-                      if (data.name.includes(user.name)) {
-                        return (
-                          <img
-                            alt={user.name}
-                            key={key}
-                            className='community__profile-image'
-                            src={
-                              data.name.includes(user.name) ? data.imgSrc : ''
-                            }
-                          />
-                        )
-                      }
-                      return ''
-                    })}
-                  </td>
-                  <td> {user.name}</td>
-                  <td>{user.savedCarbon}</td>
-                </tr>
+        <article className='community__activity'>
+          <h2 className='font--title'>Activity</h2>
+          <table className='community__activity-table'>
+            {membersContribution &&
+              membersContribution.map((user, key) => (
+                <tbody key={key} className='community__activity-body'>
+                  <tr className='community__activity-row community__activity-user'>
+                    <td>
+                      {members.map((data) => {
+                        if (data.name.includes(user.name)) {
+                          return (
+                            <img
+                              alt={user.name}
+                              key={key}
+                              className='community__profile-image'
+                              src={
+                                data.name.includes(user.name) ? data.imgSrc : ''
+                              }
+                            />
+                          )
+                        }
+                        return ''
+                      })}
+                    </td>
+                    <td className='community__activity-value community__activity-name'>
+                      {' '}
+                      <span className='community__activity-heading'>Name</span>
+                      {user.name}
+                    </td>
+                    <td className='community__activity-value community__activity-carbon community__activity-align--right'>
+                      <span className='community__activity-heading community__activity-align--right'>
+                        CO2 saved
+                      </span>
+                      {user.savedCarbon} kg
+                    </td>
+                  </tr>
+                </tbody>
               ))}
-            </tbody>
           </table>
         </article>
 
@@ -165,6 +162,6 @@ export default function Community() {
           </ul>
         </article>
       </main>
-    </>
+    </div>
   )
 }

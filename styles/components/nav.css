@@ -8,6 +8,7 @@
   background-color: var(--c-grey--200);
   border-top: .15rem solid #E3E6E8;
   overflow: hidden;
+  z-index: 1;
 }
 
 .nav__list {

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import Link from 'next/link'
 import { carbonReducer } from '../lib/carbon-saving-calculation'
-import HeaderCarbon from '../components/header/header-main/header-main'
-import SavingsTime from '../components/savings-time'
-import CommunityUpdate from '../components/community-update/community-update'
-import HistoryCharge from '../components/history-charge/history-charge'
 import useInitUser from '../lib/useInitUser'
+import HeaderCarbon from '../components/header/header-main'
+import SavingsTime from '../components/savings-time'
+import CommunityUpdate from '../components/community-update'
+import HistoryCharge from '../components/history-charge'
 
 export default function Index() {
   const store = useSelector((state) => state.store)

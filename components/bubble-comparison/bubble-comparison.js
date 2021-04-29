@@ -37,54 +37,85 @@ export default function BubbleComparison() {
   return (
     <article className='bubble-comparison'>
       <div className='bubble-comparison__bubbles'>
-        <div
-          className='bubble-comparison__circle bubble-comparison__community'
-          style={{ transform: `scale(${communityContribution})` }}
-        >
-          <p
-            className={`${
-              communityContribution < 0.6 ? 'bubble-comparison--remove' : ''
-            } bubble-comparison__body--inside`}
-          >
-            <span className='bubble-comparison__carbon'>
-              {community.total} kg
-            </span>
-            <span className='bubble-comparison__subtitle'>CO2 saved</span>
-          </p>
-        </div>
-        <div
-          className='bubble-comparison__circle bubble-comparison__contribution'
-          style={{ transform: `scale(${contribution})` }}
-        >
-          <p
-            className={`${
-              contribution < 0.6 ? 'bubble-comparison--remove' : ''
-            } bubble-comparison__body--inside bubble-comparison__body--right`}
-          >
-            <span className='bubble-comparison__carbon'>{carbonTotal} kg</span>
-            <span className='bubble-comparison__subtitle'>
-              Your contribution
-            </span>
-          </p>
-        </div>
+        <svg className='bubble-comparison__bubble-wrapper' viewBox='0 0 50 50'>
+          <g>
+            <circle
+              className='bubble-comparison__bubble-circle bubble-comparison__bubble-community'
+              style={{ transform: `scale(${communityContribution})` }}
+              cx='35%'
+              cy='50%'
+              r='20'
+              fill='#red'
+            />
+            {communityContribution > 0.9 && communityContribution <= 1 && (
+              <text
+                x='50%'
+                y='30%'
+                textAnchor='middle'
+                fill='#fff'
+                className='bubble-comparison__bubble-text'
+                fontFamily='Inter'
+              >
+                <tspan x='35%' y='50%' fontSize='9' fontWeight='bolder'>
+                  {community.total} kg
+                </tspan>
+                <tspan x='35%' y='65%' fontSize='5'>
+                  CO2 saved
+                </tspan>
+              </text>
+            )}
+          </g>
+          <g>
+            <circle
+              className='bubble-comparison__bubble-circle'
+              style={{ transform: `scale(${contribution})` }}
+              cx='80%'
+              cy='50%'
+              r='20'
+              fill='#88B2D8'
+            />
+            {contribution > 0.9 && contribution <= 1 && (
+              <text
+                x='80%'
+                y='50%'
+                textAnchor='middle'
+                fill='white'
+                fontFamily='Inter'
+                className='bubble-comparison__bubble-text'
+              >
+                <tspan x='80%' y='50%' fontSize='8' fontWeight='bolder'>
+                  {carbonTotal} kg
+                </tspan>
+                <tspan x='80%' y='65%' fontSize='3'>
+                  Your contribution
+                </tspan>
+              </text>
+            )}
+          </g>
+        </svg>
       </div>
 
-      <p
-        className={`${
-          communityContribution > 0.6 ? 'bubble-comparison--remove' : ''
-        } bubble-comparison__body`}
-      >
-        <span className='bubble-comparison__carbon'>{community.total} kg</span>
-        <span className='bubble-comparison__subtitle'>CO2 saved</span>
-      </p>
-      <p
-        className={`${
-          contribution >= 0.6 ? 'bubble-comparison--remove' : ''
-        } bubble-comparison__body bubble-comparison__body--right`}
-      >
-        <span className='bubble-comparison__carbon'>{carbonTotal} kg</span>
-        <span className='bubble-comparison__subtitle'>Your contribution</span>
-      </p>
+      <article className='bubble-comparison__body'>
+        <p
+          className={`${
+            communityContribution <= 0.9 ? '' : 'bubble-comparison--remove'
+          } bubble-comparison__body-community bubble-comparison__body--inside`}
+        >
+          <span className='bubble-comparison__carbon'>
+            {community.total} kg
+          </span>
+          CO2 saved
+        </p>
+
+        <p
+          className={`${contribution < 0.9 ? '' : 'bubble-comparison--remove'}
+            bubble-comparison__body--inside bubble-comparison__body-contribution
+          `}
+        >
+          <span className='bubble-comparison__carbon'>{carbonTotal} kg</span>
+          Your contribution
+        </p>
+      </article>
     </article>
   )
 }

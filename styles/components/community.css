@@ -1,3 +1,7 @@
+.community__title {
+    font-size: var(--font--ml);
+}
+
 .community__header::before {
     height: 20rem;
 }
@@ -10,7 +14,8 @@
 .community__header-amount {
     display: block;
     margin-bottom: .5rem;
-    font-size: var(--font--medium);
+    font-size: var(--font--big);
+    font-weight: bolder;
 }
 
 .community__header-people::after {
@@ -29,7 +34,7 @@
     position: relative;
     width: 6rem;
     text-align: center;
-    font-size: .8rem;
+    font-size: var(--font--small);
 }
 
 .community__header-padding--left {
@@ -43,7 +48,14 @@
 .community__datavisual-body {
     text-align: center;
     margin: var(--s-default) auto;
-    width: 20em;
+    margin-bottom: 5rem;
+}
+
+@media (min-width: 600px) {
+    .community__datavisual-body {
+        width: 20em;
+
+    }
 }
 
 .community__distance-title {
@@ -54,7 +66,7 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    color: var(--c-grey--title);
+    color: var(--c-grey--500);
 
 }
 
@@ -86,4 +98,43 @@
 
 .community__member-name {
     opacity: 0;
+}
+
+.community__activity-table {
+    width: 100%;
+}
+
+.community__activity-body {
+    display: block;
+    padding-bottom: var(--s-default);
+    padding-top: var(--s-default);
+    box-shadow: 0px 1px 0px 0px var(--c-grey--300);
+}
+
+.community__activity-row {
+    display: flex;
+    align-items: center;
+}
+
+.community__activity-value {
+    font-weight: bold;
+    padding-left: var(--s-default);
+    flex: 1;
+}
+
+.community__activity-heading {
+    display: block;
+    font-weight: normal;
+    text-transform: lowercase;
+    color: var(--c-grey--title);
+    text-align: left;
+    font-size: var(--font--small);
+}
+
+.community__activity-align--right {
+    text-align: right;
+}
+
+.community__activity-carbon {
+    font-size: 1.2rem;
 }
