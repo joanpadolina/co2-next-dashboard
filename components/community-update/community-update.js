@@ -13,7 +13,7 @@ export default function CommunityUpdate() {
     const community = carbonReducer(communityStore.users)
     const user = carbonReducer(store.chargingSession)
     setUserTotal(community + user)
-  }, [usersTotal, store])
+  }, [communityStore.users, store.chargingSession])
 
   return (
     <article className='community-update'>

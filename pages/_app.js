@@ -4,8 +4,8 @@ import { Provider } from 'react-redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
-import Navigation from '../components/nav/nav'
-import ChargeInput from '../components/charge-input/charge-input-modal'
+import Navigation from '../components/nav'
+import ChargeInput from '../components/charge-input-modal'
 
 import '../styles/globals.css'
 
