@@ -53,7 +53,11 @@ export default function Community() {
         <h1 className='community__title'>Your community</h1>
         <article className='community__header-body'>
           <p className='community__header-p community__header-people community__header-padding--right'>
-            <span className='community__header-amount'> 8 </span> People
+            <span className='community__header-amount'>
+              {' '}
+              {users.length + 1}
+            </span>{' '}
+            People
           </p>
           <p className='community__header-p community__header-padding--left'>
             <span className='community__header-amount'> 3 </span> Destination
