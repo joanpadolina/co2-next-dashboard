@@ -1,12 +1,15 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-
+import React from "react"
+import { useSelector } from "react-redux"
+import { useRouter } from "next/router"
 export default function HistoryCharge() {
   const chargingSessions = useSelector((state) => state.store.chargingSession)
-
+  const router = useRouter()
+  const path = router.pathname
+  
   return (
     <>
       <h2 className='font--title'> Your latest charge </h2>
+
       <table className='history-charge'>
         {chargingSessions
           .slice(Math.max(chargingSessions.length - 3, 0))
@@ -20,18 +23,18 @@ export default function HistoryCharge() {
               <tr className='history-charge__row'>
                 <td className='history-charge__value'>
                   <span className='history-charge__value-date'>
-                    {charging.date}{' '}
+                    {charging.date}{" "}
                   </span>
                   <span>
                     {charging.start} - {charging.end}
                   </span>
                 </td>
                 <td className='history-charge__value'>
-                  {' '}
+                  {" "}
                   {charging.savingsInPercentage}
                 </td>
                 <td className='history-charge__value'>
-                  {' '}
+                  {" "}
                   {charging.savedCarbon} kg
                 </td>
               </tr>

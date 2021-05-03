@@ -28,7 +28,7 @@ export default function Index() {
         <SavingsTime />
         <HistoryCharge />
         <div className='button__align--right'>
-          <Link href='/'>
+          <Link href='/charge-overview'>
             <a className='button button--dark index__link-sessions'>
               Charge overview
             </a>
