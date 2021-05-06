@@ -12,7 +12,6 @@
     color: var(--c-grey--400);
     text-align: left;
     font-weight: normal;
-    margin: .5rem 0;
 }
 
 .history-charge__body {
@@ -73,8 +72,7 @@
 }
 
 .history-charge__value {
-    margin-bottom: 1.5rem;
-    margin-top: 0;
+    padding: var(--s-default) 0;
     font-size: var(--font--small);
     font-weight: normal;
 }
@@ -89,8 +87,15 @@
     font-weight: bold;
 }
 
-.history-charge__heading-wrapper,
-.history-charge__value-wrapper {
+.history-charge__edit {
     display: flex;
-    justify-content: space-between;
+    height: 4rem;
+    justify-content: center;
+    align-items: stretch;
 }
+
+.history-charge__body-highlight:last-of-type .history-charge__edit {
+    display: none;
+}
+
+.history-charge__button {}
