@@ -24,7 +24,6 @@ export default function HistoryCharge() {
 
   return (
     <>
-      <h2 className='font--title'> Your latest charge </h2>
       <table className='history-charge'>
         {chargingSessions
           .slice(chargeHighlightLength())

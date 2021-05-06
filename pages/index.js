@@ -26,6 +26,7 @@ export default function Index() {
       <HeaderCarbon user={user} currentCarbon={currentCarbon} />
       <main className='index__main'>
         <SavingsTime />
+        <h2 className='font--title'>Your latest charge</h2>
         <HistoryCharge />
         <div className='button__align--right'>
           <Link href='/charge-overview'>
