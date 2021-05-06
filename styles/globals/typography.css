@@ -181,3 +181,13 @@ h1 {
   font-weight: bolder;
   font-size: 3rem;
 }
+
+.font--bold {
+  font-weight: bolder;
+  padding-top: .2rem;
+  color: var(--c-grey--700);
+}
+
+.font--block {
+  display: block;
+}
