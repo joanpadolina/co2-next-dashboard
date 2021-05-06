@@ -21,10 +21,10 @@
 }
 
 .history-charge__body:last-of-type {
-    background-color: #F2F2F2;
-    border-radius: 1rem;
-    padding: var(--s-default);
-    margin-bottom: var(--s-default)
+    background-color: transparent;
+    border-radius: 0rem;
+    padding: 0;
+    margin-bottom: 0;
 }
 
 .history-charge__body:last-of-type::after {
@@ -42,7 +42,14 @@
     background-color: var(--c-grey--300);
 }
 
-.history-charge__body:last-of-type::before {
+.history-charge__body-highlight:last-of-type {
+    background-color: #F2F2F2;
+    border-radius: 1rem;
+    padding: var(--s-default);
+    margin-bottom: var(--s-default);
+}
+
+.history-charge__body-highlight:last-of-type::before {
     content: "";
     display: inline-block;
     position: relative;
@@ -50,6 +57,7 @@
     height: 2rem;
     background: url('/icons/icon-thunder.svg') no-repeat;
 }
+
 
 .history-charge__value:nth-of-type(2),
 .history-charge__heading:nth-of-type(2) {
