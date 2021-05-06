@@ -86,12 +86,20 @@ export default function Community() {
               <h3 className='community__distance-title'>
                 Amsterdam {'-->'} Luxembourg
               </h3>
-              <p className='community__distance-goal-value'>{carbonInKm} km</p>
+              <p className='community__distance-goal-value'>
+                <span className='font--bold font--block'>{carbonInKm} km</span>
+                current distance
+              </p>
             </div>
 
-            <div className='community__distance-goal--right'>
+            <div className='community__distance-goal community__distance-goal--right'>
               <p className='community__distance-value'>500 kg</p>
-              <span className='community__distance-value'>~410 km</span>
+              <p className='community__distance-goal-value'>
+                <span className='community__distance-value font--bold font--block'>
+                  ~410 km
+                </span>
+                distance goal
+              </p>
             </div>
           </section>
           <ProgressBar

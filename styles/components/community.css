@@ -75,7 +75,8 @@
 }
 
 .community__distance-goal-value {
-    font-weight: bold;
+    color: var(--c-grey--300);
+    font-size: var(--font--small);
 }
 
 .community__profile-image {
