@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 export default function HistoryCharge() {
   const chargingSessions = useSelector((state) => state.store.chargingSession)
   const router = useRouter()
@@ -21,10 +22,51 @@ export default function HistoryCharge() {
       return ''
     }
   }
-
+  const ChargeLink = () => {
+    return (
+      <ul className='flat-list history-charge'>
+        {chargingSessions
+          .slice(chargeHighlightLength())
+          .map((charging, index) => (
+            <li
+              key={index}
+              className={`history-charge__body ${stylingConditions()}`}
+            >
+              <Link href={`?charge=${charging.date}+${index}`}>
+                <a>
+                  <article>
+                    <section className='history-charge__heading-wrapper'></section>
+                    <section className='history-charge__value-wrapper'>
+                      <p className='history-charge__value'>
+                        <h3 className='history-charge__heading'>date</h3>
+                        <span className='history-charge__value-date'>
+                          {charging.date}{' '}
+                        </span>
+                        <span>
+                          {charging.start} - {charging.end}
+                        </span>
+                      </p>
+                      <p className='history-charge__value'>
+                        <h3 className='history-charge__heading'>savings</h3>
+                        <span>{charging.savingsInPercentage}</span>
+                      </p>
+                      <p className='history-charge__value'>
+                        <h3 className='history-charge__heading'>CO2 saved</h3>
+                        <span>{charging.savedCarbon} kg</span>
+                      </p>
+                    </section>
+                  </article>
+                </a>
+              </Link>
+            </li>
+          ))}
+      </ul>
+    )
+  }
   return (
     <>
-      <table className='history-charge'>
+      <ChargeLink />
+      {/* <table className='history-charge'>
         {chargingSessions
           .slice(chargeHighlightLength())
           .map((charging, index) => (
@@ -57,7 +99,7 @@ export default function HistoryCharge() {
               </tr>
             </tbody>
           ))}
-      </table>
+      </table> */}
     </>
   )
 }
