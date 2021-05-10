@@ -5,6 +5,7 @@
     margin: 2rem auto 0;
     background-color: var(--c-grey--100);
     padding: .2rem;
+    text-align: center;
     border-radius: 5rem;
 }
 
@@ -19,7 +20,13 @@
     z-index: 1;
 }
 
-.emission-overview__toggle {
+.emission-overview__radio {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.emission-overview__radio-toggle {
     border-radius: 5rem;
     padding: .5rem;
     width: 6rem;
@@ -28,7 +35,7 @@
     border: none;
 }
 
-.emission-overview__toggle--enabled {
+.emission-overview__radio:checked+.emission-overview__radio-toggle {
     background-color: var(--c-primary);
     color: var(--c-white);
     font-weight: bold;
