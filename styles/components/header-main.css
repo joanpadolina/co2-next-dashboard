@@ -5,8 +5,10 @@
 }
 
 .header__subtitle {
+    display: block;
     color: var(--c-grey--300);
     font-size: var(--font--small);
+    margin-top: .2rem;
 }
 
 .header:before {
@@ -31,27 +33,15 @@
     border-radius: 10rem;
 }
 
+.header__detail-savings {
+    display: flex;
+    align-items: center;
+}
+
 .header__savings {
     display: flex;
     position: relative;
     flex-direction: column;
-    margin: 3rem 0;
-    align-items: center;
-    justify-content: center;
-    height: 15rem;
-}
-
-.header__savings:before {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 13rem;
-    width: 13rem;
-    border-radius: 8rem;
-    border: 0.6rem solid var(--c-green);
-    left: 0;
-    right: 0;
-    margin: auto;
 }
 
 .header__carbon-subtitle {
@@ -60,14 +50,17 @@
 
 .header__carbon-amount {
     margin: 0;
-    font-size: var(--font--big);
+    font-size: 5rem;
 }
 
 .header__body {
     display: flex;
+    position: relative;
+    align-items: center;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
+    padding: 2rem 0rem;
 }
 
 @media screen and (min-width: 720px) {
@@ -81,8 +74,32 @@
     content: "";
     display: block;
     position: relative;
-    width: 5rem;
+    height: 4rem;
+    width: 8rem;
     margin-right: var(--s-default);
     background: url('/icons/icon-tree.svg') no-repeat;
     background-position: 75% 40%;
+}
+
+.header__arrow {
+    display: block;
+    position: relative;
+    margin-right: 1.5rem;
+    margin-left: 1rem;
+    flex: none;
+    transition: transform 200ms ease-in-out;
+}
+
+.header__arrow path {
+    transition: stroke 200ms ease-in-out;
+}
+
+.header__body:hover .header__arrow path,
+.header__body:focus .header__arrow path {
+    stroke: white;
+}
+
+.header__body:hover .header__arrow,
+.header__body:focus .header__arrow {
+    transform: translate(.5rem, 0);
 }
