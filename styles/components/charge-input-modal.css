@@ -10,31 +10,7 @@
   text-align: center;
   left: 0;
   top: 0;
-  transform: translate(0, 0rem);
-}
-
-.animate-vertical-slide-reveal {
-  animation-name: slide-up;
-  animation-fill-mode: forwards;
-  animation-duration: 400ms;
-  animation-timing-function: ease-in-out;
-}
-
-.animate-vertical-slide-cancel {
-  animation-name: slide-up;
-  animation-fill-mode: forwards;
-  animation-duration: 900ms;
-  animation-direction: alternate-reverse;
-}
-
-@keyframes slide-up {
-  from {
-    transform: translate(0, 40rem);
-  }
-
-  to {
-    transform: translate(0, 0rem);
-  }
+  transform: translate(0, 0);
 }
 
 .charge-input-modal::after {
@@ -49,11 +25,14 @@
 }
 
 .charge-input-modal__date {
-  width: 100%;
+  display: block;
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
   padding: 0.5rem;
   text-align: center;
   background-color: var(--c-white);
-  border: solid 0.1rem var(--c-black);
+  border: solid 0.1rem var(--c-dark);
   border-radius: 0.4rem;
   font-family: "Inter";
   font-weight: bold;
@@ -103,7 +82,7 @@
 .charge-input-modal__border--default {
   border: none;
   border-bottom: 1px solid var(--c-dark);
-  background-color: var(--c-white);
+  background-color: var(--c-grey--200);
 }
 
 .charge-input-modal__amount-charge {

@@ -88,6 +88,7 @@ export default function ChargeTime() {
   }
 
   function changeDate(e) {
+    e.preventDefault()
     return setCurrentDate(e.target.value)
   }
 
@@ -105,11 +106,7 @@ export default function ChargeTime() {
     return (
       <section className='charge-input-modal  charge-input-modal--modal'>
         <form
-          className={`charge-input-modal__form charge-input-modal__form--modal ${
-            isBrowser
-              ? 'animate-vertical-slide-reveal'
-              : 'animate-vertical-slide-cancel'
-          }`}
+          className={'charge-input-modal__form charge-input-modal__form--modal'}
           action=''
           onSubmit={(e) => handleSubmit(e)}
         >
