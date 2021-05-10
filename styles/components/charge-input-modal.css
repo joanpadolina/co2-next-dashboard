@@ -37,7 +37,6 @@
   }
 }
 
-
 .charge-input-modal::after {
   content: "";
   display: block;
@@ -53,6 +52,7 @@
   width: 100%;
   padding: 0.5rem;
   text-align: center;
+  background-color: var(--c-white);
   border: solid 0.1rem var(--c-black);
   border-radius: 0.4rem;
   font-family: "Inter";
@@ -103,6 +103,7 @@
 .charge-input-modal__border--default {
   border: none;
   border-bottom: 1px solid var(--c-dark);
+  background-color: var(--c-white);
 }
 
 .charge-input-modal__amount-charge {

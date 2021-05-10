@@ -46,8 +46,14 @@
 .history-charge__body-highlight:last-of-type {
     background-color: #F2F2F2;
     border-radius: 1rem;
-    padding: 1rem 1rem 1rem 5rem;
+    padding: 1rem 1rem 1rem 2rem;
     margin-bottom: var(--s-default);
+}
+
+@media screen and (min-width: 375px) {
+    .history-charge__body-highlight:last-of-type {
+        padding: 1rem 1rem 1rem 4rem;
+    }
 }
 
 .history-charge__body-highlight:last-of-type::before {
@@ -55,9 +61,18 @@
     display: inline-block;
     position: absolute;
     left: .5rem;
-    width: 5rem;
-    height: 5rem;
+    top: 4rem;
+    width: 2rem;
+    height: 2rem;
     background: url('/icons/icon-thunder.svg') no-repeat;
+}
+
+@media screen and (min-width: 375px) {
+    .history-charge__body-highlight:last-of-type::before {
+        width: 5rem;
+        height: 5rem;
+        top: 2rem;
+    }
 }
 
 

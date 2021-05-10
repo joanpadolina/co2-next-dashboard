@@ -2,9 +2,10 @@
     margin-top: 2rem;
     color: var(--c-white);
     padding: var(--s-default);
+    color: var(--c-grey--400);
 }
 
-.header__subtitle {
+header__highlight-tree .header__subtitle {
     display: block;
     color: var(--c-grey--300);
     font-size: var(--font--small);
@@ -46,11 +47,13 @@
 
 .header__carbon-subtitle {
     font-size: var(--font--small);
+    color: var(--c-grey--400);
 }
 
 .header__carbon-amount {
     margin: 0;
     font-size: 5rem;
+    color: var(--c-grey--100);
 }
 
 .header__body {
@@ -79,6 +82,12 @@
     margin-right: var(--s-default);
     background: url('/icons/icon-tree.svg') no-repeat;
     background-position: 75% 40%;
+}
+
+.header__highlight-tree {
+    display: contents;
+    font-weight: bold;
+    color: var(--c-grey--100);
 }
 
 .header__arrow {

@@ -34,8 +34,11 @@ export default function Header({ user, currentCarbon }) {
       >
         <a className='header__detail-savings'>
           <p className='header__body'>
-            Your total CO2 saving is the same amount as {trees} trees absorbs
-            CO2 in 1 year.
+            Your total CO2 saving is the same amount as{' '}
+            <span className='header__highlight-tree'>
+              {trees} {trees <= 1 ? 'tree' : 'trees'}{' '}
+            </span>
+            absorbs CO2 in 1 year.
             <IconSoftArrow className='header__arrow' />
           </p>
         </a>
