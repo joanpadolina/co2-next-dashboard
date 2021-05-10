@@ -1,17 +1,37 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 
 export default function HistoryCharge() {
   const chargingSessions = useSelector((state) => state.store.chargingSession)
+  const router = useRouter()
+  const path = router.pathname
 
+  function chargeHighlightLength() {
+    if (path === '/') {
+      return Math.max(chargingSessions.length - 3, 0)
+    } else {
+      return ''
+    }
+  }
+
+  function stylingConditions() {
+    if (path === '/') {
+      return 'history-charge__body-highlight'
+    } else {
+      return ''
+    }
+  }
   return (
     <>
-      <h2 className='font--title'> Your latest charge </h2>
       <table className='history-charge'>
         {chargingSessions
-          .slice(Math.max(chargingSessions.length - 3, 0))
+          .slice(chargeHighlightLength())
           .map((charging, index) => (
-            <tbody key={index} className='history-charge__body'>
+            <tbody
+              key={index}
+              className={`history-charge__body ${stylingConditions()}`}
+            >
               <tr className='history-charge__heading-wrapper'>
                 <th className='history-charge__heading'>date</th>
                 <th className='history-charge__heading'>savings</th>
@@ -41,3 +61,4 @@ export default function HistoryCharge() {
     </>
   )
 }
+
