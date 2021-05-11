@@ -151,26 +151,36 @@ export default function Profile() {
       <main className='profile__main index__main'>
         <article>
           <h2 className='profile__main-title'>Your garden so far</h2>
+          <section className='profile__trees-header'>
+            <p className='profile__trees-subtitle'>
+              An average tree absorbs around
+              <span className='font--highlight'> 20kg</span> of CO2 in one year.
+            </p>
+            <label
+              htmlFor='years'
+              aria-label='select year'
+              className='a11y-sr-only'
+            >
+              Select year
+            </label>
+            <select
+              name='years'
+              className='profile__select-year'
+              onChange={(e) => handleSelect(e)}
+            >
+              {years.reverse().map((year, index) => (
+                <option key={index} value={year.year}>
+                  {year.year}
+                </option>
+              ))}
+            </select>
+          </section>
           <p className='profile__subtitle'>
-            Amount of trees saved in one year: {totalTrees}
+            Amount of trees saved in one year:{' '}
+            {selectedYear.totalTrees || totalTrees}
           </p>
 
           <section className='profile__trees-wrapper'>
-            <section>
-              <p className='profile__trees-subtitle'>
-                An average tree absorbs around
-                <span className='font--highlight'> 20kg</span> of CO2 in one
-                year.
-              </p>
-              <select name='years' onChange={(e) => handleSelect(e)}>
-                {years.reverse().map((year, index) => (
-                  <option key={index} value={year.year}>
-                    {year.year}
-                  </option>
-                ))}
-              </select>
-            </section>
-
             <section className='profile__trees'>
               {arrayOfTrees.map((tree, index) => (
                 <img

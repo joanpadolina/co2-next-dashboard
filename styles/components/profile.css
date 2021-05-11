@@ -19,6 +19,18 @@
   margin-bottom: -0.5rem;
 }
 
+.profile__trees-wrapper {
+  display: block;
+  position: relative;
+  margin: -1rem;
+  padding: 1rem;
+}
+
+.profile__trees-header {
+  display: flex;
+  align-items: flex-start;
+}
+
 .profile__subtitle {
   color: var(--c-grey--title);
   font-size: var(--font--small);
@@ -26,12 +38,18 @@
 }
 
 .profile__trees-subtitle {
-  text-align: center;
   color: var(--c-grey--title);
-  font-size: var(--font--small);
+  font-size: .8rem;
   width: 17rem;
-  margin: 0 auto 2rem auto;
-  letter-spacing: 0.1rem;
+}
+
+.profile__select-year {
+  width: 8rem;
+  border-color: var(--c-grey--300);
+  padding: .2rem .5rem;
+  margin-left: .4rem;
+  border-radius: .2rem;
+  color: var(--c-grey--title);
 }
 
 .font--highlight {
@@ -67,25 +85,6 @@
   to {
     transform: scale(1);
   }
-}
-
-.profile__trees-wrapper {
-  display: block;
-  position: relative;
-  margin: -1rem;
-  padding: 1rem;
-}
-
-.profile__trees-wrapper::after {
-  /* content: ""; */
-  display: block;
-  position: absolute;
-  height: 0.2rem;
-  width: 100%;
-  bottom: 1.5rem;
-  left: 0;
-  border-radius: 0.3rem;
-  background-color: var(--c-grey--300);
 }
 
 .profile__equivalence {
