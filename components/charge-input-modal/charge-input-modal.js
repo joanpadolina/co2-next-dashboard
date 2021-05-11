@@ -209,12 +209,14 @@ export default function ChargeTime() {
 
           <div className='button-wrapper'>
             <Link href='/charge-input-modal'>
-              <a className='charge-input-modal__link button--secondary '>
+              <a className='button--secondary charge-input-modal__link'>
                 add another session
               </a>
             </Link>
 
-            <button className='button'>save changes</button>
+            <button className='charge-input-modal__save button'>
+              save changes
+            </button>
           </div>
         </form>
       </section>

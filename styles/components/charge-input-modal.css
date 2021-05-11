@@ -6,7 +6,6 @@
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 0;
   text-align: center;
   left: 0;
   top: 0;
@@ -29,7 +28,7 @@
   position: relative;
   width: 70%;
   margin: 0 auto;
-  padding: 0.5rem;
+  padding: var(--s-default);
   text-align: center;
   background-color: var(--c-white);
   border: solid 0.1rem var(--c-dark);
@@ -37,6 +36,12 @@
   font-family: "Inter";
   font-weight: bold;
   font-size: 1rem;
+}
+
+@media screen and (min-width: 375px) {
+  .charge-input-modal__date {
+    padding: .5rem;
+  }
 }
 
 .charge-input-modal__form--modal {
@@ -71,7 +76,12 @@
   margin-top: var(--s-default);
 }
 
+.charge-input-modal__value-wrapper {
+  text-align: left;
+}
+
 .charge-input-modal__amount {
+  width: 8rem;
   padding: var(--s-medium);
   margin-bottom: var(--s-medium);
   text-align: center;
@@ -88,11 +98,6 @@
 .charge-input-modal__amount-charge {
   display: flex;
   margin: 0.5rem;
-}
-
-.charge-input-modal__charge-label {
-  grid-column-start: 1;
-  grid-column-end: 3;
 }
 
 .charge-input-modal__radio-label {
@@ -121,6 +126,20 @@
   margin: var(--s-default) 0;
 }
 
+.charge-input-modal__save {
+  font-size: var(--font--small);
+}
+
 .charge-input-modal__link {
-  font-size: 0.7rem;
+  font-size: .8rem;
+}
+
+@media screen and (min-width: 375px) {
+  .charge-input-modal__save {
+    font-size: var(--font--default);
+  }
+
+  .charge-input-modal__link {
+    font-size: var(--font--small);
+  }
 }
