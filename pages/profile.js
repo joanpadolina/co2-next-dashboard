@@ -133,9 +133,14 @@ export default function Profile() {
     const value = Number(e.target.value)
 
     years.filter((year) => {
+      let selected
       if (year.year === value) {
-        setSelectedYear({ year: year.year, totalTrees: year.totalTrees })
+        selected = setSelectedYear({
+          year: year.year,
+          totalTrees: year.totalTrees
+        })
       }
+      return selected
     })
   }
 
