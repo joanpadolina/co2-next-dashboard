@@ -127,3 +127,22 @@
   color: var(--c-grey--400);
   font-weight: normal;
 }
+
+.profile__icon-plane {
+  width: 2rem;
+  height: 2rem;
+}
+
+.profile__icon-car {
+  width: 2rem;
+}
+
+.profile__icon-train {
+  width: 1.7rem;
+}
+
+.profile__icon-plane path,
+.profile__icon-car path,
+.profile__icon-train path {
+  fill: var(--c-grey--300);
+}
