@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { carbonReducer } from '../lib/carbon-saving-calculation'
 import useInitUser from '../lib/useInitUser'
 import IconPlane from '../public/icons/icon-airplane.svg'
@@ -182,16 +183,26 @@ export default function Profile() {
 
           <section className='profile__trees-wrapper'>
             <section className='profile__trees'>
-              {arrayOfTrees.map((tree, index) => (
-                <img
-                  key={index}
-                  className='profile__tree'
-                  style={{
-                    top: `${(Math.floor(Math.random() * 20) + 1) / 10}rem`
-                  }}
-                  src={tree}
-                />
-              ))}
+              <TransitionGroup>
+                {arrayOfTrees.map((tree, index) => (
+                  <CSSTransition
+                    key={'css' + index}
+                    timeout={300}
+                    in={true}
+                    appear={true}
+                    classNames='profile__tree'
+                  >
+                    <img
+                      key={index}
+                      className='profile__tree'
+                      style={{
+                        top: `${(Math.floor(Math.random() * 20) + 1) / 10}rem`
+                      }}
+                      src={tree}
+                    />
+                  </CSSTransition>
+                ))}
+              </TransitionGroup>
             </section>
           </section>
         </article>

@@ -65,6 +65,7 @@
   margin-bottom: 2rem;
   background-color: #e9fbe9;
   border-radius: .5rem 3rem;
+  transition: height 200ms ease-in-out;
 }
 
 .profile__tree {
@@ -72,10 +73,29 @@
   position: relative;
   margin-right: -.5rem;
   margin-top: -.5rem;
+  transition: top 200ms ease-in-out;
+}
+
+.profile__tree-enter {
   animation-name: zoom-in;
   animation-duration: 300ms;
   animation-fill-mode: forwards;
 }
+
+.profile__tree-enter.fade-enter-active {
+  animation-name: zoom-in;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+}
+
+.profile__tree-exit {
+  animation-name: zoom-in;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-direction: alternate-reverse;
+  transition: opacity 2000ms;
+}
+
 
 @keyframes zoom-in {
   from {
