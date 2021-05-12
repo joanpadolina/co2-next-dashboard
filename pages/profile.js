@@ -182,8 +182,7 @@ export default function Profile() {
             </select>
           </section>
           <p className='profile__subtitle'>
-            Amount of trees saved in one year:{' '}
-            {selectedYear.totalTrees || totalTrees}
+            Total trees saved: {selectedYear.totalTrees || totalTrees}
           </p>
 
           <section className='profile__trees-wrapper'>
