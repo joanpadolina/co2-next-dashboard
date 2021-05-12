@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import CountUp from 'react-countup'
 
 export default function Header({ user, currentCarbon }) {
   const [trees, setTrees] = useState(0)
@@ -10,7 +11,6 @@ export default function Header({ user, currentCarbon }) {
       const totalTrees = Math.floor(currentCarbon / averageTree)
       return setTrees(totalTrees)
     }
-
     calcTreeSavings()
   }, [currentCarbon])
 
@@ -30,7 +30,14 @@ export default function Header({ user, currentCarbon }) {
         <section className='header__savings'>
           <span className='header__carbon-subtitle'>Your total saved CO2</span>
           <h2 className='header__carbon-amount font--big'>
-            {currentCarbon} kg
+            <CountUp
+              start={currentCarbon - 10}
+              end={currentCarbon}
+              duration={1}
+            >
+              {currentCarbon}
+            </CountUp>{' '}
+            kg
           </h2>
         </section>
       </Link>
