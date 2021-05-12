@@ -45,10 +45,11 @@
 
 .profile__select-year {
   width: 8rem;
-  border-color: var(--c-grey--300);
-  padding: .2rem .5rem;
   margin-left: .4rem;
+  padding: .2rem .5rem;
+  background-color: var(--c-white);
   border-radius: .2rem;
+  border-color: var(--c-grey--300);
   color: var(--c-grey--title);
 }
 
