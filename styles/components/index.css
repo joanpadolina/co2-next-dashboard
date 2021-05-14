@@ -2,10 +2,19 @@
     display: block;
     position: relative;
     background-color: var(--c-white);
-    padding: 0 1rem;
     margin-top: 2.5em;
+    padding-left: var(--s-default);
+    padding-right: var(--s-default);
     padding-bottom: 5rem;
 }
+
+@media screen and (min-width: 375px) {
+    .index__main {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
 
 .index__main::before {
     content: "";

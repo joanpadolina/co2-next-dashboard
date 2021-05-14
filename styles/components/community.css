@@ -1,3 +1,7 @@
+.community__header {
+    color: var(--c-grey--100);
+}
+
 .community__title {
     font-size: var(--font--ml);
 }

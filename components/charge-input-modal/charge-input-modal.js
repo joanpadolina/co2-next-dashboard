@@ -1,50 +1,41 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import {
-  carbonSavingCalculation,
-  carbonReducer
-} from '../../lib/carbon-saving-calculation.js'
+import { carbonSavingCalculation } from '../../lib/carbon-saving-calculation.js'
 import diff from '../../lib/time-calculation'
 import { useSelector, useDispatch } from 'react-redux'
-import { addCharge, addTotal } from '../../redux/actions'
+import { addCharge } from '../../redux/actions'
 import PopupAmount from '../popup-amount'
 
 export default function ChargeTime() {
   const store = useSelector((state) => state.store)
   const [isBrowser, setIsBrowser] = useState(false)
-  const [carbon, setCarbon] = useState(0)
   const [currentDate, setCurrentDate] = useState('')
   const [currentSavedCarbon, setCurrentSavedCarbon] = useState({})
   const [reveal, setReveal] = useState(false)
-  const { user, chargingSession } = store
+  const { user } = store
   const router = useRouter()
   const dispatch = useDispatch()
 
   useEffect(() => {
     setIsBrowser(store.isOpen)
-    setReveal(isBrowser)
-    // dispatch(addTotal(carbon))
-
-    if (router.pathname === '/charge-input-modal') {
-      setIsBrowser(false)
-    }
-
-    const chargeCarbonTotal = carbonReducer(chargingSession)
-    setCarbon(chargeCarbonTotal)
 
     // set date picker to today
     const setDateToday = new Date().toISOString().substr(0, 10)
     setCurrentDate(setDateToday)
-  }, [
-    carbon,
-    dispatch,
-    chargingSession,
-    store.isOpen,
-    router.pathname,
-    setCurrentDate,
-    currentSavedCarbon
-  ])
+  }, [store.isOpen])
+
+  useEffect(() => {
+    if (router.pathname === '/charge-input-modal') {
+      setIsBrowser(false)
+    }
+  }, [router.pathname])
+
+  useEffect(() => {
+    if (reveal && !isBrowser) {
+      setReveal(false)
+    }
+  }, [isBrowser, reveal])
 
   function chargeConfig(config = {}) {
     const newCharge = {
@@ -97,6 +88,7 @@ export default function ChargeTime() {
   }
 
   function changeDate(e) {
+    e.preventDefault()
     return setCurrentDate(e.target.value)
   }
 
@@ -107,7 +99,7 @@ export default function ChargeTime() {
   function revealPopup() {
     setTimeout(() => {
       setReveal(true)
-    }, 1000)
+    }, 0)
   }
 
   const FormCarbon = () => {
@@ -217,12 +209,14 @@ export default function ChargeTime() {
 
           <div className='button-wrapper'>
             <Link href='/charge-input-modal'>
-              <a className='charge-input-modal__link button--secondary '>
+              <a className='button--secondary charge-input-modal__link'>
                 add another session
               </a>
             </Link>
 
-            <button className='button'>save changes</button>
+            <button className='charge-input-modal__save button'>
+              save changes
+            </button>
           </div>
         </form>
       </section>

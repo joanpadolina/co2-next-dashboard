@@ -17,6 +17,7 @@
     "react-dom": "17.0.2",
     "react-modal": "^3.12.1",
     "react-redux": "^7.2.3",
+    "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0"
