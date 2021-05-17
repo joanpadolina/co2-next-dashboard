@@ -27,7 +27,7 @@ export default function Nav() {
               }`}
             >
               <IconFeed className='icon icon--feed' />
-              Homepage
+              Feed
             </a>
           </Link>
         </li>
