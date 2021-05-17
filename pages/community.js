@@ -106,6 +106,7 @@ export default function Community() {
           <ProgressBar
             totalSavingsCommunity={totalCarbon}
             totalCommunityGoal={500}
+            color='community'
           />
         </article>
 

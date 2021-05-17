@@ -9,7 +9,6 @@
 
 .progress-bar__bar {
     height: 100%;
-    background-color: var(--c-primary);
     width: 0rem;
     border-radius: .5rem;
     transition: width 300ms ease-in-out;

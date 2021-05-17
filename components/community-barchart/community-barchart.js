@@ -8,14 +8,12 @@ export default function CommunityBarchart({ contribution }) {
 
   useEffect(() => {
     setUsersContribution(contribution)
-    console.log('here', usersContribution)
+
     if (usersContribution) {
       const user = usersContribution.map((data) => data.name)
       const data = usersContribution.map((data) => data.savedCarbon)
       setUserLabel(user)
       setUserData(data)
-
-      console.log('here', [...data] + ' kg')
     }
   }, [contribution, usersContribution])
 
