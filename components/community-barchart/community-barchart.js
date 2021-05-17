@@ -1,23 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Bar } from 'react-chartjs-2'
-import { useSelector } from 'react-redux'
-import { carbonReducer } from '../../lib/carbon-saving-calculation'
 
 export default function CommunityBarchart({ contribution }) {
-  const store = useSelector((store) => store.store)
-  const { community, chargingSession } = store
   const [usersContribution, setUsersContribution] = useState()
   const [userLabel, setUserLabel] = useState()
   const [userData, setUserData] = useState()
 
   useEffect(() => {
-    const userContribution = carbonReducer(chargingSession)
-    console.log(userContribution)
-  }, [chargingSession])
-
-  useEffect(() => {
     setUsersContribution(contribution)
-    const total = community.total
 
     if (usersContribution) {
       const user = usersContribution.map((data) => data.name)
@@ -28,13 +18,6 @@ export default function CommunityBarchart({ contribution }) {
     }
   }, [contribution, usersContribution])
 
-  //   useEffect(() => {
-  //     const total = community.total
-  //     setUserData(data)
-  //     // userData.forEach((item) => {
-  //     //   console.log((item / total) * 100)
-  //     // })
-  //   }, [community.total])
   const data = {
     labels: userLabel,
     datasets: [
