@@ -27,14 +27,18 @@ export default function EmissionOverview() {
           <h4 className='emission-overview__value-title'>
             {data.totalEmission} kg
           </h4>
-          <p>CO2 total</p>
+          <p>
+            CO<sub>2</sub> total
+          </p>
         </article>
 
         <article className='emission-overview__value'>
           <h4 className='emission-overview__value-title'>
             {data.savedCarbon} kg
           </h4>
-          <p>CO2 saved</p>
+          <p>
+            CO<sub>2</sub> saved
+          </p>
         </article>
 
         <article className='emission-overview__value'>
@@ -55,12 +59,16 @@ export default function EmissionOverview() {
       <article className='emission-overview__total'>
         <article className='emission-overview__value'>
           <h4 className='emission-overview__value-title'>500 kg</h4>
-          <p>CO2 total</p>
+          <p>
+            CO<sub>2</sub> total
+          </p>
         </article>
 
         <article className='emission-overview__value'>
           <h4 className='emission-overview__value-title'>300 kg</h4>
-          <p>CO2 saved</p>
+          <p>
+            CO<sub>2</sub> saved
+          </p>
         </article>
 
         <article className='emission-overview__value'>
@@ -77,7 +85,9 @@ export default function EmissionOverview() {
   }
   return (
     <article className='emission-overview'>
-      <h2 className='font--title'>CO2 overview</h2>
+      <h2 className='font--title'>
+        CO<sub>2</sub> overview
+      </h2>
       <section className='emission-overview__toggle-wrapper'>
         <input
           type='radio'

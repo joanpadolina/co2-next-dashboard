@@ -24,7 +24,9 @@ export default function CommunityUpdate() {
           <h3 className='community-update__total font--medium'>
             {usersTotal} kg
           </h3>
-          <span className='community-update__subtitle'>Total carbon saved</span>
+          <span className='community-update__subtitle'>
+            Total CO<sub>2</sub> saved
+          </span>
         </article>
 
         <article className='community-update__goal'>

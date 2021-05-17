@@ -23,7 +23,7 @@ export default function Header({ user, currentCarbon }) {
       </div>
       <section className='header__savings'>
         <p className='header__carbon-subtitle'>
-          Your total saved CO2{' '}
+          Your total saved CO<sub>2</sub>{' '}
           <span className='header__subtitle'>since 01-01-2021</span>
         </p>
         <h2 className='header__carbon-amount'>{currentCarbon} kg</h2>
@@ -34,11 +34,13 @@ export default function Header({ user, currentCarbon }) {
       >
         <a className='header__detail-savings'>
           <p className='header__body'>
-            Your total CO2 saving is the same amount as{' '}
-            <span className='header__highlight-tree'>
-              {trees} {trees <= 1 ? 'tree' : 'trees'}{' '}
-            </span>
-            absorbs CO2 in 1 year.
+            <div>
+              Your total CO<sub>2</sub> saving is the same amount as{' '}
+              <span className='header__highlight-tree'>
+                {trees} {trees <= 1 ? 'tree' : 'trees'}{' '}
+              </span>
+              absorbs CO<sub>2</sub> in 1 year.
+            </div>
             <IconSoftArrow className='header__arrow' />
           </p>
         </a>
