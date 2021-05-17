@@ -7,6 +7,7 @@ import { carbonReducer } from '../lib/carbon-saving-calculation'
 import { calcCarbonToKm } from '../lib/gimmick-calc'
 import ProgressBar from '../components/progress-bar'
 import BubbleComparison from '../components/bubble-comparison'
+import CommunityBarchart from '../components/community-barchart'
 
 export default function Community() {
   const store = useSelector((state) => state.store)
@@ -110,7 +111,7 @@ export default function Community() {
 
         <article>
           <h2 className='font--title'> Co2 contributions</h2>
-          <p> -- chart -- </p>
+          <CommunityBarchart contribution={membersContribution} />
         </article>
 
         <article className='community__activity'>
