@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { carbonSavingCalculation } from '../../lib/carbon-saving-calculation.js'
 import diff from '../../lib/time-calculation'
 import { useSelector, useDispatch } from 'react-redux'
 import { addCharge } from '../../redux/actions'
+import { carbonSavingCalculation } from '../../lib/carbon-saving-calculation.js'
 import PopupAmount from '../popup-amount'
 
 export default function ChargeTime() {
@@ -104,9 +104,9 @@ export default function ChargeTime() {
 
   const FormCarbon = () => {
     return (
-      <section className='charge-input-modal  charge-input-modal--modal'>
+      <section className='charge-input-modal charge-input-modal--modal'>
         <form
-          className='charge-input-modal__form charge-input-modal__form--modal'
+          className='charge-input-modal__form charge-input-modal__form--modal form-reveal-enter '
           action=''
           onSubmit={(e) => handleSubmit(e)}
         >

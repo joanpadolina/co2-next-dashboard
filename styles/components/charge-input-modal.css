@@ -56,6 +56,7 @@
   border-radius: 0.5rem;
 }
 
+
 .charge-input-modal__label {
   width: 100%;
   margin: 0 0.5rem;
@@ -141,5 +142,22 @@
 
   .charge-input-modal__link {
     font-size: var(--font--small);
+  }
+}
+
+
+.form-reveal-enter {
+  animation-name: reveal-up;
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes reveal-up {
+  from {
+    transform: translateY(40rem);
+  }
+
+  to {
+    transform: translateY(0rem);
   }
 }
