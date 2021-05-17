@@ -67,7 +67,7 @@
     position: relative;
     width: 1.5rem;
     height: 1.5rem;
-    border: .15rem solid var(--c-white);
+    border: .15rem solid;
     border-radius: 2rem;
 }
 

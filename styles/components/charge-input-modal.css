@@ -1,33 +1,47 @@
 .charge-input-modal {
   display: flex;
-  flex-direction: column;
-  height: 28rem;
-  padding: 0.5rem;
-  margin: 1rem;
-  background-color: var(--c-grey--200);
-}
-
-.charge-input-modal {
-  display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 0;
   text-align: center;
   left: 0;
   top: 0;
+  transform: translate(0, 0);
+}
+
+.charge-input-modal::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
   background: rgba(0, 0, 0, 0.192);
+  z-index: -1;
+  top: 0;
 }
 
 .charge-input-modal__date {
-  width: 100%;
-  padding: 0.5rem;
+  display: block;
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  padding: var(--s-default);
   text-align: center;
-  border: solid 0.1rem var(--c-black);
+  background-color: var(--c-white);
+  border: solid 0.1rem var(--c-dark);
   border-radius: 0.4rem;
+  font-family: "Inter";
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 375px) {
+  .charge-input-modal__date {
+    padding: .5rem;
+  }
 }
 
 .charge-input-modal__form--modal {
@@ -51,6 +65,9 @@
   width: 100%;
   margin: 1rem 0;
   padding: 0.5rem;
+  font-family: "Inter";
+  font-size: 1rem;
+  text-align: center;
 }
 
 .charge-input-modal__amount-wrapper {
@@ -59,26 +76,28 @@
   margin-top: var(--s-default);
 }
 
+.charge-input-modal__value-wrapper {
+  text-align: left;
+}
+
 .charge-input-modal__amount {
+  width: 8rem;
   padding: var(--s-medium);
   margin-bottom: var(--s-medium);
   text-align: center;
   margin-right: 1rem;
+  font-size: 1rem;
 }
 
 .charge-input-modal__border--default {
   border: none;
   border-bottom: 1px solid var(--c-dark);
+  background-color: var(--c-grey--200);
 }
 
 .charge-input-modal__amount-charge {
   display: flex;
   margin: 0.5rem;
-}
-
-.charge-input-modal__charge-label {
-  grid-column-start: 1;
-  grid-column-end: 3;
 }
 
 .charge-input-modal__radio-label {
@@ -107,6 +126,20 @@
   margin: var(--s-default) 0;
 }
 
+.charge-input-modal__save {
+  font-size: var(--font--small);
+}
+
 .charge-input-modal__link {
-  font-size: 0.7rem;
+  font-size: .8rem;
+}
+
+@media screen and (min-width: 375px) {
+  .charge-input-modal__save {
+    font-size: var(--font--default);
+  }
+
+  .charge-input-modal__link {
+    font-size: var(--font--small);
+  }
 }

@@ -1,3 +1,6 @@
+@import './base.css';
+@import './globals/button.css';
+@import './globals/typography.css';
 @import './components/header-main.css';
 @import './components/community-update.css';
 @import './components/charge-input-modal.css';
@@ -14,9 +17,7 @@
 @import './components/community.css';
 @import './components/charge-overview.css';
 @import './components/emission-overview.css';
-@import './globals/typography.css';
-@import './globals/button.css';
-@import './base.css';
+@import './components/loading.css';
 
 html,
 body {

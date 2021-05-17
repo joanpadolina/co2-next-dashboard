@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { carbonReducer } from '../lib/carbon-saving-calculation'
 import useInitUser from '../lib/useInitUser'
+import IconPlane from '../public/icons/icon-airplane.svg'
+import IconCar from '../public/icons/icon-car.svg'
+import IconTrain from '../public/icons/icon-train.svg'
 
 export default function Profile() {
-  const [totalSavings, setTotalSavings] = useState(0)
+  const store = useSelector((state) => state.store)
+  const { chargingSession } = store
+  const [totalSavings, setTotalSavings] = useState(
+    carbonReducer(chargingSession)
+  )
   const [totalTrees, setTotalTrees] = useState(0)
   const [arrayOfTrees, setArrayOfTrees] = useState([])
   const [gimmicksInKm, setGimmicksInKm] = useState({
@@ -18,6 +26,10 @@ export default function Profile() {
     car: 0,
     train: 0
   })
+  const [selectedYear, setSelectedYear] = useState({
+    year: 2021,
+    totalTrees: totalTrees
+  })
 
   const carbonPerKm = {
     plane: 195,
@@ -25,23 +37,31 @@ export default function Profile() {
     train: 30
   }
 
+  const years = [
+    {
+      year: 2018,
+      totalTrees: 9
+    },
+    {
+      year: 2019,
+      totalTrees: 15
+    },
+    {
+      year: 2020,
+      totalTrees: 20
+    },
+    {
+      year: 2021,
+      totalTrees: totalTrees
+    }
+  ]
+
   useInitUser()
+
   function calculateDistance(carbon, gimmick) {
     const resultDistance = (carbon * 100) / gimmick
     return Math.ceil(resultDistance)
   }
-  // Needs for calc
-  // --> All carbon emission from gimmick
-  // --> Calculate user emission in kilometers
-
-  // Steps to km barchart
-  // 1. Calculate carbon with all values from gimmicks
-  // 2. Find the highest number
-  // 3. Calculate remainder gimmicks in % from the highest number
-  // 4. Place % it in width
-
-  const store = useSelector((state) => state.store)
-  const { chargingSession } = store
 
   useEffect(() => {
     setTotalSavings(carbonReducer(chargingSession))
@@ -54,7 +74,6 @@ export default function Profile() {
       }
       setGimmicksInKm(value)
     }
-
     setObjectGimmick()
   }, [
     carbonPerKm.car,
@@ -104,44 +123,93 @@ export default function Profile() {
 
       return setArrayOfTrees(arrayOfTrees)
     }
-    addImgTrees(totalTrees)
+
+    addImgTrees(selectedYear.totalTrees || totalTrees)
 
     calcTreeSavings()
-  }, [totalSavings, totalTrees])
+  }, [selectedYear.totalTrees, totalSavings, totalTrees])
+
+  function handleSelect(e) {
+    const value = Number(e.target.value)
+
+    years.filter((year) => {
+      let selected
+      if (year.year === value) {
+        selected = setSelectedYear({
+          year: year.year,
+          totalTrees: year.totalTrees
+        })
+      }
+      return selected
+    })
+  }
+
   return (
     <>
       <header className='profile__header'>
         <Link href='/'>
           <a className='button--back' aria-label='Go to homepage'></a>
         </Link>
-        <h1>Your CO2 savings </h1>
+        <h1>
+          Your CO<sub>2</sub> savings{' '}
+        </h1>
         <h2 className='font--big'>{totalSavings} kg</h2>
       </header>
 
       <main className='profile__main index__main'>
         <article>
           <h2 className='profile__main-title'>Your garden so far</h2>
+          <section className='profile__trees-header'>
+            <p className='profile__trees-subtitle'>
+              An average tree absorbs around
+              <span className='font--highlight'> 20kg</span> of CO<sub>2</sub>{' '}
+              in one year.
+            </p>
+            <label
+              htmlFor='years'
+              aria-label='select year'
+              className='a11y-sr-only'
+            >
+              Select year
+            </label>
+            <select
+              name='years'
+              className='profile__select-year'
+              onChange={(e) => handleSelect(e)}
+            >
+              {years.reverse().map((year, index) => (
+                <option key={index} value={year.year}>
+                  {year.year}
+                </option>
+              ))}
+            </select>
+          </section>
           <p className='profile__subtitle'>
-            Amount of trees saved in one year: {totalTrees}
+            Total trees saved: {selectedYear.totalTrees || totalTrees}
           </p>
 
           <section className='profile__trees-wrapper'>
-            <p className='profile__trees-subtitle'>
-              An average tree absorbs around
-              <span className='font--highlight'> 20kg</span> of CO2 in one year.
-            </p>
-
             <section className='profile__trees'>
-              {arrayOfTrees.map((tree, index) => (
-                <img
-                  key={index}
-                  className='profile__tree'
-                  style={{
-                    top: `${(Math.floor(Math.random() * 20) + 1) / 10}rem`
-                  }}
-                  src={tree}
-                />
-              ))}
+              <TransitionGroup>
+                {arrayOfTrees.map((tree, index) => (
+                  <CSSTransition
+                    key={'css' + index}
+                    timeout={300}
+                    in={true}
+                    appear={true}
+                    classNames='profile__tree'
+                  >
+                    <img
+                      key={index}
+                      className='profile__tree'
+                      style={{
+                        top: `${(Math.floor(Math.random() * 20) + 1) / 10}rem`
+                      }}
+                      src={tree}
+                    />
+                  </CSSTransition>
+                ))}
+              </TransitionGroup>
             </section>
           </section>
         </article>
@@ -154,7 +222,9 @@ export default function Profile() {
             <table className='profile__equivalence'>
               <tbody className='profile__equivalence-wrapper'>
                 <tr className='profile__equivalence-row'>
-                  <td className='profile__equivalence-title'>plane</td>
+                  <td className='profile__equivalence-title'>
+                    <IconPlane className='profile__icon-plane' />
+                  </td>
                   <td
                     className='profile__equivalence-bar'
                     style={{ width: `${widthStyle.plane}%` }}
@@ -167,7 +237,9 @@ export default function Profile() {
                 </tr>
 
                 <tr className='profile__equivalence-row'>
-                  <td className='profile__equivalence-title'>car</td>
+                  <td className='profile__equivalence-title'>
+                    <IconCar className='profile__icon-car' />
+                  </td>
                   <td
                     className='profile__equivalence-bar'
                     style={{ width: `${widthStyle.car}%` }}
@@ -180,7 +252,9 @@ export default function Profile() {
                 </tr>
 
                 <tr className='profile__equivalence-row'>
-                  <td className='profile__equivalence-title'>train</td>
+                  <td className='profile__equivalence-title'>
+                    <IconTrain className='profile__icon-train' />
+                  </td>
                   <td
                     className='profile__equivalence-bar'
                     style={{ width: `${widthStyle.train}%` }}

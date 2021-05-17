@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import IconArrow from '../../public/icons/icon-arrow-up.svg'
 
 export default function EmissionOverview() {
@@ -12,17 +12,13 @@ export default function EmissionOverview() {
     fossil: 85
   }
 
-  function handleToggle(e) {
-    const value = e.target.computedName
-
-    if (value === 'Yearly') {
+  useEffect(() => {
+    if (toggleActive === 'Yearly') {
       setCurrentDate('2021')
     } else {
       setCurrentDate('March 2021')
     }
-
-    setToggleActive(value)
-  }
+  }, [currentDate, toggleActive])
 
   const MonthlyOverview = () => {
     return (
@@ -31,14 +27,18 @@ export default function EmissionOverview() {
           <h4 className='emission-overview__value-title'>
             {data.totalEmission} kg
           </h4>
-          <p>CO2 total</p>
+          <p>
+            CO<sub>2</sub> total
+          </p>
         </article>
 
         <article className='emission-overview__value'>
           <h4 className='emission-overview__value-title'>
             {data.savedCarbon} kg
           </h4>
-          <p>CO2 saved</p>
+          <p>
+            CO<sub>2</sub> saved
+          </p>
         </article>
 
         <article className='emission-overview__value'>
@@ -59,12 +59,16 @@ export default function EmissionOverview() {
       <article className='emission-overview__total'>
         <article className='emission-overview__value'>
           <h4 className='emission-overview__value-title'>500 kg</h4>
-          <p>CO2 total</p>
+          <p>
+            CO<sub>2</sub> total
+          </p>
         </article>
 
         <article className='emission-overview__value'>
           <h4 className='emission-overview__value-title'>300 kg</h4>
-          <p>CO2 saved</p>
+          <p>
+            CO<sub>2</sub> saved
+          </p>
         </article>
 
         <article className='emission-overview__value'>
@@ -81,28 +85,42 @@ export default function EmissionOverview() {
   }
   return (
     <article className='emission-overview'>
-      <h2 className='font--title'>CO2 overview</h2>
+      <h2 className='font--title'>
+        CO<sub>2</sub> overview
+      </h2>
       <section className='emission-overview__toggle-wrapper'>
-        <button
-          onClick={(e) => handleToggle(e)}
-          className={` ${
-            toggleActive === 'Monthly'
-              ? 'emission-overview__toggle--enabled '
-              : ''
-          }emission-overview__toggle`}
+        <input
+          type='radio'
+          className='emission-overview__radio'
+          id='monthly'
+          name='kind'
+          value='Monthly'
+          defaultChecked
+          onClick={() => setToggleActive('Monthly')}
+        />
+        <label
+          htmlFor='monthly'
+          className='emission-overview__radio-toggle'
+          aria-label='Monthly'
         >
           Monthly
-        </button>
-        <button
-          onClick={(e) => handleToggle(e)}
-          className={`${
-            toggleActive === 'Yearly'
-              ? 'emission-overview__toggle--enabled'
-              : ''
-          }  emission-overview__toggle`}
+        </label>
+
+        <input
+          type='radio'
+          id='yearly'
+          className='emission-overview__radio'
+          name='kind'
+          value='Yearly'
+          onClick={() => setToggleActive('Yearly')}
+        />
+        <label
+          htmlFor='yearly'
+          className='emission-overview__radio-toggle'
+          aria-label='Yearly'
         >
           Yearly
-        </button>
+        </label>
       </section>
 
       <section className='emission-overview__calendar-selection'>
