@@ -12,7 +12,7 @@ export default function CommunityBarchart({ contribution }) {
     if (usersContribution) {
       const user = usersContribution.map((data) => data.name)
       const data = usersContribution.map((data) => data.savedCarbon)
-      console.log(user, data)
+
       setUserLabel(user)
       setUserData(data)
     }
