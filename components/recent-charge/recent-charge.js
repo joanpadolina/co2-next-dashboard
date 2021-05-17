@@ -22,7 +22,9 @@ export default function HistoryCharge() {
         <thead>
           <td>date</td>
           <td>savings</td>
-          <td>CO2 saved</td>
+          <td>
+            CO<sub>2</sub> saved
+          </td>
         </thead>
         <tbody>
           <tr>

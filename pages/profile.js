@@ -150,7 +150,9 @@ export default function Profile() {
         <Link href='/'>
           <a className='button--back' aria-label='Go to homepage'></a>
         </Link>
-        <h1>Your CO2 savings </h1>
+        <h1>
+          Your CO<sub>2</sub> savings{' '}
+        </h1>
         <h2 className='font--big'>{totalSavings} kg</h2>
       </header>
 
@@ -160,7 +162,8 @@ export default function Profile() {
           <section className='profile__trees-header'>
             <p className='profile__trees-subtitle'>
               An average tree absorbs around
-              <span className='font--highlight'> 20kg</span> of CO2 in one year.
+              <span className='font--highlight'> 20kg</span> of CO<sub>2</sub>{' '}
+              in one year.
             </p>
             <label
               htmlFor='years'

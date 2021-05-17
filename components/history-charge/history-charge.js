@@ -35,7 +35,9 @@ export default function HistoryCharge() {
               <tr className='history-charge__heading-wrapper'>
                 <th className='history-charge__heading'>date</th>
                 <th className='history-charge__heading'>savings</th>
-                <th className='history-charge__heading'>CO2 saved</th>
+                <th className='history-charge__heading'>
+                  CO<sub>2</sub> saved
+                </th>
               </tr>
               <tr className='history-charge__row'>
                 <td className='history-charge__value'>
@@ -61,4 +63,3 @@ export default function HistoryCharge() {
     </>
   )
 }
-

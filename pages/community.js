@@ -7,6 +7,7 @@ import { carbonReducer } from '../lib/carbon-saving-calculation'
 import { calcCarbonToKm } from '../lib/gimmick-calc'
 import ProgressBar from '../components/progress-bar'
 import BubbleComparison from '../components/bubble-comparison'
+import CommunityBarchart from '../components/community-barchart'
 
 export default function Community() {
   const store = useSelector((state) => state.store)
@@ -69,10 +70,12 @@ export default function Community() {
         <article>
           <section className='community-saved__datavisual'>
             <article>
-              <h2 className='font--title'>Community total saved CO2</h2>
+              <h2 className='font--title'>
+                Community total saved CO<sub>2</sub>
+              </h2>
               <BubbleComparison />
               <p className='community__datavisual-body'>
-                The amount of CO2 saved is the same as driving{' '}
+                The amount of CO<sub>2</sub> saved is the same as driving{' '}
                 <span>{carbonInKm} km</span> in a petrol car.
               </p>
             </article>
@@ -105,12 +108,16 @@ export default function Community() {
           <ProgressBar
             totalSavingsCommunity={totalCarbon}
             totalCommunityGoal={500}
+            color='community'
           />
         </article>
 
         <article>
-          <h2 className='font--title'> Co2 contributions</h2>
-          <p> -- chart -- </p>
+          <h2 className='font--title'>
+            {' '}
+            CO<sub>2</sub> contributions
+          </h2>
+          <CommunityBarchart contribution={membersContribution} />
         </article>
 
         <article className='community__activity'>
@@ -144,7 +151,7 @@ export default function Community() {
                     </td>
                     <td className='community__activity-value community__activity-carbon community__activity-align--right'>
                       <span className='community__activity-heading community__activity-align--right'>
-                        CO2 saved
+                        CO<sub>2</sub> saved
                       </span>
                       {user.savedCarbon} kg
                     </td>
