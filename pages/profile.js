@@ -145,7 +145,7 @@ export default function Profile() {
   }
 
   return (
-    <>
+    <div className='home__body'>
       <header className='profile__header'>
         <Link href='/'>
           <a className='button--back' aria-label='Go to homepage'></a>
@@ -270,6 +270,6 @@ export default function Profile() {
           </section>
         </article>
       </main>
-    </>
+    </div>
   )
 }

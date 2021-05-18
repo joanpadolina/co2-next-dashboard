@@ -5,7 +5,7 @@ import EmissionOverview from '../components/emission-overview'
 
 export default function ChargeOverview() {
   return (
-    <>
+    <div className='home__body'>
       <header className='header charge-overview__header'>
         <Link href='/'>
           <a className='button--back' aria-label='go back to feed'></a>
@@ -17,6 +17,6 @@ export default function ChargeOverview() {
         <HistoryCharge />
         <EmissionOverview />
       </main>
-    </>
+    </div>
   )
 }
