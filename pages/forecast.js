@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import getForecast from '../lib/getForcast'
 import { Bar } from 'react-chartjs-2'
 import { InfluxDB } from '@influxdata/influxdb-client'
+import getForecast from '../lib/getForcast'
 
 export default function Forecast({ forecast }) {
   const [savings, setSavings] = useState()
   const [date, setDate] = useState()
 
   useEffect(() => {
-    const data = getForecast(forecast)
-    const sorting = data.sort((a, b) => a.label[0] - b.label[0])
-    setSavings(sorting)
+    const forecastData = getForecast(forecast)
+    // const sorting = forecastData.sort(
+    //   (a, b) => a.label.substr(0, 2) - b.label.substr(0, 2)
+    // )
+    setSavings(forecastData)
   }, [forecast])
 
   useEffect(() => {
@@ -22,21 +24,20 @@ export default function Forecast({ forecast }) {
 
   const savingsData = savings && savings.map((item) => item.savings)
   const labels = savings && savings.map((item) => item.label)
-
   const barColor = []
 
   if (savings) {
     for (let i = 0; i < savingsData.length; i++) {
-      const green = '#adfdd7'
-      const midgreen = '#48c98c'
-      const low = '#2d7e58'
+      const highSavings = '#5BFCB0'
+      const midSavings = '#87ad9a'
+      const lowSavings = '#58665f'
 
       if (savingsData[i] >= 15) {
-        barColor[i] = green
+        barColor[i] = highSavings
       } else if (savingsData[i] >= 10 || savingsData[i] >= 14) {
-        barColor[i] = midgreen
+        barColor[i] = midSavings
       } else {
-        barColor[i] = low
+        barColor[i] = lowSavings
       }
     }
   }
@@ -56,9 +57,12 @@ export default function Forecast({ forecast }) {
 
   return (
     <div className='forecast'>
-      <header>
+      <header className='forecast__header'>
         <Link href='/'>
-          <a className='button--back' aria-label='go back to feed'></a>
+          <a
+            className='button--back forecast__button--back'
+            aria-label='go back to feed'
+          ></a>
         </Link>
         <h1> CO2-Smart Charging:</h1>
         <h2>Forecast: {date}, NL</h2>
@@ -111,8 +115,8 @@ export async function getStaticProps() {
   const zone = 'NL'
 
   const client = new InfluxDB({ url, token })
-
   const queryApi = client.getQueryApi(org)
+
   const fluxQuery = `from(bucket: "elmap")
     |> range(start: now(), stop: 2d)
     |> filter(fn: (r) => r["_measurement"] == "forecast")
@@ -120,6 +124,7 @@ export async function getStaticProps() {
     |> filter(fn: (r) => r["kind"] == "totals")
     |> filter(fn: (r) => r["timeoffset"] == "baseline")
     |> filter(fn: (r) => r["zone"] == "${zone}")`
+
   const data = await queryApi.collectRows(fluxQuery)
 
   return {
