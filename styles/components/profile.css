@@ -83,7 +83,7 @@
   animation-fill-mode: forwards;
 }
 
-.profile__tree-enter.fade-enter-active {
+.profile__tree-enter.profile__tree-enter-active {
   animation-name: zoom-in;
   animation-duration: 300ms;
   animation-fill-mode: forwards;

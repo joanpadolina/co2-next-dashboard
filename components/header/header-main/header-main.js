@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import CountUp from 'react-countup'
 import IconSoftArrow from '../../../public/icons/icon-soft-arrow.svg'
 
 export default function Header({ user, currentCarbon }) {
@@ -11,7 +12,6 @@ export default function Header({ user, currentCarbon }) {
       const totalTrees = Math.floor(currentCarbon / averageTree)
       return setTrees(totalTrees)
     }
-
     calcTreeSavings()
   }, [currentCarbon])
 
@@ -26,8 +26,14 @@ export default function Header({ user, currentCarbon }) {
           Your total saved CO<sub>2</sub>{' '}
           <span className='header__subtitle'>since 01-01-2021</span>
         </p>
-        <h2 className='header__carbon-amount'>{currentCarbon} kg</h2>
+        <h2 className='header__carbon-amount'>
+          <CountUp start={currentCarbon - 10} end={currentCarbon} duration={1}>
+            {currentCarbon}
+          </CountUp>{' '}
+          kg
+        </h2>
       </section>
+
       <Link
         className='header__carbon flex flex-col justify-center items-center h-2/4'
         href='/profile'
