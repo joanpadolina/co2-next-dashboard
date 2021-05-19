@@ -205,6 +205,7 @@ export default function Profile() {
                       style={{
                         top: `${(Math.floor(Math.random() * 20) + 1) / 10}rem`
                       }}
+                      alt
                       src={tree}
                     />
                   </CSSTransition>
