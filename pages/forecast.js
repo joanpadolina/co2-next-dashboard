@@ -56,7 +56,7 @@ export default function Forecast({ forecast }) {
   }
 
   return (
-    <div className='forecast'>
+    <div className='forecast home__body'>
       <header className='forecast__header'>
         <Link href='/'>
           <a
