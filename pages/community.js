@@ -132,12 +132,12 @@ export default function Community() {
                         if (data.name.includes(user.name)) {
                           return (
                             <img
-                              alt={user.name}
                               key={key}
                               className='community__profile-image'
                               src={
                                 data.name.includes(user.name) ? data.imgSrc : ''
                               }
+                              alt={`profile image of ${user.name}`}
                             />
                           )
                         }
@@ -170,7 +170,7 @@ export default function Community() {
                   <img
                     className='community__profile-image'
                     src={member.imgSrc}
-                    alt={member.name}
+                    alt={`profile image of ${member.name}`}
                   />
                   <figcaption className='community__member-name'>
                     {member.name}
