@@ -10,9 +10,11 @@ export default function Forecast({ forecast }) {
 
   useEffect(() => {
     const forecastData = getForecast(forecast)
+
     // sort time label starting from 06:00
     const f = (e) => parseInt(e.substring(0, 2) - 6 + 24) % 24
     forecastData.sort((a, b) => f(a.label) - f(b.label))
+
     setSavings(forecastData)
   }, [forecast])
 
