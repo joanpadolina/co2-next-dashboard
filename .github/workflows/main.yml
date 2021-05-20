@@ -2,7 +2,7 @@ name: Scheduled build
 on:
   schedule:
   # From CEST (UTC +2) 00:00 and 05:30 to UTC:
-  - cron:  '39 ** * * *'
+  - cron:  '40 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
