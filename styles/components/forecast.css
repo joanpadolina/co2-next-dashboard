@@ -1,0 +1,16 @@
+.forecast {
+    display: block;
+    padding: .5rem var(--s-default);
+    font-size: var(--font--small);
+    background-color: var(--c-dark);
+    color: var(--c-white);
+    padding-bottom: 10rem;
+}
+
+.forecast__header {
+    padding: 2rem 0;
+}
+
+.forecast__button--back {
+    color: var(--c-grey--400);
+}

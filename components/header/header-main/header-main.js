@@ -39,16 +39,16 @@ export default function Header({ user, currentCarbon }) {
         href='/profile'
       >
         <a className='header__detail-savings'>
-          <p className='header__body'>
-            <div>
+          <div className='header__body'>
+            <p>
               Your total CO<sub>2</sub> saving is the same amount as{' '}
               <span className='header__highlight-tree'>
                 {trees} {trees <= 1 ? 'tree' : 'trees'}{' '}
               </span>
               absorbs CO<sub>2</sub> in 1 year.
-            </div>
+            </p>
             <IconSoftArrow className='header__arrow' />
-          </p>
+          </div>
         </a>
       </Link>
     </header>

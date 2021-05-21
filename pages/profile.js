@@ -145,7 +145,7 @@ export default function Profile() {
   }
 
   return (
-    <>
+    <div className='home__body'>
       <header className='profile__header'>
         <Link href='/'>
           <a className='button--back' aria-label='Go to homepage'></a>
@@ -205,6 +205,7 @@ export default function Profile() {
                       style={{
                         top: `${(Math.floor(Math.random() * 20) + 1) / 10}rem`
                       }}
+                      alt
                       src={tree}
                     />
                   </CSSTransition>
@@ -270,6 +271,6 @@ export default function Profile() {
           </section>
         </article>
       </main>
-    </>
+    </div>
   )
 }

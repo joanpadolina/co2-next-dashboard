@@ -45,6 +45,10 @@
     background-color: #F2F2F2;
 }
 
+.community-update__energy-arrow {
+    width: 3rem;
+}
+
 .community-update__energy-usage {
     margin: 0 .8rem;
 }

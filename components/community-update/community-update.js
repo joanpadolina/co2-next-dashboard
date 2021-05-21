@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { carbonReducer } from '../../lib/carbon-saving-calculation'
 import Link from 'next/link'
 import ProgressBar from '../progress-bar'
+import IconArrowUp from '../../public/icons/icon-arrow-up.svg'
 
 export default function CommunityUpdate() {
   const store = useSelector((state) => state.store)
@@ -53,10 +54,7 @@ export default function CommunityUpdate() {
       </div>
 
       <article className='community-update__energy-update'>
-        <img
-          className='community-update__energy-arrow'
-          src='/icons/icon-arrow-up.svg'
-        />
+        <IconArrowUp className='community-update__energy-arrow' />
         <h3 className='community-update__energy-usage font--medium'>18%</h3>
         <p className='community-update__energy-body  font--small'>
           The community uses 18% more fossil energy than the week before.
