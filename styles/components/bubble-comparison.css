@@ -45,7 +45,7 @@
 .bubble-comparison__body {
     display: flex;
     align-items: center;
-    padding: 0.5rem;
+    padding: .5rem;
     position: absolute;
     height: 100%;
     width: 100%;

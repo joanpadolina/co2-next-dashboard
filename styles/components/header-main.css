@@ -54,7 +54,7 @@ header__highlight-tree .header__subtitle {
     margin: 0;
     font-size: 5rem;
     color: var(--c-grey--100);
-    text-shadow: 0 0 1rem rgba(255, 255, 255, 0.234);
+    text-shadow: 0 0 1rem rgba(255, 255, 255, .234);
 }
 
 .header__body {
