@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { addCharge } from '../../redux/actions'
 import { carbonSavingCalculation } from '../../lib/carbon-saving-calculation.js'
 import PopupAmount from '../popup-amount'
-import dashify from 'dashify'
 import axios from 'axios'
 
 export default function ChargeTime() {
@@ -15,18 +14,6 @@ export default function ChargeTime() {
   const [currentDate, setCurrentDate] = useState('')
   const [currentSavedCarbon, setCurrentSavedCarbon] = useState({})
   const [reveal, setReveal] = useState(false)
-  const [content, setContent] = useState({})
-
-  const onChange = (e) => {
-    const { value } = e.target
-    setContent((prevState) => ({ ...prevState, value }))
-  }
-
-  const onSubmit = async () => {
-    const { title, body } = content
-    await axios.post('/api/entry', { title, slug: dashify(title), body })
-  }
-
   const { user } = store
   const router = useRouter()
   const dispatch = useDispatch()
@@ -37,7 +24,7 @@ export default function ChargeTime() {
     // set date picker to today
     const setDateToday = new Date().toISOString().substr(0, 10)
     setCurrentDate(setDateToday)
-  }, [content, store.isOpen])
+  }, [store.isOpen])
 
   useEffect(() => {
     if (router.pathname === '/charge-input-modal') {
@@ -70,9 +57,9 @@ export default function ChargeTime() {
     e.preventDefault()
     const input = handleInput(e)
     const data = chargeConfig(input)
-    await axios.post('/api/entry', { ...data })
     dispatch(addCharge(data))
     revealPopup()
+    await axios.post('/api/entry', { ...data })
   }
 
   function handleInput(e) {

@@ -8,19 +8,31 @@ import SavingsTime from '../components/savings-time'
 import CommunityUpdate from '../components/community-update'
 import HistoryCharge from '../components/history-charge'
 
-export default function Index() {
+export default function Index({ props }) {
   const store = useSelector((state) => state.store)
   const user = store.user
   const { chargingSession } = store
   const [currentCarbon, setCurrentCarbon] = useState(0)
-
+  const [dbCharge, setDbCharge] = useState()
   useInitUser()
 
   useEffect(() => {
-    const chargeCarbonTotal = carbonReducer(chargingSession)
+    const chargeCarbonTotal = carbonReducer(dbCharge)
     setCurrentCarbon(chargeCarbonTotal)
-  }, [chargingSession])
+    // console.log(chargingSession, dbCharge)
+  }, [currentCarbon, dbCharge])
 
+  useEffect(() => {
+    async function getData() {
+      const firebaseStore = await fetch('/api/entries')
+      const json = await firebaseStore.json()
+      setDbCharge(json.entriesData)
+      return {
+        json
+      }
+    }
+    getData()
+  }, [])
   return (
     <div className='home__body'>
       <HeaderCarbon user={user} currentCarbon={currentCarbon} />

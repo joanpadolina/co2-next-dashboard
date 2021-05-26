@@ -27,7 +27,11 @@ export default function Header({ user, currentCarbon }) {
           <span className='header__subtitle'>since 01-01-2021</span>
         </p>
         <h2 className='header__carbon-amount'>
-          <CountUp start={currentCarbon - 10} end={currentCarbon} duration={1}>
+          <CountUp
+            start={currentCarbon >= 10 ? currentCarbon - 10 : currentCarbon - 0}
+            end={currentCarbon}
+            duration={1}
+          >
             {currentCarbon}
           </CountUp>{' '}
           kg
