@@ -12,6 +12,15 @@ import '../styles/globals.css'
 const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware))
 const store = createStore(allReducer, composedEnhancer)
 
+async function getData() {
+  const firebaseStore = await fetch('/api/entries')
+  const json = await firebaseStore.json()
+  return {
+    json
+  }
+}
+
+const data = getData()
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
@@ -20,7 +29,7 @@ function MyApp({ Component, pageProps }) {
         <link rel='icon' href='/favicon_io/favicon.ico' />
       </Head>
       <Navigation />
-      <Component {...pageProps} />
+      <Component {...pageProps} data={data} />
       <ChargeInput />
     </Provider>
   )

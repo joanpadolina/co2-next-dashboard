@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 
 export default function HistoryCharge({ data }) {
-  console.log(data)
   const chargingSessions = useSelector((state) => state.store.chargingSession)
   const router = useRouter()
   const path = router.pathname

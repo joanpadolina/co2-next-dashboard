@@ -8,9 +8,10 @@ import IconPlane from '../public/icons/icon-airplane.svg'
 import IconCar from '../public/icons/icon-car.svg'
 import IconTrain from '../public/icons/icon-train.svg'
 
-export default function Profile() {
+export default function Profile({ data }) {
   const store = useSelector((state) => state.store)
   const { chargingSession } = store
+  // const [chargingSession, setChargingSession] = useState()
   const [totalSavings, setTotalSavings] = useState(
     carbonReducer(chargingSession)
   )
@@ -82,6 +83,15 @@ export default function Profile() {
     chargingSession,
     totalSavings
   ])
+
+  useEffect(() => {
+    async function getIt() {
+      const res = await data
+      console.log(res.json)
+    }
+    getIt()
+    // setChargingSession(data)
+  }, [data])
 
   useEffect(() => {
     function calcPercentageBar() {
