@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <Head>
         <title>CO2 smart charging</title>
+        <link rel='icon' href='/favicon_io/favicon.ico' />
       </Head>
       <Navigation />
       <Component {...pageProps} />
