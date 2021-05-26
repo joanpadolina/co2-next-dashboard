@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import CountUp from 'react-countup'
 import IconSoftArrow from '../../../public/icons/icon-soft-arrow.svg'
+import { render } from 'react-dom'
 
 export default function Header({ user, currentCarbon }) {
   const [trees, setTrees] = useState(0)
@@ -14,6 +15,28 @@ export default function Header({ user, currentCarbon }) {
     }
     calcTreeSavings()
   }, [currentCarbon])
+
+  const ContentTree = () => {
+    if (trees >= 1) {
+      return (
+        <p>
+          Your total CO<sub>2</sub> saving is the same amount as{' '}
+          {trees >= 1 && (
+            <span className='header__highlight-tree'>
+              {trees} {trees <= 1 ? 'tree' : 'trees'}{' '}
+            </span>
+          )}
+          absorbs CO<sub>2</sub> in 1 year.
+        </p>
+      )
+    } else {
+      return (
+        <p className='header__highlight-tree--zero-state'>
+          Start saving on CO2 to fill your gardens with trees!
+        </p>
+      )
+    }
+  }
 
   return (
     <header className='header'>
@@ -44,13 +67,7 @@ export default function Header({ user, currentCarbon }) {
       >
         <a className='header__detail-savings'>
           <div className='header__body'>
-            <p>
-              Your total CO<sub>2</sub> saving is the same amount as{' '}
-              <span className='header__highlight-tree'>
-                {trees} {trees <= 1 ? 'tree' : 'trees'}{' '}
-              </span>
-              absorbs CO<sub>2</sub> in 1 year.
-            </p>
+            <ContentTree />
             <IconSoftArrow className='header__arrow' />
           </div>
         </a>

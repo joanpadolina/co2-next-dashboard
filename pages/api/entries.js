@@ -1,7 +1,7 @@
 import db from '../../utils/db'
 
 export default async (req, res) => {
-  const entries = await db.collection('entries').orderBy('created').get()
+  const entries = await db.collection('sessions').orderBy('created').get()
   const entriesData = entries.docs.map((entry) => ({
     id: entry.id,
     ...entry.data()

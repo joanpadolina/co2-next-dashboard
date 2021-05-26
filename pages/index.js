@@ -33,13 +33,14 @@ export default function Index({ props }) {
     }
     getData()
   }, [])
+
   return (
     <div className='home__body'>
       <HeaderCarbon user={user} currentCarbon={currentCarbon} />
       <main className='index__main'>
         <SavingsTime />
         <h2 className='font--title'>Your latest charge</h2>
-        <HistoryCharge />
+        <HistoryCharge data={dbCharge} />
         <div className='button__align--right'>
           <Link href='/charge-overview'>
             <a className='button button--dark index__link-sessions'>

@@ -2,9 +2,9 @@ import db from '../../../utils/db'
 
 export default async (req, res) => {
   try {
-    await db.collection('entries').get()
+    await db.collection('sessions').get()
     await db
-      .collection('entries')
+      .collection('sessions')
       .add({ ...req.body, created: new Date().toISOString() })
   } catch (e) {
     res.status(400).end()
