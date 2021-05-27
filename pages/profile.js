@@ -87,7 +87,6 @@ export default function Profile({ data }) {
   useEffect(() => {
     async function getIt() {
       const res = await data
-      console.log(res.json)
     }
     getIt()
     // setChargingSession(data)

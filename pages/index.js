@@ -19,7 +19,6 @@ export default function Index({ props }) {
   useEffect(() => {
     const chargeCarbonTotal = carbonReducer(dbCharge)
     setCurrentCarbon(chargeCarbonTotal)
-    // console.log(chargingSession, dbCharge)
   }, [currentCarbon, dbCharge])
 
   useEffect(() => {
