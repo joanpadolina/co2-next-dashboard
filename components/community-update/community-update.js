@@ -49,7 +49,7 @@ export default function CommunityUpdate() {
 
       <div className='button__align--right'>
         <Link href='/community'>
-          <a aria-label='community detail' className='button--go'></a>
+          <a className='button button--dark'>view details</a>
         </Link>
       </div>
 

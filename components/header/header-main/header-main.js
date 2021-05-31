@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import CountUp from 'react-countup'
 import IconSoftArrow from '../../../public/icons/icon-soft-arrow.svg'
-import { render } from 'react-dom'
 
 export default function Header({ user, currentCarbon }) {
   const [trees, setTrees] = useState(0)
@@ -51,7 +50,7 @@ export default function Header({ user, currentCarbon }) {
         </p>
         <h2 className='header__carbon-amount'>
           <CountUp
-            start={currentCarbon >= 10 ? currentCarbon - 10 : currentCarbon - 0}
+            start={currentCarbon > 10 ? currentCarbon - 10 : currentCarbon - 0}
             end={currentCarbon}
             duration={1}
           >
