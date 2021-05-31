@@ -76,7 +76,8 @@ export default function Community() {
               <BubbleComparison />
               <p className='community__datavisual-body'>
                 The amount of CO<sub>2</sub> saved is the same as driving{' '}
-                <span>{carbonInKm} km</span> in a petrol car.
+                <span className='font--bold'>{carbonInKm} km</span> in a petrol
+                car.
               </p>
             </article>
           </section>

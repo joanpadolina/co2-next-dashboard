@@ -4,7 +4,6 @@
 }
 
 .bubble-comparison__bubbles {
-  /* display: flex; */
   height: 11rem;
   position: relative;
   display: block;
