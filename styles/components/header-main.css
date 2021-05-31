@@ -2,6 +2,7 @@
   color: var(--c-white);
   padding: var(--s-default);
   color: var(--c-grey--400);
+  padding-top: 2rem;
   position: sticky;
   top: 0;
 }
