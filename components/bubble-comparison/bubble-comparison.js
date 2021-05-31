@@ -86,7 +86,7 @@ export default function BubbleComparison() {
           className='bubble-comparison__bubble-text'
         >
           <tspan x='80%' y='50%' fontSize='8' fontWeight='bolder'>
-            {value.personal} kg
+            {value.total} kg
           </tspan>
           <tspan x='80%' y='65%' fontSize='3'>
             Your contribution
@@ -104,7 +104,7 @@ export default function BubbleComparison() {
           className='bubble-comparison__bubble-text'
         >
           <tspan x='100%' y='50%' fontSize='8' fontWeight='bolder'>
-            {carbonTotal} kg
+            {value.total} kg
           </tspan>
           <tspan x='100%' y='60%' fontSize='3'>
             Your contribution
