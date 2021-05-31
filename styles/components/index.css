@@ -27,7 +27,7 @@
   background-color: var(--c-white);
   transform: skew(0deg, 5deg);
   border-radius: 0 2rem 0 0;
-  box-shadow: 0 -2rem 1rem 0 var(--c-dark);
+  box-shadow: 0 -2rem 1rem 0 #1a1c2667;
   z-index: -1;
 }
 
