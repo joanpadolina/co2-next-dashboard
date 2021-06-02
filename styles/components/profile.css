@@ -1,7 +1,7 @@
 .profile__header {
   background-color: var(--c-dark);
   color: var(--c-white);
-  padding: 2rem 1rem;
+  padding: 2rem 1rem 3rem;
   position: sticky;
   top: 0;
   width: 100%;

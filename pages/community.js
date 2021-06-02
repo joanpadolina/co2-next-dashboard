@@ -8,6 +8,7 @@ import { calcCarbonToKm } from '../lib/gimmick-calc'
 import ProgressBar from '../components/progress-bar'
 import BubbleComparison from '../components/bubble-comparison'
 import CommunityBarchart from '../components/community-barchart'
+import IconDistance from '../public/icons/icon-distance.svg'
 
 export default function Community() {
   const store = useSelector((state) => state.store)
@@ -66,19 +67,22 @@ export default function Community() {
           </p>
         </article>
       </header>
-      <main className='index__main community__main'>
+      <main className='main community__main'>
         <article>
-          <section className='community-saved__datavisual'>
+          <section>
             <article>
               <h2 className='font--title'>
                 Community total saved CO<sub>2</sub>
               </h2>
               <BubbleComparison />
-              <p className='community__datavisual-body'>
-                The amount of CO<sub>2</sub> saved is the same as driving{' '}
-                <span className='font--bold'>{carbonInKm} km</span> in a petrol
-                car.
-              </p>
+              <section className='community__savings-distance'>
+                <IconDistance className='community__icon-distance' />
+                <p className='community__savings-body'>
+                  The amount of CO<sub>2</sub> saved is the same as driving{' '}
+                  <span className='font--bold'>{carbonInKm} km</span> in a
+                  petrol car.
+                </p>
+              </section>
             </article>
           </section>
         </article>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import CountUp from 'react-countup'
-import IconSoftArrow from '../../../public/icons/icon-soft-arrow.svg'
+import IconSoftArrow from '../../public/icons/icon-soft-arrow.svg'
 
 export default function Header({ user, currentCarbon }) {
   const [trees, setTrees] = useState(0)
