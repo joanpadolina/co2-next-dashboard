@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import Link from 'next/link'
 import { carbonReducer } from '../lib/carbon-saving-calculation'
 import useInitUser from '../lib/useInitUser'
-import HeaderCarbon from '../components/header/header-main'
+import HeaderCarbon from '../components/header'
 import SavingsTime from '../components/savings-time'
 import CommunityUpdate from '../components/community-update'
 import HistoryCharge from '../components/history-charge'
@@ -24,7 +24,7 @@ export default function Index() {
   return (
     <div className='home__body'>
       <HeaderCarbon user={user} currentCarbon={currentCarbon} />
-      <main className='index__main'>
+      <main className='main'>
         <SavingsTime />
         <h2 className='font--title'>Your latest charge</h2>
         <HistoryCharge />

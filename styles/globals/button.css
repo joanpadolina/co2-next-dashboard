@@ -1,82 +1,83 @@
 .box--gray {
-    display: block;
-    position: relative;
-    background-color: var(--c-grey--600);
-    height: max-content;
-    width: max-content;
+  display: block;
+  position: relative;
+  background-color: var(--c-grey--600);
+  height: max-content;
+  width: max-content;
 }
 
 .button {
-    background-color: var(--c-white);
-    padding: .5rem;
-    color: var(--c-black);
-    border-radius: .5rem;
-    font-weight: 800;
-    border: .05rem solid var(--c-dark);
-    font-size: var(--font--default);
+  background-color: var(--c-white);
+  padding: 0.5rem;
+  color: var(--c-black);
+  border-radius: 0.5rem;
+  font-weight: 800;
+  border: 0.05rem solid var(--c-dark);
+  font-size: var(--font--default);
 }
 
 .button--dark {
-    background: var(--c-dark);
-    color: var(--c-white);
-    font-weight: 300;
+  background: var(--c-dark);
+  color: var(--c-white);
+  font-weight: 300;
 }
 
 .button--dark::after {
-    content: "-->";
-    margin-left: .5rem;
+  content: '-->';
+  margin-left: 0.5rem;
 }
 
 .button--secondary {
-    color: var(--c-dark);
-    border-bottom: .3rem solid var(--c-green);
-    font-size: var(--font--small);
+  color: var(--c-dark);
+  border-bottom: 0.3rem solid var(--c-green);
+  font-size: var(--font--small);
 }
 
 .button--go {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--c-dark);
-    color: var(--c-white);
-    width: 2rem;
-    height: 2rem;
-    border-radius: 3rem;
-    box-shadow: 0 0 4px 0 var(--c-grey--400);
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--c-dark);
+  color: var(--c-white);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 3rem;
+  box-shadow: 0 0 4px 0 var(--c-grey--400);
 }
 
 .button--go::after {
-    content: "-->";
+  content: '-->';
 }
 
 .button__align--right {
-    display: flex;
-    position: relative;
-    justify-content: flex-end;
-    margin-top: -1rem;
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+  margin-top: -1rem;
 }
 
 .button--back {
-    position: relative;
+  color: var(--c-grey--400);
+  position: relative;
 }
 
 .button--back::before {
-    content: "";
-    display: block;
-    position: relative;
-    width: 1.5rem;
-    height: 1.5rem;
-    border: .15rem solid;
-    border-radius: 2rem;
+  content: '';
+  display: block;
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0.15rem solid;
+  border-radius: 2rem;
 }
 
 .button--back::after {
-    content: "<---";
-    display: block;
-    position: absolute;
-    font-size: var(--font--default);
-    width: max-content;
-    top: 0;
-    left: .5rem;
+  content: '<---';
+  display: block;
+  position: absolute;
+  font-size: var(--font--default);
+  width: max-content;
+  top: 0;
+  left: 0.5rem;
 }

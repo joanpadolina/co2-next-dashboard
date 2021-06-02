@@ -1,14 +1,16 @@
 .profile__header {
   background-color: var(--c-dark);
   color: var(--c-white);
-  padding: 2rem 1rem;
+  padding: 2rem 1rem 3rem;
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
 
 .profile__main {
-  margin-top: -2rem;
+  margin-top: 1.5rem;
   background-color: var(--c-white);
   border-radius: 1rem 1rem 0 0;
-  padding-top: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -16,7 +18,7 @@
 .profile__main-title {
   font-size: var(--font--default);
   font-weight: normal;
-  margin-bottom: -.5rem;
+  margin-bottom: -0.5rem;
 }
 
 .profile__trees-wrapper {
@@ -39,16 +41,16 @@
 
 .profile__trees-subtitle {
   color: var(--c-grey--title);
-  font-size: .8rem;
+  font-size: 0.8rem;
   width: 17rem;
 }
 
 .profile__select-year {
   width: 8rem;
-  margin-left: .4rem;
-  padding: .2rem .5rem;
+  margin-left: 0.4rem;
+  padding: 0.2rem 0.5rem;
   background-color: var(--c-white);
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   border-color: var(--c-grey--300);
   color: var(--c-grey--title);
 }
@@ -65,15 +67,15 @@
   flex-wrap: wrap;
   margin-bottom: 2rem;
   background-color: #e9fbe9;
-  border-radius: .5rem 3rem;
+  border-radius: 0.5rem 3rem;
   transition: height 200ms ease-in-out;
 }
 
 .profile__tree {
   width: 3rem;
   position: relative;
-  margin-right: -.5rem;
-  margin-top: -.5rem;
+  margin-right: -0.5rem;
+  margin-top: -0.5rem;
   transition: top 200ms ease-in-out;
 }
 
@@ -96,7 +98,6 @@
   animation-direction: alternate-reverse;
   transition: opacity 2000ms;
 }
-
 
 @keyframes zoom-in {
   from {
@@ -130,10 +131,10 @@
 }
 
 .profile__equivalence-bar {
-  margin: 0 .3rem;
-  background: linear-gradient(90deg, #6CEBAF 0%, #88D6D8 100%);
+  margin: 0 0.3rem;
+  background: linear-gradient(90deg, #6cebaf 0%, #88d6d8 100%);
   height: 1.5rem;
-  border-radius: .1rem;
+  border-radius: 0.1rem;
 }
 
 .profile__equivalence-body {

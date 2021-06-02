@@ -42,7 +42,7 @@ export default function BubbleComparison() {
           y='30%'
           textAnchor='middle'
           fill='#fff'
-          className='bubble-comparison__bubble-text'
+          // className='bubble-comparison__bubble-text'
           fontFamily='Inter'
         >
           <tspan x='35%' y='50%' fontSize='9' fontWeight='bolder'>
@@ -60,7 +60,7 @@ export default function BubbleComparison() {
           y='30%'
           textAnchor='middle'
           fill='black'
-          className='bubble-comparison__bubble-text'
+          // className='bubble-comparison__bubble-text'
           fontFamily='Inter'
         >
           <tspan x='0%' y='50%' fontSize='9' fontWeight='bolder'>
@@ -83,7 +83,7 @@ export default function BubbleComparison() {
           textAnchor='middle'
           fill='white'
           fontFamily='Inter'
-          className='bubble-comparison__bubble-text'
+          // className='bubble-comparison__bubble-text'
         >
           <tspan x='80%' y='50%' fontSize='8' fontWeight='bolder'>
             {value.total} kg
@@ -101,7 +101,7 @@ export default function BubbleComparison() {
           textAnchor='middle'
           fill='black'
           fontFamily='Inter'
-          className='bubble-comparison__bubble-text'
+          // className='bubble-comparison__bubble-text'
         >
           <tspan x='100%' y='50%' fontSize='8' fontWeight='bolder'>
             {value.total} kg
