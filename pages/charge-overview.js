@@ -12,7 +12,7 @@ export default function ChargeOverview() {
         </Link>
         <h1 className='charge-overview__title'>Charge overview</h1>
       </header>
-      <main className='index__main'>
+      <main className='main'>
         <h2 className='font--title'>Charge history</h2>
         <HistoryCharge />
         <EmissionOverview />

@@ -155,7 +155,7 @@ export default function Profile({ data }) {
 
   return (
     <div className='home__body'>
-      <header className='profile__header'>
+      <header className='header profile__header'>
         <Link href='/'>
           <a className='button--back' aria-label='Go to homepage'></a>
         </Link>
@@ -165,7 +165,7 @@ export default function Profile({ data }) {
         <h2 className='font--big'>{totalSavings} kg</h2>
       </header>
 
-      <main className='profile__main index__main'>
+      <main className='main profile__main'>
         <article>
           <h2 className='profile__main-title'>Your garden so far</h2>
           <section className='profile__trees-header'>

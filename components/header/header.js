@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import CountUp from 'react-countup'
-import IconSoftArrow from '../../../public/icons/icon-soft-arrow.svg'
+import IconSoftArrow from '../../public/icons/icon-soft-arrow.svg'
 
 export default function Header({ user, currentCarbon }) {
   const [trees, setTrees] = useState(0)
@@ -41,7 +41,6 @@ export default function Header({ user, currentCarbon }) {
     <header className='header'>
       <div>
         <h1 className='header__intro'>Hello {user.name},</h1>
-        <div className='header__account'></div>
       </div>
       <section className='header__savings'>
         <p className='header__carbon-subtitle'>

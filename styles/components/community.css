@@ -1,145 +1,153 @@
 .community__header {
-    color: var(--c-grey--100);
+  color: var(--c-grey--100);
 }
 
 .community__title {
-    font-size: var(--font--ml);
+  font-size: var(--font--ml);
 }
 
 .community__header::before {
-    height: 20rem;
+  height: 20rem;
 }
 
 .community__header-body {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .community__header-amount {
-    display: block;
-    margin-bottom: .5rem;
-    font-size: var(--font--big);
-    font-weight: bolder;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: var(--font--big);
+  font-weight: bolder;
 }
 
 .community__header-people::after {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 100%;
-    width: .2rem;
-    background-color: var(--c-white);
-    top: 0;
-    right: 0;
+  content: '';
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 0.2rem;
+  background-color: var(--c-white);
+  top: 0;
+  right: 0;
 }
 
 .community__header-p {
-    margin-bottom: 3rem;
-    position: relative;
-    width: 6rem;
-    text-align: center;
-    font-size: var(--font--small);
+  margin-bottom: 3rem;
+  position: relative;
+  width: 6rem;
+  text-align: center;
+  font-size: var(--font--small);
 }
 
 .community__header-padding--left {
-    padding-left: var(--s-default);
+  padding-left: var(--s-default);
 }
 
 .community__header-padding--right {
-    padding-right: var(--s-default);
+  padding-right: var(--s-default);
 }
 
-.community__datavisual-body {
-    text-align: center;
-    margin: var(--s-default) auto;
-    margin-bottom: 5rem;
+.community__icon-distance {
+  width: 4rem;
+}
+
+.community__icon-distance path {
+  fill: var(--c-grey--400);
+}
+
+.community__savings-distance {
+  display: flex;
+}
+
+.community__savings-body {
+  margin-left: var(--s-default);
 }
 
 @media (min-width: 600px) {
-    .community__datavisual-body {
-        width: 20em;
-
-    }
+  .community__savings-body {
+    width: 20em;
+  }
 }
 
 .community__distance-title {
-    font-size: var(--font--small);
+  font-size: var(--font--small);
 }
 
 .community__distance-body {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    color: var(--c-grey--500);
-
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: var(--c-grey--500);
 }
 
 .community__distance-goal--right {
-    text-align: right;
+  text-align: right;
 }
 
 .community__distance-goal-value {
-    color: var(--c-grey--300);
-    font-size: var(--font--small);
+  color: var(--c-grey--300);
+  font-size: var(--font--small);
 }
 
 .community__profile-image {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 3rem;
-    object-fit: cover;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 3rem;
+  object-fit: cover;
 }
 
 .community__members-list {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
 }
 
 .community__member {
-    margin: 0;
-    padding-right: .5rem;
+  margin: 0;
+  padding-right: 0.5rem;
 }
 
 .community__member-name {
-    opacity: 0;
+  opacity: 0;
 }
 
 .community__activity-table {
-    width: 100%;
+  width: 100%;
 }
 
 .community__activity-body {
-    display: block;
-    padding-bottom: var(--s-default);
-    padding-top: var(--s-default);
-    box-shadow: 0px 1px 0px 0px var(--c-grey--300);
+  display: block;
+  padding-bottom: var(--s-default);
+  padding-top: var(--s-default);
+  box-shadow: 0px 1px 0px 0px var(--c-grey--300);
 }
 
 .community__activity-row {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .community__activity-value {
-    font-weight: bold;
-    padding-left: var(--s-default);
-    flex: 1;
+  font-weight: bold;
+  padding-left: var(--s-default);
+  flex: 1;
 }
 
 .community__activity-heading {
-    display: block;
-    font-weight: normal;
-    text-transform: lowercase;
-    color: var(--c-grey--title);
-    text-align: left;
-    font-size: var(--font--small);
+  display: block;
+  font-weight: normal;
+  text-transform: lowercase;
+  color: var(--c-grey--title);
+  text-align: left;
+  font-size: var(--font--small);
 }
 
 .community__activity-align--right {
-    text-align: right;
+  text-align: right;
 }
 
 .community__activity-carbon {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
