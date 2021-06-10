@@ -35,9 +35,9 @@ export default function CommunityUpdate() {
             <span className='community-update__subtitle community-update__subtitle--destination'>
               Amsterdam
             </span>
-            Maastricht
+            Luxembourg
           </h3>
-          <span className='community-update__endgoal'> 500kg </span>
+          <span className='community-update__endgoal'> 500 kg </span>
         </article>
 
         <ProgressBar
